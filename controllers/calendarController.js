@@ -1,0 +1,1 @@
+export const calendar = (req, res) => res.send("calendar");
