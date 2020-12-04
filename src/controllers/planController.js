@@ -1,2 +1,2 @@
-export const home = (req, res) => res.send("Home");
-export const plans = (req, res) => res.send("plans");
+export const home = (req, res) => res.render("home", { pageTitle: "Home" });
+export const plans = (req, res) => res.render("plans", { pageTitle: "Plans" });
