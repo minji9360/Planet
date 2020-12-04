@@ -14,7 +14,7 @@ import path from "path";
 const app = express();
 const __dirname = path.resolve();
 
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "src/views"));
 app.use("/static", express.static("src/static"))
