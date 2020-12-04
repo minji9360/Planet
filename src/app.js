@@ -10,12 +10,14 @@ import calendarRouter from "./routers/calendarRouter.js";
 import routes from "./routes.js";
 import { localsMiddleware } from "./middlewares.js";
 import path from "path";
+
 const app = express();
 const __dirname = path.resolve();
 
 app.use(helmet());
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "src/views"));
+app.use("/static", express.static("src/static"))
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
