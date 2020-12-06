@@ -1,0 +1,52 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@import "./config/variables";
+
+header {
+	height: 60px;
+	background-color: white;
+	padding-top: 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9000;
+	width: 100%;
+	.header {
+		width: 78%;
+		margin: auto;
+		.header__logo {
+			float: left;
+			width: 70%;
+			font-size: 28px;
+			font-weight: 700;
+			margin-top: 3px;
+		}
+		.header__auth {
+			float: left;
+			width: 30%;
+			text-align: right;
+			background-color: white;
+			margin-top: 10px;
+		}
+	}
+}
+
+* {
+	font-family: "Nanum Gothic";
+	font-style: normal;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $hover-yellow;
+}
+
+// .container {
+// 	width: 78%;
+// 	margin: 0 auto;
+// }
