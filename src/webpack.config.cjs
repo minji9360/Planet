@@ -44,6 +44,7 @@ const config = {
                         }
                     },
                     {
+                        loader: "css-loader",
                         loader: "sass-loader"
                     }
                 ]
