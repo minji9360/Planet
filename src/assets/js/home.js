@@ -14,8 +14,6 @@
 //     const number = Math.floor(Math.random() * IMG_NUMBER);
 //     return (number);
 // }
-const signup = document.querySelector(".sign-up__link");
-const signin = document.querySelector(".sign-in__link");
 
 function toggleForm(){
     var container = document.querySelector(".container");
@@ -25,8 +23,7 @@ function toggleForm(){
 function init(){
     // const randomNumber = genRandom();
     // paintImage(1);
-    signup.addEventListener("click", toggleForm);
-    signin.addEventListener("click", toggleForm);
+    window.toggleForm = toggleForm;
 }
 
 init();
