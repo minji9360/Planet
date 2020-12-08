@@ -1,59 +1,82 @@
 extends layouts/main.pug
 
 block content
-    .day
-        ol.day__list
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일")
-                    button.add-form__button 추가
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일")
-                    button.add-form__button 추가
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일")
-                    button.add-form__button 추가
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일")
-                    button.add-form__button 추가
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일")
-                    button.add-form__button 추가
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일")
-                    button.add-form__button 추가
-            li.day__item
-                h1.title 일요일
-                ul.todolist
-                    li 할 일 1
-                form.add-form
-                    input.add-form__input(type="text" placeholder="할 일") 
-                    //지난 날짜 빼고 input 보이게
-                    button.add-form__button 추가
-    button.type__button(type="button") 할 일
-    // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
-    // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
-    button.calendar__button(type="button") 캘린더로 이동
+    section(onmousewheel="horizontalScroll()")
+        a.prev__btn < 
+        .day
+            ol.day__list#slider
+                li.day__item
+                    h1.title 일요일
+                    p.description 오늘은 블라블라오늘은 블라블라오늘은 블라블라오늘은 블라블라오늘은 블라블라오늘은 블라블라
+                    ul.todolist
+                        li 
+                            button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                            span 할 일 1
+                            .button-wrapper
+                                button.delete(type="button") ❌ <!-- 여기서부터 마우스 호버시 보이는 버튼-->
+                                button.update(type="button") ✏
+                        li 
+                            button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                            span 할 일 1
+                    form.add-form
+                        select.category(name="category")
+                            option(value="선택") 선택
+                            option(value="한 마디") 문장
+                            option(value="공부") 공부
+                            option(value="일상") 일상
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+                li.day__item
+                    h1.title 월요일
+                    ul.todolist
+                        li 할 일 1
+                    form.add-form
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+                li.day__item
+                    h1.title 화요일
+                    p.description 오늘은 블라블라
+                    ul.todolist
+                        li 할 일 1
+                    form.add-form
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+                li.day__item
+                    h1.title 수요일
+                    p.description 오늘은 블라블라
+                    ul.todolist
+                        li 할 일 1
+                    form.add-form
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추토
+                li.day__item
+                    h1.title 목요일
+                    p.description 오늘은 블라블라
+                    ul.todolist
+                        li 할 일 1
+                    form.add-form
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+                li.day__item
+                    h1.title 금요일
+                    p.description 오늘은 블라블라
+                    ul.todolist
+                        li 할 일 1
+                    form.add-form
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+                li.day__item
+                    h1.title 토요일
+                    p.description 오늘은 블라블라
+                    ul.todolist
+                        li 할 일 1
+                    form.add-form
+                        input.add-form__input(type="text" placeholder="할 일") 
+                        //지난 날짜 빼고 input 보이게
+                        button.add-form__button 추가
+        a.next__btn > 
+        button.type__button(type="button") 할 일
+        // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
+        // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
+        button.calendar__button(type="button") 캘린더로 이동
+        .button-box
