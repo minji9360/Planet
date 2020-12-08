@@ -1,5 +1,7 @@
 @import "./config/variables";
+@import "./config/reset.scss";
 
-body {
-	background-color: $bgColor;
-}
+@import "./header.scss";
+@import "./home.scss";
+@import "./calendar.scss";
+@import "./plans.scss";
