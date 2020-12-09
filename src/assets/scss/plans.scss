@@ -4,6 +4,7 @@ section {
 		top: 350px;
 		left: 15px;
 		font-size: 30px;
+		z-index: 1000;
 	}
 
 	.next__btn {
@@ -11,6 +12,7 @@ section {
 		top: 350px;
 		right: 15px;
 		font-size: 30px;
+		z-index: 1000;
 	}
 	.day {
 		width: 1400px;
@@ -20,82 +22,158 @@ section {
 		.day__list {
 			.day__item {
 				float: left;
-				height: 540px;
-				border: 1px solid #555;
+				height: 609px;
+				border: 1px solid $border;
+				background: white;
 				justify-content: center;
 				align-items: center;
+				overflow: auto;
 
 				.title {
-					font-size: 25px;
-					font-weight: 600;
-					text-transform: uppercase;
-					letter-spacing: 2px;
+					padding: 18px 0;
 					text-align: center;
-					width: 100%;
-					margin: 30px 0 0 0;
-					color: #555;
-				}
+					background: $fill;
+					height: 102px;
 
-				.description {
-					margin: 15px 10px 0 10px;
-					text-align: center;
-					line-height: 25px;
-				}
+					&_date,
+					&_day {
+						font-size: 25px;
+						font-weight: 600;
+						text-transform: uppercase;
+						letter-spacing: 2px;
+						width: 100%;
+						color: $title;
+					}
 
-				.todolist {
-					position: absolute;
-					margin: 20px 0 0 33px;
+					&_description {
+						display: table;
 
-					li {
-						margin: 0 0 12px 0;
-
-						.check {
-							float: left;
-						}
-
-						span {
-							display: inline-block;
-							width: 300px;
-							margin: 2px 0 0 5px;
-						}
-
-						.button-wrapper {
-							float: right;
-							margin-left: 5px;
+						.description {
+							width: 438px;
+							padding: 7px;
+							font-size: 13px;
+							line-height: 18px;
+							height: 58.5px;
+							display: table-cell;
+							vertical-align: middle;
+							text-align: center;
 						}
 					}
+				}
+
+				.todolist-box {
+					.todolist {
+						position: absolute;
+						width: 439px;
+						height: calc(
+							100% - 102px - 55px
+						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
+						// 오늘의 한마디 안넣었을 때 높이 (넣으면 descript 높이도 빼야 함)
+						overflow: auto;
+
+						li {
+							height: 36px;
+							padding: 8px;
+
+							.check {
+								float: left;
+							}
+
+							span {
+								display: inline-block;
+								width: 300px;
+								margin: 3px 0 0 5px;
+								font-size: 14px;
+							}
+
+							.button-wrapper {
+								float: right;
+								margin-left: 5px;
+
+								button {
+									margin-left: 8px;
+									visibility: hidden;
+								}
+							}
+
+							&:hover {
+								background-color: $hover;
+								button {
+									visibility: visible;
+								}
+							}
+						}
+					}
+				}
+
+				.display-button {
+					position: relative;
+					width: 25px;
+					top: 75%;
+					left: 50%;
+					cursor: pointer;
 				}
 
 				.add-form {
+					width: 439px;
 					position: absolute;
-					bottom: 20px;
+					bottom: 0;
+					padding-bottom: 20px;
+					height: 55px;
+					background: $fill;
 
-					.category {
-						width: 60px; /* 원하는 너비설정 */
-						padding: 0.4em 0.1em; /* 여백으로 높이 설정 */
-						font-family: inherit; /* 폰트 상속 */
-						border: 1px solid #999;
-						border-radius: 0px; /* iOS 둥근모서리 제거 */
+					.description__button {
+						position: relative;
+						top: 4px;
+						margin-left: 14px;
+						margin-right: 5px;
+						font-size: 19px;
 					}
 
 					&__input {
-						width: 310px;
-						height: 35px;
-						margin-left: 15px;
-						// border: 1px solid gray;
-						padding-left: 10px;
-						background: rgb(231, 231, 231);
+						width: 326px;
+						height: 26px;
+						border-bottom: 1px solid gray;
+						margin-top: 15px;
+						padding: 0 8px;
+						background: transparent;
+
+						&:focus {
+							background: $input-focus;
+						}
 					}
 
 					&__button {
-						width: 100px;
-						height: 35px;
+						margin-left: 8px;
+						width: 50px;
+						height: 30px;
 						border: none;
-						// margin-left: 5px;
-						background: rgb(231, 231, 231);
+						background: $add-button;
+						color: $text;
+
+						&:hover {
+							background-color: white;
+						}
 					}
 				}
 			}
 		}
+	}
+}
+
+::-webkit-scrollbar {
+	color: white;
+	width: 15px;
+
+	&-button {
+		height: 0;
+	}
+
+	&-thumb {
+		background: $hover;
+	}
+
+	&-track {
+		background-color: transparent;
 	}
 }

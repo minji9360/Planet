@@ -6,77 +6,218 @@ block content
         .day
             ol.day__list#slider
                 li.day__item
-                    h1.title 일요일
-                    p.description 오늘은 블라블라오늘은 블라블라오늘은 블라블라오늘은 블라블라오늘은 블라블라오늘은 블라블라
-                    ul.todolist
-                        li 
-                            button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                            span 할 일 1
-                            .button-wrapper
-                                button.delete(type="button") ❌ <!-- 여기서부터 마우스 호버시 보이는 버튼-->
-                                button.update(type="button") ✏
-                        li 
-                            button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                            span 할 일 1
-                    form.add-form
-                        select.category(name="category")
-                            option(value="선택") 선택
-                            option(value="한 마디") 문장
-                            option(value="공부") 공부
-                            option(value="일상") 일상
+                    .title 
+                        .title_date
+                            span.title_date 13일 
+                            span.title_day 일요일
+                        .title_description
+                            p.description 블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 1
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 10
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 11
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 12
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 할 일 123
+                    //- p.display-button ▲
+                    form.add-form <!--지난 날짜는 보이지 않도록-->
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
                         input.add-form__input(type="text" placeholder="할 일")
                         button.add-form__button 추가
+                
                 li.day__item
-                    h1.title 월요일
-                    ul.todolist
-                        li 할 일 1
+                    .title 
+                        .title_date
+                            span.title_date 14일 
+                            span.title_day 월요일
+                        .title_description
+                            p.description -
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
                     form.add-form
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
                         input.add-form__input(type="text" placeholder="할 일")
                         button.add-form__button 추가
+                
                 li.day__item
-                    h1.title 화요일
-                    p.description 오늘은 블라블라
-                    ul.todolist
-                        li 할 일 1
+                    .title 
+                        .title_date
+                            span.title_date 15일 
+                            span.title_day 화요일
+                        .title_description
+                            p.description -
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
                     form.add-form
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
                         input.add-form__input(type="text" placeholder="할 일")
                         button.add-form__button 추가
+                
                 li.day__item
-                    h1.title 수요일
-                    p.description 오늘은 블라블라
-                    ul.todolist
-                        li 할 일 1
+                    .title 
+                        .title_date
+                            span.title_date 16일 
+                            span.title_day 수요일
+                        .title_description
+                            p.description -
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
                     form.add-form
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추토
-                li.day__item
-                    h1.title 목요일
-                    p.description 오늘은 블라블라
-                    ul.todolist
-                        li 할 일 1
-                    form.add-form
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
-                li.day__item
-                    h1.title 금요일
-                    p.description 오늘은 블라블라
-                    ul.todolist
-                        li 할 일 1
-                    form.add-form
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
                         input.add-form__input(type="text" placeholder="할 일")
                         button.add-form__button 추가
+               
                 li.day__item
-                    h1.title 토요일
-                    p.description 오늘은 블라블라
-                    ul.todolist
-                        li 할 일 1
+                    .title 
+                        .title_date
+                            span.title_date 17일 
+                            span.title_day 목요일
+                        .title_description
+                            p.description -
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
                     form.add-form
-                        input.add-form__input(type="text" placeholder="할 일") 
-                        //지난 날짜 빼고 input 보이게
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+                
+                li.day__item
+                    .title 
+                        .title_date
+                            span.title_date 18일 
+                            span.title_day 금요일
+                        .title_description
+                            p.description -
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                    form.add-form
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
+                        input.add-form__input(type="text" placeholder="할 일")
+                        button.add-form__button 추가
+               
+                li.day__item
+                    .title 
+                        .title_date
+                            span.title_date 19일 
+                            span.title_day 토요일
+                        .title_description
+                            p.description -
+                    .todolist-box
+                        ul.todolist
+                            li 
+                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
+                                span 코딩 테스트 파이썬 5문제 풀기
+                                .button-wrapper
+                                    button.update(type="button") ✏
+                                    button.delete(type="button") ❌
+                    form.add-form
+                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
+                        input.add-form__input(type="text" placeholder="할 일")
                         button.add-form__button 추가
         a.next__btn > 
-        button.type__button(type="button") 할 일
-        // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
-        // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
-        button.calendar__button(type="button") 캘린더로 이동
-        .button-box
