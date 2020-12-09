@@ -4,10 +4,32 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
 @import "./config/variables";
 
+* {
+	font-family: "Nanum Gothic";
+	font-style: normal;
+	font-weight: 500;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	position: relative;
+	float: left;
+	min-height: 89vh;
+	background-color: $background;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	margin: 65px 0;
+	overflow: hidden;
+}
+
 header {
 	height: 60px;
-	background-color: white;
-	padding-top: 10px;
+	padding-top: 25px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -23,30 +45,39 @@ header {
 			font-weight: 700;
 			margin-top: 3px;
 		}
-		.header__auth {
+		.header__button-wrapper {
+			position: relative;
+			top: 0;
 			float: left;
 			width: 30%;
 			text-align: right;
-			background-color: white;
-			margin-top: 10px;
+
+			a {
+				position: relative;
+				top: 1.5px;
+				width: 50px;
+				height: 18px;
+				padding: 7.5px 8px 7.5px 12px;
+				margin: 0 10px 0 0;
+				font-size: 14px;
+				background-color: $header-button;
+				text-align: center;
+				color: white;
+			}
+
+			button {
+				width: 55px;
+				height: 33px;
+				font-size: 14px;
+				background-color: $header-button;
+				color: white;
+				border-right: 0.5px solid white;
+			}
+
+			a:hover,
+			button:hover {
+				background-color: $header-button-hover;
+			}
 		}
 	}
 }
-
-* {
-	font-family: "Nanum Gothic";
-	font-style: normal;
-	font-weight: 500;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	background-color: $hover-yellow;
-}
-
-// .container {
-// 	width: 78%;
-// 	margin: 0 auto;
-// }

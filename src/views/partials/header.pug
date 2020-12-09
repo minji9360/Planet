@@ -1,6 +1,11 @@
 header
     .header
         .header__logo
-            a(href=routes.home, class="logo__link") 그린데이 로고
-        .header__auth
-            a.header__auth__link(href=routes.home) 로그인
+            a.logo__link(href=routes.home) AL🐥
+        .header__button-wrapper <!--로그인/회원가입 페이지에서는 안보이게-->
+            // a.header__login(href=routes.home) 로그인 
+            a.header__calendar(href=routes.calendar) 달력 
+            button.study 공부 <!--할 일 내에서 일상, 공부 카테고리-->
+            button.daily 일상 
+        // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
+        // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
