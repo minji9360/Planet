@@ -6,32 +6,29 @@ block content
             .user.signin
                 .image-box
                     .image-box__image
+                        img(src="/src/img/two.jpg", alt="")
                 .form-box
-                    form.form-box__form(action="")
+                    form.form-box__form(action=postLogin, method="post")
                         h2.form-box__title 로그인
                         input(type="text", name="", placeholder="아이디")
                         input(type="password", name="", placeholder="비밀번호")
                         input(type="submit", name="", value="확인")
                         p.sign__text 
                             | 계정이 없다면? 
-                            a.sign-up__link(href="#") 회원가입 
+                            a.sign-up__link(href="#", onclick="toggleForm();") 회원가입 
                             | 또는 
                             a.guest__link(href="#") 게스트로 구경
             .user.signup
                 .form-box
-                    form.form-box__form(action="")
+                    form.form-box__form(action=postJoin, method="post")
                         h2.form-box__title 회원가입
-                        input(type="text", name="", placeholder="아이디")
-                        input(type="email", name="", placeholder="메일 주소")
-                        input(type="password", name="", placeholder="비밀번호 입력")
-                        input(type="password", name="", placeholder="비밀번호 재입력")
-                        input(type="submit", name="", value="확인")
+                        input(type="text", name="id", placeholder="아이디")
+                        input(type="email", name="email", placeholder="메일 주소")
+                        input(type="password", name="password", placeholder="비밀번호 입력")
+                        input(type="password", name="password2", placeholder="비밀번호 재입력")
+                        input(type="submit", value="확인")
                         p.sign__text 
                             | 이미 계정이 있다면? 
-                            a.sign-in__link(href="#") 로그인
+                            a.sign-in__link(href="#", onclick="toggleForm();") 로그인
                 .image-box
-            //- .button-wrapper
-            //-     a.calendar-button(href=routes.calendar)
-            //-         .button CALENDAR
-            //-     a.todolist-button(href=routes.plans)
-            //-         .button TO DO LIST
+                    img(src="../img/two.jpg", alt="")
