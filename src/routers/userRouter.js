@@ -16,7 +16,7 @@ const userRouter = express.Router();
 
 userRouter.get(routes.home, home);
 userRouter.post(routes.login, postLogin);
-userRouter.post(routes.join, postJoin);
+userRouter.post(routes.join, postJoin, postLogin);
 userRouter.get(routes.logout, logout);
 userRouter.get(routes.users, users);
 userRouter.get(routes.editProfile, editProfile);
