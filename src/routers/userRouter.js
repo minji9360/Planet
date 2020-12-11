@@ -1,6 +1,15 @@
 import express from "express";
-import { home, postLogin, postJoin, logout } from "../controllers/userController.js";
-import { changePassword, editProfile, users } from "../controllers/userController.js";
+import { 
+    home, 
+    postLogin, 
+    postJoin, 
+    logout 
+} from "../controllers/userController.js";
+import { 
+    changePassword, 
+    editProfile, 
+    users 
+} from "../controllers/userController.js";
 import routes from "../routes.js";
 
 const userRouter = express.Router();
