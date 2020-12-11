@@ -30,7 +30,10 @@ export const postJoin = async (req, res, next) => {
     }
 };
 
-export const logout = (req, res) => res.render("logout", { pageTitle: "Logout" });
+export const logout = (req, res) => {
+    req.logout();
+    res.redirect(routes.home);
+};
 export const users = (req, res) => res.render("users", { pageTitle: "User" });
 export const editProfile = (req, res) => res.render("editProfile", { pageTitle: "Edit Profile" });
 export const changePassword = (req, res) => res.render("changePassword", { pageTitle: "change Password" });
