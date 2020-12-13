@@ -166,24 +166,29 @@ header {
 			span {
 				position: relative;
 				width: 50px;
-				height: 18px;
-				padding: 7.5px 13px 7.5px 12px;
+				padding: 5px 13px 5px 12px;
 				margin: 0 10px 0 0;
 				font-size: 14px;
-				background-color: $header-button;
+				border: 4px double $header-button;
 				text-align: center;
-				color: white;
+				font-weight: 600;
+				background-color: white;
+				color: $text;
 			}
 
 			button {
 				position: relative;
 				top: -1px;
 				width: 55px;
-				height: 34px;
+				height: 36px;
 				font-size: 14px;
 				background-color: $header-button;
 				color: white;
 				border-right: 0.5px solid white;
+
+				&:hover {
+					background-color: $header-button-hover;
+				}
 			}
 
 			/*

@@ -6,7 +6,7 @@ block content
             .user.signin
                 .image-box
                     .image-box__image
-                        img(src="/src/img/two.jpg", alt="")
+                        img(src="https://images.unsplash.com/photo-1569493086584-33e0b36f3145?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80", alt="")
                 .form-box
                     form.form-box__form(method="post")
                         h2.form-box__title 로그인
@@ -17,7 +17,7 @@ block content
                             | 계정이 없다면? 
                             a.sign-up__link(href="#", onclick="toggleForm();") 회원가입 
                             | 또는 
-                            a.guest__link(href="#") 게스트로 구경
+                            a.guest__link(href=routes.plans) 게스트로 구경
             .user.signup
                 .form-box
                     form.form-box__form(method="post")
@@ -31,4 +31,4 @@ block content
                             | 이미 계정이 있다면? 
                             a.sign-in__link(href="#", onclick="toggleForm();") 로그인
                 .image-box
-                    img(src="../img/two.jpg", alt="")
+                    img(src="https://images.unsplash.com/photo-1569493086584-33e0b36f3145?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80", alt="")

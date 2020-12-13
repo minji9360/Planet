@@ -24,6 +24,7 @@
 			.image-box {
 				left: -100%;
 				background-color: #f5a1a1;
+				overflow: hidden;
 			}
 		}
 
@@ -122,9 +123,17 @@
 					letter-spacing: 1px;
 					transition: 0.5s;
 
-					&:hover {
+					&:hover,
+					&:active {
 						background: $header-button-hover;
 					}
+				}
+
+				&:-webkit-autofill,
+				&:-webkit-autofill:hover,
+				&:-webkit-autofill:focus,
+				&:-webkit-autofill:active {
+					-webkit-box-shadow: 0 0 0 30px $hover inset !important;
 				}
 			}
 
@@ -143,7 +152,7 @@
 					color: $text;
 
 					&:hover {
-						color: $header-button;
+						color: $text-hover;
 					}
 				}
 			}
