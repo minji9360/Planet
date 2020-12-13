@@ -1,13 +1,27 @@
-$background: #fffcf4;
-$border: rgb(255, 197, 150);
+// 공통 회색
 $border-gray: rgb(170, 170, 170);
 $soft-gray: rgb(201, 201, 201);
 $gray: rgb(173, 173, 173);
-$fill: rgb(243, 221, 196);
-$hover: rgb(243, 235, 225);
 $input-focus: rgba(255, 255, 255, 0.562);
 $title: rgb(63, 63, 63);
-$text: rgb(228, 116, 64);
-$header-button: rgb(247, 167, 102);
-$header-button-hover: rgb(250, 193, 143);
-$add-button: rgb(255, 250, 246);
+
+// 연두, 초록 테마 색상
+$background: #fbfff4;
+$border: rgb(143, 190, 135);
+$fill: rgb(184, 219, 163);
+$hover: rgb(234, 243, 225);
+$text: rgb(106, 168, 95);
+$text-hover: rgb(171, 212, 164);
+$text-drag: rgb(216, 255, 198);
+$header-button: rgb(125, 180, 93);
+$header-button-hover: rgb(151, 201, 119);
+$add-button: rgb(250, 255, 246);
+// 노랑, 주황 테마 색상
+// $background: #fffcf4;
+// $border: rgb(255, 197, 150);
+// $fill: rgb(243, 221, 196);
+// $hover: rgb(243, 235, 225);
+// $text: rgb(228, 116, 64);
+// $header-button: rgb(247, 167, 102);
+// $header-button-hover: rgb(250, 193, 143);
+// $add-button: rgb(255, 250, 246);
