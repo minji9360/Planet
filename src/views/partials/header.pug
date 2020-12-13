@@ -1,14 +1,39 @@
 header
     .header
-        .header__logo
-            a.logo__link(href=routes.home) AL🐥
+        .dropdown
+            a.logo(href=routes.home)
+                img.logo__img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/deciduous-tree_1f333.png", href=routes.home)
+                h1.logo__text PLANET
+            .dropdown-menu
+                h3
+                    span Signed in as <strong>guest</strong>
+                ul
+                    if !user
+                        li
+                            a.calendar__link(href=routes.calendar) 달력 
+                        li
+                            a.calendar__link(href=routes.plans) 할 일 
+                    else
+                        li
+                            a.calendar__link(href=routes.calendar) 달력 
+                        li
+                            a.calendar__link(href=routes.plans) 할 일 
+                ul
+                    if !user
+                        li
+                            a.login__link(href=routes.logout) 로그인 또는 회원가입
+                    else
+                        li
+                            a.logout__link(href=routes.logout) 로그아웃
+                        li
+                            a(href=routes.home) 설정
         .header__button-wrapper <!--로그인/회원가입 페이지에서는 안보이게-->
             if !user
-                a.header__login(href=routes.home) 로그인 
+                span.menu 목표를 적어 주세요.
+                button.study__button 공부 
             else
-                a.header__login(href=routes.logout) 로그아웃 
-            a.header__calendar(href=routes.calendar) 달력 
-            button.study 공부 <!--할 일 내에서 일상, 공부 카테고리-->
-            button.daily 일상 
+                span.menu 목표를 적어 주세요.
+                button.study__button 공부 
+<!--할 일 내에서 일상, 공부 카테고리-->
         // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
         // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
