@@ -16,11 +16,6 @@ const PlanSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    feedback: {
-        // 할 일 종료 후 피드백 내용
-        type: String,
-        required: false
-    },
     completed: { 
         // 진행중인지 완료인지 확인하는 용도
         type: String,
@@ -30,6 +25,16 @@ const PlanSchema = new mongoose.Schema({
         // 일상, 공부 나누는 용도
         type: String,
         required: "Category is required"
+    },
+    feedback: {
+        // 할 일 종료 후 피드백 내용 > 이건 댓글로 만들 수도
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Feedback"
+    },
+    creator: {
+        // 작성자
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 
