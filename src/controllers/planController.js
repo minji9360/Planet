@@ -12,9 +12,10 @@ export const postUpload = async (req, res) => {
         title,
         content,
         completed,
+        category,
         creator: req.user.id
     });
     req.user.plans.push(newPlan.id);
     req.user.save();
     res.redirect(routes.plans);
-}
+};
