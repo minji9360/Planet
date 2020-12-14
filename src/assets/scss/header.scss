@@ -15,6 +15,15 @@
 	::selection {
 		background-color: $text-drag;
 	}
+
+	input {
+		&:-webkit-autofill,
+		&:-webkit-autofill:hover,
+		&:-webkit-autofill:focus,
+		&:-webkit-autofill:active {
+			-webkit-box-shadow: 0 0 0 30px $hover inset !important;
+		}
+	}
 }
 
 body {
@@ -190,13 +199,6 @@ header {
 					background-color: $header-button-hover;
 				}
 			}
-
-			/*
-			a:hover,
-			button:hover {
-				background-color: $header-button-hover;
-			}
-			*/
 		}
 	}
 }
