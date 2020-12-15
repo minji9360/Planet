@@ -68,15 +68,15 @@ section {
 						height: calc(
 							100% - 102px - 55px
 						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
-						// 오늘의 한마디 안넣었을 때 높이 (넣으면 descript 높이도 빼야 함)
 						overflow: auto;
 
 						li {
 							height: 36px;
 							padding: 8px;
 
-							.check {
+							.check__button {
 								float: left;
+								margin-top: 2px;
 							}
 
 							span {
@@ -86,14 +86,9 @@ section {
 								font-size: 14px;
 							}
 
-							.button-wrapper {
-								float: right;
-								margin-left: 5px;
-
-								button {
-									margin-left: 8px;
-									visibility: hidden;
-								}
+							img {
+								width: 15px;
+								height: 15px;
 							}
 
 							&:hover {
@@ -101,6 +96,16 @@ section {
 								button {
 									visibility: visible;
 								}
+							}
+						}
+
+						.button-wrapper {
+							float: right;
+							margin: 1px 0 0 5px;
+
+							button {
+								margin-left: 8px;
+								visibility: hidden;
 							}
 						}
 					}
@@ -124,10 +129,14 @@ section {
 
 					.description__button {
 						position: relative;
-						top: 4px;
+						top: 7px;
 						margin-left: 14px;
 						margin-right: 5px;
 						font-size: 19px;
+
+						img {
+							width: 21px;
+						}
 					}
 
 					&__input {
