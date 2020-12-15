@@ -2,7 +2,16 @@ import routes from "../routes.js";
 import User from "../models/User.js";
 import Plan from "../models/Plan.js";
 
-export const plans = (req, res) => res.render("plans", { pageTitle: "Plans" });
+export const plans = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id).populate("plans");
+        res.render("plans", { pageTitle: "Plans", user });
+    } catch(error) {
+        const user = User.findById(req.user.id).populate("plans");
+        console.log(error);
+        res.render("plans", { pageTitle: "Plans", user: [] });
+    }
+};
 
 export const postUpload = async (req, res) => {
     const {
@@ -13,7 +22,6 @@ export const postUpload = async (req, res) => {
         content,
         completed,
         category,
-        creator: req.user.id
     });
     req.user.plans.push(newPlan.id);
     req.user.save();

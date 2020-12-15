@@ -1,4 +1,5 @@
 extends layouts/main.pug
+include mixins/planBlock.pug
 
 block content
     section(onmousewheel="horizontalScroll()")
@@ -14,22 +15,17 @@ block content
                             p.description 블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고
                     .todolist-box
                         ul.todolist
-                            li 
-                                button.check__button(type="button")
-                                    img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/white-heavy-check-mark_2705.png", alt="완료")
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.modify__button(type="button")
-                                        img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/pencil_270f.png", alt="수정")
-                                    button.remove__button(type="button")
-                                        img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/cross-mark_274c.png", alt="삭제")
-                    form.add-form(action=`plans${routes.upload}`, method="post") <!--지난 날짜는 보이지 않도록-->
-                        button.description__button(type="button")
-                            img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                        //  버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감
-                        input.add-form__input(type="text", name="title", placeholder="할 일")
-                        input(type="hidden", name="category", value="공부")
-                        button.add-form__button 추가
+                            each item in user.plans
+                                +planBlock({
+                                    title:item.title
+                                })
+                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                            button.description__button(type="button")
+                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            input(type="hidden", name="category", value="공부")
+                            button.add-form__button 추가
+                
                 li.day__item
                     .title 
                         .title_date
@@ -39,16 +35,17 @@ block content
                             p.description -
                     .todolist-box
                         ul.todolist
-                            li 
-                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.update(type="button") ✏
-                                    button.delete(type="button") ❌
-                    form.add-form
-                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
+                            each item in user.plans
+                                +planBlock({
+                                    title:item.title
+                                })
+                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                            button.description__button(type="button")
+                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            input(type="hidden", name="category", value="공부")
+                            input(type="hidden", name="creator", value=user.id)
+                            button.add-form__button 추가
                 li.day__item
                     .title 
                         .title_date
@@ -58,16 +55,17 @@ block content
                             p.description -
                     .todolist-box
                         ul.todolist
-                            li 
-                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.update(type="button") ✏
-                                    button.delete(type="button") ❌
-                    form.add-form
-                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
+                            each item in user.plans
+                                +planBlock({
+                                    title:item.title
+                                })
+                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                            button.description__button(type="button")
+                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            input(type="hidden", name="category", value="공부")
+                            input(type="hidden", name="creator", value=user.id)
+                            button.add-form__button 추가
                 li.day__item
                     .title 
                         .title_date
@@ -77,35 +75,17 @@ block content
                             p.description -
                     .todolist-box
                         ul.todolist
-                            li 
-                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.update(type="button") ✏
-                                    button.delete(type="button") ❌
-                    form.add-form
-                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 17일 
-                            span.title_day 목요일
-                        .title_description
-                            p.description -
-                    .todolist-box
-                        ul.todolist
-                            li 
-                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.update(type="button") ✏
-                                    button.delete(type="button") ❌
-                    form.add-form
-                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
+                            each item in user.plans
+                                +planBlock({
+                                    title:item.title
+                                })
+                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                            button.description__button(type="button")
+                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            input(type="hidden", name="category", value="공부")
+                            input(type="hidden", name="creator", value=user.id)
+                            button.add-form__button 추가
                 li.day__item
                     .title 
                         .title_date
@@ -115,16 +95,17 @@ block content
                             p.description -
                     .todolist-box
                         ul.todolist
-                            li 
-                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.update(type="button") ✏
-                                    button.delete(type="button") ❌
-                    form.add-form
-                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
+                            each item in user.plans
+                                +planBlock({
+                                    title:item.title
+                                })
+                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                            button.description__button(type="button")
+                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            input(type="hidden", name="category", value="공부")
+                            input(type="hidden", name="creator", value=user.id)
+                            button.add-form__button 추가
                 li.day__item
                     .title 
                         .title_date
@@ -134,14 +115,15 @@ block content
                             p.description -
                     .todolist-box
                         ul.todolist
-                            li 
-                                button.check(type="button") ✅ <!--버튼 클릭 시 완료-->
-                                span 코딩 테스트 파이썬 5문제 풀기
-                                .button-wrapper
-                                    button.update(type="button") ✏
-                                    button.delete(type="button") ❌
-                    form.add-form
-                        button.description__button(type="button") 🔥<!-- 버튼 클릭 시 input 창에 [오늘의 한마디] 추가됨. 입력 시 이 문구가 있으면 오늘의 한마디로 넘어감 -->
-                        input.add-form__input(type="text" placeholder="할 일")
-                        button.add-form__button 추가
+                            each item in user.plans
+                                +planBlock({
+                                    title:item.title
+                                })
+                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                            button.description__button(type="button")
+                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            input(type="hidden", name="category", value="공부")
+                            input(type="hidden", name="creator", value=user.id)
+                            button.add-form__button 추가
         a.next__btn > 
