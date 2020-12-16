@@ -6,124 +6,33 @@ block content
         a.prev__btn < 
         .day
             ol.day__list#slider
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 13일 
-                            span.title_day 일요일
-                        .title_description
-                            p.description 블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고블라블라어쩌고
-                    .todolist-box
-                        ul.todolist
-                            each item in user.plans
-                                +planBlock({
-                                    title:item.title
-                                })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
-                            button.description__button(type="button")
-                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
-                            input(type="hidden", name="category", value="공부")
-                            button.add-form__button 추가
-                
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 14일 
-                            span.title_day 월요일
-                        .title_description
-                            p.description -
-                    .todolist-box
-                        ul.todolist
-                            each item in user.plans
-                                +planBlock({
-                                    title:item.title
-                                })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
-                            button.description__button(type="button")
-                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
-                            input(type="hidden", name="category", value="공부")
-                            input(type="hidden", name="creator", value=user.id)
-                            button.add-form__button 추가
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 15일 
-                            span.title_day 화요일
-                        .title_description
-                            p.description -
-                    .todolist-box
-                        ul.todolist
-                            each item in user.plans
-                                +planBlock({
-                                    title:item.title
-                                })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
-                            button.description__button(type="button")
-                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
-                            input(type="hidden", name="category", value="공부")
-                            input(type="hidden", name="creator", value=user.id)
-                            button.add-form__button 추가
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 16일 
-                            span.title_day 수요일
-                        .title_description
-                            p.description -
-                    .todolist-box
-                        ul.todolist
-                            each item in user.plans
-                                +planBlock({
-                                    title:item.title
-                                })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
-                            button.description__button(type="button")
-                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
-                            input(type="hidden", name="category", value="공부")
-                            input(type="hidden", name="creator", value=user.id)
-                            button.add-form__button 추가
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 18일 
-                            span.title_day 금요일
-                        .title_description
-                            p.description -
-                    .todolist-box
-                        ul.todolist
-                            each item in user.plans
-                                +planBlock({
-                                    title:item.title
-                                })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
-                            button.description__button(type="button")
-                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
-                            input(type="hidden", name="category", value="공부")
-                            input(type="hidden", name="creator", value=user.id)
-                            button.add-form__button 추가
-                li.day__item
-                    .title 
-                        .title_date
-                            span.title_date 19일 
-                            span.title_day 토요일
-                        .title_description
-                            p.description -
-                    .todolist-box
-                        ul.todolist
-                            each item in user.plans
-                                +planBlock({
-                                    title:item.title
-                                })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
-                            button.description__button(type="button")
-                                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
-                            input(type="hidden", name="category", value="공부")
-                            input(type="hidden", name="creator", value=user.id)
-                            button.add-form__button 추가
+                - const dates = ["일", "월", "화", "수", "목", "금", "토"]
+                each date in dates
+                    li.day__item
+                        .title 
+                            .title_date
+                                span.title_date 13일 
+                                span.title_day=date
+                                |요일
+                            .title_description
+                                if user.plans.description==true
+                                    p.description=user.plans.title
+                                else
+                                    p.description 오늘은 무엇을 할까?
+                        .todolist-box
+                            ul.todolist
+                                each item in user.plans
+                                    if date==item.date && item.description==false
+                                        +planBlock({
+                                            title:item.title,
+                                            date:item.date
+                                        })
+                            form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                                button.description__button(type="button")
+                                    img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
+                                input.add-form__input(type="text", name="title", placeholder="할 일")
+                                input(type="hidden", name="category", value="공부")
+                                input(type="hidden", name="date", value=date)
+                                input(type="hidden", name="description", value="true")
+                                button.add-form__button 추가
         a.next__btn > 
