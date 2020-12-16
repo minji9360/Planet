@@ -135,12 +135,8 @@ header {
 					border-bottom: 1px solid #e1e4e8;
 					font-weight: 500;
 
-					& strong {
+					.id {
 						font-weight: 700;
-
-						&:hover {
-							opacity: 0.5;
-						}
 					}
 				}
 

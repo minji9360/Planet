@@ -6,7 +6,11 @@ header
                 h1.logo__text PLANET
             .dropdown-menu
                 h3
-                    span Signed in as <strong>guest</strong>
+                    span Signed in as 
+                    if user==null
+                        span.id 손님
+                    else
+                        span.id=user.id
                 ul
                     if !user
                         li
