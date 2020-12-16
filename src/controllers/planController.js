@@ -5,7 +5,11 @@ import Plan from "../models/Plan.js";
 export const plans = async (req, res) => {
     try {
         const user = await User.findById(req.user._id).populate("plans");
-        res.render("plans", { pageTitle: "Plans", user });
+        if(user.id !== req.user.id){
+            throw Error();
+        } else {
+            res.render("plans", { pageTitle: "Plans", user });
+        }
     } catch(error) {
         const user = User.findById(req.user.id).populate("plans");
         console.log(error);
