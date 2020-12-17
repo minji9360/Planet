@@ -1,3 +1,26 @@
+function setWeek() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth();
+  const date = today.getDate();
+  const dayOfWeek = today.getDay();
+
+  for(let i = 0; i < 7; i++) {
+    const resultDay = new Date(year, month, date + (i - dayOfWeek));
+    const yyyy = resultDay.getFullYear();
+    const mm = Number(resultDay.getMonth()) + 1;
+    const dd = resultDay.getDate();
+    const dateText = document.querySelector(".date" + i);
+    const dateValue = document.querySelector(".date-value" + i);
+    dateText.innerText = dd;
+
+    mm = String(mm).length === 1 ? '0' + mm : mm;
+    dd = String(dd).length === 1 ? '0' + dd : dd;
+
+    dateValue.value = yyyy + String(mm) + String(dd);
+  }
+}
+
 var Slider = function(id, _web, _tab, _mobile, spacing){
     var containerWidth = 0;
     var sliderItemWidth = 0;
@@ -84,7 +107,6 @@ var Slider = function(id, _web, _tab, _mobile, spacing){
     }
     resize();
   
-  
     return {
       setDisplayCount: setDisplayCount,
       move: function(index){
@@ -131,10 +153,15 @@ function horizontalScroll(){
 		window.scrollBy(500,0);
 }
 
-window.horizontalScroll = horizontalScroll;
-var slider = new Slider('slider', 3, 3, 1, 40);
-var next__btn = document.querySelector(".next__btn");
-var prev__btn = document.querySelector(".prev__btn");
+function init() {
+  window.horizontalScroll = horizontalScroll;
+  var slider = new Slider('slider', 3, 3, 1, 40);
+  var next__btn = document.querySelector(".next__btn");
+  var prev__btn = document.querySelector(".prev__btn");
 
-prev__btn.addEventListener("click", slider.prev);
-next__btn.addEventListener("click", slider.next);
+  prev__btn.addEventListener("click", slider.prev);
+  next__btn.addEventListener("click", slider.next);
+  setWeek();
+}
+
+init();
