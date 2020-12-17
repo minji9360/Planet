@@ -35,8 +35,7 @@ section {
 					background: $fill;
 					height: 102px;
 
-					&_date,
-					&_day {
+					&__date {
 						font-size: 25px;
 						font-weight: 600;
 						text-transform: uppercase;
@@ -45,7 +44,7 @@ section {
 						color: $title;
 					}
 
-					&_description {
+					&__description {
 						display: table;
 
 						.description {
