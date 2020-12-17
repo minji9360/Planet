@@ -146,15 +146,7 @@ var Slider = function(id, _web, _tab, _mobile, spacing){
     }
   }
 
-function horizontalScroll(){ 
-	if (event.wheelDelta >= 120)
-		window.scrollBy(-500,0);
-	else if (event.wheelDelta <= -120)
-		window.scrollBy(500,0);
-}
-
 function init() {
-  window.horizontalScroll = horizontalScroll;
   var slider = new Slider('slider', 3, 3, 1, 40);
   var next__btn = document.querySelector(".next__btn");
   var prev__btn = document.querySelector(".prev__btn");
