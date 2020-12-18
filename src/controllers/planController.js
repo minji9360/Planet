@@ -1,6 +1,7 @@
 import routes from "../routes.js";
 import User from "../models/User.js";
 import Plan from "../models/Plan.js";
+import thisWeek from "../week.js";
 
 export const plans = async (req, res) => {
     try {
@@ -8,10 +9,9 @@ export const plans = async (req, res) => {
         if(user.id !== req.user.id){
             throw Error();
         } else {
-            res.render("plans", { pageTitle: "Plans", user });
+            res.render("plans", { pageTitle: "Plans", user, thisWeek });
         }
     } catch(error) {
-        const user = User.findById(req.user.id).populate("plans");
         console.log(error);
         res.render("plans", { pageTitle: "Plans", user: [] });
     }
