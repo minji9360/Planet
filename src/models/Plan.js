@@ -31,12 +31,11 @@ const PlanSchema = new mongoose.Schema({
         type: String,
         default: "일상"
     },
-    day: String,
-    // 할 일 요일
+    year: String,
+    month: String,
     date: String,
-    // 할 일 날짜
     feedback: {
-        // 할 일 종료 후 피드백 내용 > 이건 댓글로 만들 수도
+        // 할 일 종료 후 피드백 내용
         type: mongoose.Schema.Types.ObjectId,
         ref: "Feedback"
     }

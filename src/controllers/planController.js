@@ -13,13 +13,13 @@ export const plans = async (req, res) => {
         }
     } catch(error) {
         console.log(error);
-        res.render("plans", { pageTitle: "Plans", user: [] });
+        res.render("plans", { pageTitle: "Plans", user: [], thisWeek });
     }
 };
 
 export const postUpload = async (req, res) => {
     const {
-        body: { title, content, description, completed, category, date }
+        body: { title, content, description, completed, category, year, month, date }
     } = req;
     const newPlan = await Plan.create({
         title,
@@ -27,6 +27,8 @@ export const postUpload = async (req, res) => {
         description,
         completed,
         category,
+        year,
+        month,
         date,
     });
     req.user.plans.push(newPlan.id);
