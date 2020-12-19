@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const SentenceSchema = new mongoose.Schema({
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
     title: {
         type: String,
         required: "Title is required"
