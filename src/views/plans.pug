@@ -31,10 +31,8 @@ block content
                                     if thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
                                         +planBlock({
                                             title:item.title,
-                                            day:item.day
+                                            id:item._id
                                         })
-                                    else
-                                        p=item.title
                             form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
                                 button.description__button(type="button")
                                     img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")

@@ -12,6 +12,8 @@ const CHANGE_PASSWORD = "/change-password";
 
 // Plan
 const PLANS = "/plans";
+const UPLOAD = "/upload";
+const DELETE_PLAN = "/:id/delete";
 
 // Calendar
 const CALENDAR = "/calendar";
@@ -26,7 +28,15 @@ const routes = {
     editProfile: EDIT_PROFILE,
     changePassword: CHANGE_PASSWORD,
     plans: PLANS,
-    calendar: CALENDAR
+    upload: UPLOAD,
+    calendar: CALENDAR,
+    deletePlan: id => {
+        if (id) {
+            return `/plans/${id}/delete`;
+        } else {
+            return DELETE_PLAN;
+        }
+    }
 };
 
 export default routes;

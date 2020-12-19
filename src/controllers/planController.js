@@ -35,3 +35,14 @@ export const postUpload = async (req, res) => {
     req.user.save();
     res.redirect(routes.plans);
 };
+
+export const deletePlan = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    try {
+        await Plan.findOneAndRemove({ _id: id });
+    } catch (error) {
+    }
+    res.redirect(routes.plans);
+};
