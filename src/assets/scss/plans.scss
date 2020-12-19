@@ -92,19 +92,19 @@ section {
 
 							&:hover {
 								background-color: $hover;
-								button {
+								.button-wrapper {
 									visibility: visible;
 								}
 							}
-						}
 
-						.button-wrapper {
-							float: right;
-							margin: 1px 0 0 5px;
-
-							button {
-								margin-left: 8px;
+							.button-wrapper {
+								float: right;
+								margin: 1px 0 0 5px;
 								visibility: hidden;
+
+								a {
+									margin-left: 8px;
+								}
 							}
 						}
 					}
