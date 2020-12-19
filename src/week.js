@@ -1,6 +1,6 @@
-
-const YYYYMMDD = [];
-const THISDATE = [];
+const YEAR = [];
+const MONTH = [];
+const DATE = [];
 
 function getWeek() {
     const today = new Date();
@@ -11,23 +11,19 @@ function getWeek() {
 
     for(let i = 0; i < 7; i++) {
         const resultDay = new Date(year, month, date + (i - dayOfWeek));
-        const yyyy = resultDay.getFullYear();
-        let mm = Number(resultDay.getMonth()) + 1;
-        let dd = resultDay.getDate();
-        THISDATE.push(dd);
 
-        mm = String(mm).length === 1 ? '0' + mm : mm;
-        dd = String(dd).length === 1 ? '0' + dd : dd;
-
-        YYYYMMDD.push(yyyy + String(mm) + String(dd));
+        YEAR.push(resultDay.getFullYear());
+        MONTH.push(Number(resultDay.getMonth()) + 1);
+        DATE.push(resultDay.getDate());
     }
-}
+};
 
 getWeek();
 
 const thisWeek = {
-    yyyymmdd: YYYYMMDD,
-    thisDate: THISDATE
-}
+    year: YEAR,
+    month: MONTH,
+    date: DATE
+};
 
 export default thisWeek;
