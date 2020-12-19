@@ -17,18 +17,24 @@ block content
                                 span.day=day[i]
                                 |요일
                             .title__description
-                                if user.plans.description==true
-                                    p.description=user.plans.title
+                                if user.sentence.length==0
+                                    p.description 오늘의 한마디를 입력해주세요.
                                 else
-                                    p.description 오늘은 무엇을 할까?
+                                    each item in user.sentence
+                                        if thisWeek.year[j]==item.year && thisWeek.month[j]==item.month && thisWeek.date[j]==item.date
+                                            p.description=user.sentence.title
+                                        else
+                                            p.description 오늘의 한마디를 입력해주세요.
                         .todolist-box
                             ul.todolist
                                 each item in user.plans
-                                    if item.description==false && thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
+                                    if thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
                                         +planBlock({
                                             title:item.title,
                                             day:item.day
                                         })
+                                    else
+                                        p=item.title
                             form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
                                 button.description__button(type="button")
                                     img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
@@ -37,6 +43,5 @@ block content
                                 input(type="hidden", name="year", value=thisWeek.year[i])
                                 input(type="hidden", name="month", value=thisWeek.month[i])
                                 input(type="hidden", name="date", value=thisWeek.date[i])
-                                //- input(type="hidden", name="description", value="true")
                                 button.add-form__button 추가
         a.next__btn > 

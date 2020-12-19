@@ -1,11 +1,12 @@
 import routes from "../routes.js";
 import User from "../models/User.js";
 import Plan from "../models/Plan.js";
+import Sentence from "../models/Sentence.js";
 import thisWeek from "../week.js";
 
 export const plans = async (req, res) => {
     try {
-        const user = await User.findById(req.user._id).populate("plans");
+        const user = await User.findById(req.user._id).populate("plans", "sentence");
         if(user.id !== req.user.id){
             throw Error();
         } else {
@@ -19,12 +20,11 @@ export const plans = async (req, res) => {
 
 export const postUpload = async (req, res) => {
     const {
-        body: { title, content, description, completed, category, year, month, date }
+        body: { title, content, completed, category, year, month, date }
     } = req;
     const newPlan = await Plan.create({
         title,
         content,
-        description,
         completed,
         category,
         year,

@@ -16,11 +16,6 @@ const PlanSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    description: {
-        // 날짜 아래 출력되는 명언이나 그 날의 설명인지 여부
-        type: Boolean,
-        default: false
-    },
     completed: { 
         // 진행중인지 완료인지 확인하는 용도
         type: String,

@@ -11,6 +11,13 @@ const UserSchema = new mongoose.Schema({
             ref: "Plan"
         }
     ],
+    sentence: [
+        {
+            // 명언, 오늘의 목표 등
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Sentence"
+        }
+    ]
 });
 
 UserSchema.plugin(passportLocalMongoose, {usernameField: "id"});
