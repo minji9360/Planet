@@ -1,4 +1,11 @@
-var Slider = function(id, _web, _tab, _mobile, spacing){
+function editBtn() {
+  var title__input = document.querySelector(".plan-title__input");
+  var title__span = document.querySelector(".plan-title__span");
+  title__input.classList.toggle("active");
+  title__span.classList.toggle("active");
+}
+
+var Slider = function(id, _web, _tab, _mobile, spacing) {
     var containerWidth = 0;
     var sliderItemWidth = 0;
     var totalCount = 0;
@@ -130,6 +137,7 @@ function init() {
 
   prev__btn.addEventListener("click", slider.prev);
   next__btn.addEventListener("click", slider.next);
+  window.editBtn = editBtn;
 }
 
 init();

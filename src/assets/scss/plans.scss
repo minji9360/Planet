@@ -69,25 +69,51 @@ section {
 						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
 						overflow: auto;
 
-						li {
+						.plan {
 							height: 36px;
 							padding: 8px;
 
-							.check__button {
+							&-check__button {
 								float: left;
 								margin-top: 2px;
 							}
 
-							span {
+							&-title__span {
 								display: inline-block;
-								width: 300px;
-								margin: 3px 0 0 5px;
+								width: 350px;
+								margin: 3px 0 0 8px;
 								font-size: 14px;
+
+								&.active {
+									display: none;
+								}
+							}
+
+							.plan-title__input {
+								width: 355px;
+								border: 1px solid $fill;
+								padding: 3px;
+								margin: -1px 0 0 7px;
+								display: none;
+
+								&.active {
+									display: inline-block;
+								}
 							}
 
 							img {
 								width: 15px;
 								height: 15px;
+							}
+
+							.button-wrapper {
+								float: right;
+								margin: 1px 0 0 5px;
+								visibility: hidden;
+
+								.edit__button {
+									margin-right: 8px;
+								}
 							}
 
 							&:hover {
@@ -97,13 +123,14 @@ section {
 								}
 							}
 
-							.button-wrapper {
-								float: right;
-								margin: 1px 0 0 5px;
-								visibility: hidden;
+							&.checked {
+								span {
+									color: $soft-gray;
+									text-decoration: line-through;
+								}
 
-								a {
-									margin-left: 8px;
+								.button-wrapper {
+									visibility: hidden;
 								}
 							}
 						}
