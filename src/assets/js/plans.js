@@ -1,6 +1,6 @@
-function editBtn() {
-  var title__input = document.querySelector(".plan-title__input");
-  var title__span = document.querySelector(".plan-title__span");
+function editBtn(id) {
+  var title__input = document.querySelector("#input" + id);
+  var title__span = document.querySelector("#span" + id);
   title__input.classList.toggle("active");
   title__span.classList.toggle("active");
 }
