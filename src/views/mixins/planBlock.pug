@@ -8,7 +8,7 @@ mixin planBlock(plans = {})
             span.plan-title__span(id=`span${plans.id}`)=plans.title
             input.plan-title__input(type="text", name="title", id="input"+plans.id, value=plans.title)
             .button-wrapper
-                a.edit__button(href="#", onclick=`editBtn(${plansId})`)
+                a.edit__button(href="#", onclick=`editPlan(${plansId})`)
                     img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/pencil_270f.png", alt="수정")
                 a.remove__button(href=routes.deletePlan(plans.id))
                     img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/cross-mark_274c.png", alt="삭제")

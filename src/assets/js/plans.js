@@ -1,8 +1,8 @@
-function editBtn(id) {
-  var title__input = document.querySelector("#input" + id);
-  var title__span = document.querySelector("#span" + id);
-  title__input.classList.toggle("active");
-  title__span.classList.toggle("active");
+function editPlan(id) {
+  var input = document.querySelector("#input" + id);
+  var span = document.querySelector("#span" + id);
+  input.classList.toggle("active");
+  span.classList.toggle("active");
 }
 
 var Slider = function(id, _web, _tab, _mobile, spacing) {
@@ -137,7 +137,7 @@ function init() {
 
   prev__btn.addEventListener("click", slider.prev);
   next__btn.addEventListener("click", slider.next);
-  window.editBtn = editBtn;
+  window.editPlan = editPlan;
 }
 
 init();
