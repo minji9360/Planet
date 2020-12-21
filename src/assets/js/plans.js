@@ -1,8 +1,14 @@
 function editPlan(id) {
+  // 수정 버튼 클릭 시 작동
   var input = document.querySelector("#input" + id);
   var span = document.querySelector("#span" + id);
+  var defaultBtns = document.querySelector("#defaultBtns" + id);
+  var editBtns = document.querySelector("#editBtns" + id);
+  
   input.classList.toggle("active");
   span.classList.toggle("active");
+  defaultBtns.classList.toggle("active");
+  editBtns.classList.toggle("active");
 }
 
 var Slider = function(id, _web, _tab, _mobile, spacing) {
