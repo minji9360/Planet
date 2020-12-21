@@ -1,4 +1,5 @@
 section {
+	// 슬라이드 버튼
 	.prev__btn {
 		position: fixed;
 		top: 350px;
@@ -14,6 +15,7 @@ section {
 		font-size: 30px;
 		z-index: 1000;
 	}
+
 	.day {
 		width: 1400px;
 		position: relative;
@@ -69,15 +71,31 @@ section {
 						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
 						overflow: auto;
 
+						// 할 일(li)
 						.plan {
 							height: 36px;
 							padding: 8px;
 
+							&:hover {
+								background-color: $hover;
+								.buttons {
+									display: inline-block;
+								}
+							}
+
+							// 버튼용 이미지
+							img {
+								width: 15px;
+								height: 15px;
+							}
+
+							// 완료 버튼
 							&-check__button {
 								float: left;
 								margin-top: 2px;
 							}
 
+							// default로 보이는 할 일
 							&-title__span {
 								display: inline-block;
 								width: 350px;
@@ -89,11 +107,12 @@ section {
 								}
 							}
 
+							// 수정 버튼 클릭 시 보이는 text 박스
 							.plan-title__input {
 								width: 355px;
 								border: 1px solid $fill;
-								padding: 3px;
-								margin: -1px 0 0 7px;
+								padding: 4px;
+								margin: -3px 0 0 7px;
 								display: none;
 
 								&.active {
@@ -101,35 +120,50 @@ section {
 								}
 							}
 
-							img {
-								width: 15px;
-								height: 15px;
-							}
-
-							.button-wrapper {
+							// text 오른쪽 버튼들
+							// 기본적으로 보이는 수정, 삭제 버튼
+							.buttons {
 								float: right;
 								margin: 1px 0 0 5px;
-								visibility: hidden;
+								display: none;
 
-								.edit__button {
-									margin-right: 8px;
+								// 수정 버튼 클릭 전 기본 버튼
+								&-default {
+									.edit__button {
+										margin-right: 8px;
+									}
+
+									&.active {
+										display: none;
+									}
+								}
+
+								// 수정 버튼 클릭 시 나타나는 확인 버튼
+								&-edit {
+									display: none;
+
+									.edit-check__button {
+										border: 1px solid $text;
+										padding: 4px 6px 4px 6px;
+										font-size: 14px;
+										color: $text;
+										background-color: white;
+									}
+
+									&.active {
+										display: inline-block;
+									}
 								}
 							}
 
-							&:hover {
-								background-color: $hover;
-								.button-wrapper {
-									visibility: visible;
-								}
-							}
-
+							// 완료 버튼 클릭 시
 							&.checked {
 								span {
 									color: $soft-gray;
 									text-decoration: line-through;
 								}
 
-								.button-wrapper {
+								.buttons {
 									visibility: hidden;
 								}
 							}
