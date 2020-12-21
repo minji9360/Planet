@@ -14,6 +14,8 @@ const CHANGE_PASSWORD = "/change-password";
 const PLANS = "/plans";
 const UPLOAD = "/upload";
 const DELETE_PLAN = "/:id/delete";
+const EDIT_PLAN = "/:id/edit";
+const CHECKED_PLAN = "/:id/checked";
 
 // Calendar
 const CALENDAR = "/calendar";
@@ -36,7 +38,14 @@ const routes = {
         } else {
             return DELETE_PLAN;
         }
-    }
+    },
+    editPlan: id => {
+        if (id) {
+            return `/plans/${id}/edit`;
+        } else {
+            return EDIT_PLAN;
+        }
+    },
 };
 
 export default routes;
