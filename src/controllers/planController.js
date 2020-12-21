@@ -46,3 +46,16 @@ export const deletePlan = async (req, res) => {
     }
     res.redirect(routes.plans);
 };
+
+export const editPlan = async (req, res) => {
+    const {
+        params: { id },
+        body: { title }
+    } = req;
+    try {
+        await Plan.findOneAndUpdate({ _id: id }, { title });
+        res.redirect(routes.plans);
+    } catch (error) {
+        res.redirect(routes.plans);
+    }
+}

@@ -14,4 +14,4 @@ mixin planBlock(plans = {})
                     a.remove__button(href=routes.deletePlan(plans.id))
                         img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/cross-mark_274c.png", alt="삭제")
                 .buttons-edit(id=`editBtns${plans.id}`)
-                    a.edit-check__button(href="#") 확인
+                    input.edit-check__button(type="submit", formaction=routes.editPlan(plans.id), value="확인")
