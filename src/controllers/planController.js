@@ -58,4 +58,17 @@ export const editPlan = async (req, res) => {
     } catch (error) {
         res.redirect(routes.plans);
     }
-}
+};
+
+export const checkPlan = async (req, res) => {
+    const {
+        params: { id },
+        body: { completed }
+    } = req;
+    try {
+        await Plan.findOneAndUpdate({ _id: id }, { completed });
+        res.redirect(routes.plans);
+    } catch (error) {
+        res.redirect(routes.plans);
+    }
+};

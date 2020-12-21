@@ -15,7 +15,7 @@ const PLANS = "/plans";
 const UPLOAD = "/upload";
 const DELETE_PLAN = "/:id/delete";
 const EDIT_PLAN = "/:id/edit";
-const CHECKED_PLAN = "/:id/checked";
+const CHECK_PLAN = "/:id/check";
 
 // Calendar
 const CALENDAR = "/calendar";
@@ -46,6 +46,13 @@ const routes = {
             return EDIT_PLAN;
         }
     },
+    checkPlan: id => {
+        if (id) {
+            return `/plans/${id}/check`;
+        } else {
+            return CHECK_PLAN;
+        }
+    }
 };
 
 export default routes;

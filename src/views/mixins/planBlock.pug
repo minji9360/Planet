@@ -2,9 +2,8 @@ mixin planBlock(plans = {})
     li.plan
         form(method="post")
             - const plansId = "'" + plans.id + "'"
-            button.plan-check__button(type="submit", formaction=routes.checkedPlan(plans.id))
-                img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/white-heavy-check-mark_2705.png", alt="완료")
-            input(type="hidden", name="completed", value=true)
+            input(type="hidden", name="completed", value="true")
+            input.plan-check__button(type="image", formaction=routes.checkPlan(plans.id), src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/white-heavy-check-mark_2705.png", alt="완료")
             span.plan-title__span(id=`span${plans.id}`)=plans.title
             input.plan-title__input(type="text", name="title", id=`input${plans.id}`, value=plans.title)
             .buttons

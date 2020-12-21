@@ -1,5 +1,5 @@
 import express from "express";
-import { plans, postUpload, deletePlan, editPlan } from "../controllers/planController.js";
+import { plans, postUpload, deletePlan, checkPlan, editPlan } from "../controllers/planController.js";
 import { onlyPrivate } from "../middlewares.js";
 import routes from "../routes.js";
 
@@ -9,5 +9,6 @@ planRouter.get("/", plans);
 planRouter.post("/upload", postUpload);
 planRouter.get(routes.deletePlan(), onlyPrivate, deletePlan);
 planRouter.post(routes.editPlan(), editPlan);
+planRouter.post(routes.checkPlan(), checkPlan);
 
 export default planRouter;
