@@ -66,7 +66,7 @@ export const checkPlan = async (req, res) => {
         body: { completed }
     } = req;
     try {
-        await Plan.findOneAndUpdate({ _id: id }, { completed });
+        await Plan.findOneAndUpdate({ _id: id }, { completed: completed == "true" ? "false" : "true" });
         res.redirect(routes.plans);
     } catch (error) {
         res.redirect(routes.plans);
