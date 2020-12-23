@@ -8,7 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:server": "nodemon babel-node src/init.js",
     "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
-    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack"
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
+    "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rm -rf build",
+    "start": "node build/init.js"
   },
   "repository": {
     "type": "git",
@@ -21,9 +26,10 @@
   },
   "homepage": "https://github.com/minji9360/greenday#readme",
   "dependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.6",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "autoprefixer": "^10.0.4",
     "babel-loader": "^8.2.2",
     "body-parser": "^1.19.0",
@@ -50,6 +56,7 @@
     "webpack-cli": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "cross-env": "^7.0.3",
     "nodemon": "^2.0.6"
   },
