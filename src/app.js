@@ -18,10 +18,8 @@ import path from "path";
 import "./passport.js";
 
 const app = express();
-
 const __dirname = path.resolve();
-
-const CookieStore = MongoStore(session)
+const CookieStore = MongoStore(session);
 
 app.use(helmet({ contentSecurityPolicy: false }));
 app.set("view engine", "pug");
@@ -32,12 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(
-    session({
-        secret: process.env.COOKIE_SECRET,
-        resave: true,
-        saveUninitialized: false,
-        store: new CookieStore({ mongooseConnection: mongoose.connection })
-    })
+	session({
+		secret: process.env.COOKIE_SECRET,
+		resave: true,
+		saveUninitialized: false,
+		store: new CookieStore({ mongooseConnection: mongoose.connection }),
+	})
 );
 app.use(passport.initialize());
 app.use(passport.session());

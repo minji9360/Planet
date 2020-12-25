@@ -15,9 +15,9 @@
 //     return (number);
 // }
 
-function toggleForm(){
-    var container = document.querySelector(".container");
-    container.classList.toggle("active");
+function toggleForm() {
+	var container = document.querySelector(".container");
+	container.classList.toggle("active");
 }
 
 // const randomNumber = genRandom();

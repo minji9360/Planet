@@ -1,14 +1,14 @@
 import express from "express";
-import { 
-    home, 
-    postLogin, 
-    postJoin, 
-    logout 
+import {
+	home,
+	postLogin,
+	postJoin,
+	logout,
 } from "../controllers/userController.js";
-import { 
-    changePassword, 
-    editProfile, 
-    users 
+import {
+	changePassword,
+	editProfile,
+	users,
 } from "../controllers/userController.js";
 import { onlyPublic, onlyPrivate } from "../middlewares.js";
 import routes from "../routes.js";

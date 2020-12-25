@@ -1,1 +1,2 @@
-export const calendar = (req, res) => res.render("calendar", { pageTitle: "Calendar" });
+export const calendar = (req, res) =>
+	res.render("calendar", { pageTitle: "Calendar" });
