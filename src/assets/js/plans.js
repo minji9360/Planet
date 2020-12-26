@@ -19,6 +19,7 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 	let display = _web;
 	let left = 0;
 	let interval;
+	const pagination = document.querySelector(".pagination");
 
 	var DOM = {
 		container: function (id) {
@@ -41,6 +42,18 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 		},
 	};
 
+	// Add pagination dynamically
+	let pageChild = "";
+	const days = ["일", "월", "화", "수", "목", "금", "토"];
+	for (var i = 0; i < 7; i++) {
+		pageChild += '<li class="pagination__list';
+		pageChild += i === 0 ? " active" : "";
+		pageChild +=
+			'" data-index="' + i + '"><a href="#">' + days[i] + "</a></li>";
+	}
+	pagination.innerHTML = pageChild;
+	const pageDots = document.querySelectorAll(".dot"); // each dot from pagination
+
 	// DOM 만들기
 	const container = DOM.container(id);
 	const slider = DOM.slider(container);
@@ -62,9 +75,9 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 		document.querySelector("#" + id + " .slider").style.left = left + "px";
 		const innerWidth = window.innerWidth;
 
-		if (innerWidth >= 1000) {
+		if (innerWidth >= 1400) {
 			setDisplayCount(_web);
-		} else if (innerWidth < 1000 && innerWidth >= 768) {
+		} else if (innerWidth < 1400 && innerWidth >= 768) {
 			setDisplayCount(_tab);
 		} else if (innerWidth < 768) {
 			setDisplayCount(_mobile);
@@ -78,12 +91,22 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 		containerWidth = container.offsetWidth + spacing;
 		sliderItemWidth = containerWidth / display;
 
+		// if (display > 1) {
 		document.querySelector("#" + id + " .slider").style.width =
 			totalCount * sliderItemWidth + spacing * totalCount + "px";
+		// } else {
+		// 	document.querySelector("#" + id + " .slider").style.width = 480 + "px";
+		// }
 		const items = document.querySelector("#" + id + " .slider").children;
+		const dayItem = document.querySelector(".day__item");
 
-		for (let i = 0; i < items.length; i++) {
-			items[i].style.width = sliderItemWidth - spacing + "px";
+		if (display === 1) {
+			dayItem.classList.add("mobile");
+		} else {
+			// for (let i = 0; i < items.length; i++) {
+			// 	items[i].style.width = sliderItemWidth - spacing + "px";
+			// }
+			dayItem.classList.remove("mobile");
 		}
 	}
 
@@ -143,7 +166,7 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 };
 
 function init() {
-	const slider = new Slider("slider", 3, 3, 1, 40);
+	const slider = new Slider("slider", 3, 2, 1, 40);
 	const next__btn = document.querySelector(".next__btn");
 	const prev__btn = document.querySelector(".prev__btn");
 

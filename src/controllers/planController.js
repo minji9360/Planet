@@ -22,7 +22,7 @@ export const plans = async (req, res) => {
 
 export const postUpload = async (req, res) => {
 	const {
-		body: { title, content, completed, category, year, month, date },
+		body: { title, content, completed, category, year, month, date, day },
 	} = req;
 	const newPlan = await Plan.create({
 		title,
@@ -32,6 +32,7 @@ export const postUpload = async (req, res) => {
 		year,
 		month,
 		date,
+		day,
 	});
 	req.user.plans.push(newPlan.id);
 	req.user.save();

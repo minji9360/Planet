@@ -24,7 +24,8 @@ section {
 		.day__list {
 			.day__item {
 				float: left;
-				height: 609px;
+				width: 440px;
+				height: 589px;
 				border: 1px solid $border;
 				background: white;
 				justify-content: center;
@@ -65,7 +66,7 @@ section {
 				.todolist-box {
 					.todolist {
 						position: absolute;
-						width: 439px;
+						width: 438px;
 						height: calc(
 							100% - 102px - 55px
 						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
@@ -178,9 +179,9 @@ section {
 				}
 
 				.add-form {
-					width: 439px;
+					width: 438px;
 					position: absolute;
-					bottom: 0;
+					bottom: 0px;
 					padding-bottom: 20px;
 					height: 55px;
 					background: $fill;
@@ -223,6 +224,20 @@ section {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.pagination__wrapper {
+		margin: 0 auto;
+		width: 176px;
+
+		.pagination {
+			margin-top: 20px;
+
+			&__list {
+				float: left;
+				margin: 0 5px;
 			}
 		}
 	}

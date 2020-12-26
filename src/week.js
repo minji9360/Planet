@@ -1,21 +1,32 @@
 const YEAR = [];
 const MONTH = [];
 const DATE = [];
+const DAY = [];
 
 function getWeek() {
 	const today = new Date();
 	const year = today.getFullYear();
 	const month = today.getMonth();
 	const date = today.getDate();
-	const dayOfWeek = today.getDay();
+	const day = today.getDay();
 
-	for (let i = 0; i < 7; i++) {
-		const resultDay = new Date(year, month, date + (i - dayOfWeek));
+	for (let i = -1; i < 6; i++) {
+		const resultDay = new Date(year, month, date + i);
 
+		console.log(resultDay);
 		YEAR.push(resultDay.getFullYear());
 		MONTH.push(Number(resultDay.getMonth()) + 1);
 		DATE.push(resultDay.getDate());
+		if (day + i >= 0) {
+			DAY.push(day + i);
+		} else {
+			DAY.push(7 + i);
+		}
 	}
+	console.log(YEAR);
+	console.log(MONTH);
+	console.log(DATE);
+	console.log(DAY);
 }
 
 getWeek();
@@ -24,6 +35,7 @@ const thisWeek = {
 	year: YEAR,
 	month: MONTH,
 	date: DATE,
+	day: DAY,
 };
 
 export default thisWeek;
