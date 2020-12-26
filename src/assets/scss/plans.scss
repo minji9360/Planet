@@ -24,7 +24,7 @@ section {
 		.day__list {
 			.day__item {
 				float: left;
-				height: 609px;
+				height: 589px;
 				border: 1px solid $border;
 				background: white;
 				justify-content: center;
@@ -223,6 +223,19 @@ section {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.pagination__wrapper {
+		margin: 0 auto;
+		width: 176px;
+
+		.pagination {
+			margin-top: 20px;
+			&__list {
+				float: left;
+				margin: 0 5px;
 			}
 		}
 	}
