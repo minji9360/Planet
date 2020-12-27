@@ -37,7 +37,10 @@ block content
                         form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
                             button.description__button(type="button")
                                 img(src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/microsoft/209/fire_1f525.png", alt="명언")
-                            input.add-form__input(type="text", name="title", placeholder="할 일")
+                            if i > 0
+                                input.add-form__input(type="text", name="title", placeholder="할 일")
+                            else
+                                input.add-form__input(type="text", name="title", placeholder="지난 날짜입니다.", disabled)
                             input(type="hidden", name="category", value="공부")
                             input(type="hidden", name="year", value=thisWeek.year[i])
                             input(type="hidden", name="month", value=thisWeek.month[i])
