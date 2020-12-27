@@ -42,18 +42,6 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 		},
 	};
 
-	// Add pagination dynamically
-	let pageChild = "";
-	const days = ["일", "월", "화", "수", "목", "금", "토"];
-	for (var i = 0; i < 7; i++) {
-		pageChild += '<li class="pagination__list';
-		pageChild += i === 0 ? " active" : "";
-		pageChild +=
-			'" data-index="' + i + '"><a href="#">' + days[i] + "</a></li>";
-	}
-	pagination.innerHTML = pageChild;
-	const pageDots = document.querySelectorAll(".dot"); // each dot from pagination
-
 	// DOM 만들기
 	const container = DOM.container(id);
 	const slider = DOM.slider(container);

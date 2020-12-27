@@ -23,10 +23,6 @@ function getWeek() {
 			DAY.push(7 + i);
 		}
 	}
-	console.log(YEAR);
-	console.log(MONTH);
-	console.log(DATE);
-	console.log(DAY);
 }
 
 getWeek();

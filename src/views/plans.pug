@@ -5,9 +5,9 @@ block content
     section
         a.prev__btn < 
         .day
+            - const order = [ 0, 1, 2, 3, 4, 5, 6 ]
+            - const days = [ "일", "월", "화", "수", "목", "금", "토"]
             ol.day__list#slider
-                - const order = [ 0, 1, 2, 3, 4, 5, 6 ]
-                - const days = [ "일", "월", "화", "수", "목", "금", "토"]
                 each i in order
                     li.day__item
                         .title
@@ -46,3 +46,6 @@ block content
         a.next__btn > 
         .pagination__wrapper
             ol.pagination
+                each i in order
+                    li.pagination__list
+                        a(href="#")=days[thisWeek.day[i]]
