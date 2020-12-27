@@ -13,10 +13,10 @@ function getWeek() {
 	for (let i = -1; i < 6; i++) {
 		const resultDay = new Date(year, month, date + i);
 
-		console.log(resultDay);
 		YEAR.push(resultDay.getFullYear());
 		MONTH.push(Number(resultDay.getMonth()) + 1);
 		DATE.push(resultDay.getDate());
+
 		if (day + i >= 0) {
 			DAY.push(day + i);
 		} else {

@@ -228,20 +228,6 @@ section {
 			}
 		}
 	}
-
-	.pagination__wrapper {
-		margin: 0 auto;
-		width: 176px;
-
-		.pagination {
-			margin-top: 20px;
-
-			&__list {
-				float: left;
-				margin: 0 5px;
-			}
-		}
-	}
 }
 
 ::-webkit-scrollbar {

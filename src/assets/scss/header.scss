@@ -30,7 +30,7 @@ body {
 	width: 100%;
 	position: relative;
 	float: left;
-	min-height: 92vh;
+	min-height: 91vh;
 	background-color: $background;
 	display: flex;
 	justify-content: center;
@@ -44,7 +44,7 @@ header {
 	height: 60px;
 	padding-top: 25px;
 	position: fixed;
-	top: 0;
+	top: 2px;
 	left: 0;
 	z-index: 9000;
 	width: 100%;
