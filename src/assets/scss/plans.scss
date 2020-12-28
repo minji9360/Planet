@@ -189,13 +189,14 @@ section {
 
 					.description__button {
 						position: relative;
-						top: 7px;
+						top: 1px;
 						margin-left: 14px;
-						margin-right: 5px;
-						font-size: 19px;
+						margin-right: 9px;
+						font-size: 15px;
+						color: $text-deep;
 
-						img {
-							width: 21px;
+						&:hover {
+							color: $text;
 						}
 					}
 
@@ -215,7 +216,7 @@ section {
 					&__button {
 						margin-left: 8px;
 						width: 50px;
-						height: 30px;
+						height: 26px;
 						border: none;
 						background: $add-button;
 						color: $text;
