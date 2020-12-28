@@ -13,13 +13,13 @@ header
                         span.id=user.id
                 ul
                     if !user
-                        li
-                            a.calendar__link(href=routes.calendar) 달력 
+                        //- li
+                        //-     a.calendar__link(href=routes.calendar) 달력 
                         li
                             a.calendar__link(href=routes.plans) 할 일 
                     else
-                        li
-                            a.calendar__link(href=routes.calendar) 달력 
+                        //- li
+                        //-     a.calendar__link(href=routes.calendar) 달력 
                         li
                             a.calendar__link(href=routes.plans) 할 일 
                 ul
@@ -31,13 +31,13 @@ header
                             a.logout__link(href=routes.logout) 로그아웃
                         li
                             a(href=routes.home) 설정
-        .header__button-wrapper <!--로그인/회원가입 페이지에서는 안보이게-->
-            if !user
-                span 목표를 적어 주세요.
-                button 공부 
-            else
-                span 목표를 적어 주세요.
-                button 공부 
+        //- .header__button-wrapper <!--로그인/회원가입 페이지에서는 안보이게-->
+        //-     if !user
+        //-         span 목표를 적어 주세요.
+        //-         button 공부 
+        //-     else
+        //-         span 목표를 적어 주세요.
+        //-         button 공부 
 <!--할 일 내에서 일상, 공부 카테고리-->
         // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
         // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
