@@ -1,0 +1,48 @@
+extends layouts/main.pug
+include mixins/guestPlanBlock.pug
+
+block content
+    section
+        a.prev__btn < 
+        .day
+            - const order = [ 0, 1, 2, 3, 4, 5, 6 ]
+            - const days = [ "일", "월", "화", "수", "목", "금", "토"]
+            ol.day__list#slider
+                each i in order
+                    li.day__item
+                        .title
+                            .title__date
+                                span=thisWeek.date[i]
+                                |일 
+                                span.day=days[thisWeek.day[i]]
+                                |요일
+                            .title__description
+                                p.description 오늘의 한마디를 입력해주세요.
+                        .todolist-box
+                            ul.todolist
+                                if i === 0
+                                    +guestPlanBlock({
+                                        title:"현재 페이지는 테스트 페이지입니다.",
+                                        completed: "false"
+                                    })
+                                if i === 1
+                                    +guestPlanBlock({
+                                        title:"화면의 구성만 확인하실 수 있습니다.",
+                                        completed: "false"
+                                    })
+                                    +guestPlanBlock({
+                                        title:"기능을 이용하고 싶다면 로그인을 해주세요.",
+                                        completed: "false"
+                                    })
+                                    +guestPlanBlock({
+                                        title:"완료된 할 일",
+                                        completed: "true"
+                                    })
+                        .add-form
+                            button.description__button(type="button") ▲
+                            if i > 0
+                                input.add-form__input(type="text", name="title", placeholder="할 일", autocomplete="off")
+                            else
+                                input.add-form__input(type="text", name="title", placeholder="지난 날짜입니다.", disabled)
+                            button.add-form__button 추가
+        a.next__btn > 

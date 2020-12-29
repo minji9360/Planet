@@ -11,6 +11,7 @@ import MongoStore from "connect-mongo";
 import userRouter from "./routers/userRouter.js";
 import planRouter from "./routers/planRouter.js";
 import calendarRouter from "./routers/calendarRouter.js";
+import guestRouter from "./routers/guestRouter.js";
 import routes from "./routes.js";
 import { localsMiddleware } from "./middlewares.js";
 import path from "path";
@@ -45,5 +46,6 @@ app.use(routes.home, userRouter);
 app.use(routes.users, userRouter);
 app.use(routes.plans, planRouter);
 app.use(routes.calendar, calendarRouter);
+app.use("/guest", guestRouter);
 
 export default app;
