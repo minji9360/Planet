@@ -1,13 +1,15 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
-@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
 @import "./config/variables";
 
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-	font-family: "Nanum Gothic";
+	font-family: "NEXON Lv2 Gothic";
 	font-style: normal;
-	font-weight: 500;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
