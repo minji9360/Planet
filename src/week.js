@@ -17,8 +17,10 @@ function getWeek() {
 		MONTH.push(Number(resultDay.getMonth()) + 1);
 		DATE.push(resultDay.getDate());
 
-		if (day + i >= 0) {
+		if (day + i >= 0 && day + i <= 6) {
 			DAY.push(day + i);
+		} else if (day + i >= 7) {
+			DAY.push(day + i - 7);
 		} else {
 			DAY.push(7 + i);
 		}
