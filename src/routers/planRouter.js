@@ -11,7 +11,7 @@ import routes from "../routes.js";
 
 const planRouter = express.Router();
 
-planRouter.get(routes.home, plans);
+planRouter.get(routes.home, onlyPrivate, plans);
 planRouter.post(routes.upload, postUpload);
 planRouter.get(routes.deletePlan(), onlyPrivate, deletePlan);
 planRouter.post(routes.editPlan(), editPlan);
