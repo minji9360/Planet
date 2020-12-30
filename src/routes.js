@@ -20,6 +20,9 @@ const CHECK_PLAN = "/:id/check";
 // Calendar
 const CALENDAR = "/calendar";
 
+// Guest
+const GUEST = "/guest";
+
 const routes = {
 	home: HOME,
 	join: JOIN,
@@ -31,7 +34,6 @@ const routes = {
 	changePassword: CHANGE_PASSWORD,
 	plans: PLANS,
 	upload: UPLOAD,
-	calendar: CALENDAR,
 	deletePlan: (id) => {
 		if (id) {
 			return `/plans/${id}/delete`;
@@ -53,6 +55,8 @@ const routes = {
 			return CHECK_PLAN;
 		}
 	},
+	calendar: CALENDAR,
+	guest: GUEST,
 };
 
 export default routes;

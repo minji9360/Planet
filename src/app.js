@@ -46,6 +46,6 @@ app.use(routes.home, userRouter);
 app.use(routes.users, userRouter);
 app.use(routes.plans, planRouter);
 app.use(routes.calendar, calendarRouter);
-app.use("/guest", guestRouter);
+app.use(routes.guest, guestRouter);
 
 export default app;
