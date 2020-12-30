@@ -99,15 +99,11 @@ header {
 				display: none;
 				top: 15px;
 				left: 2px;
-				width: 200px;
+				width: 205px;
 				padding: 8px 0;
 				border-radius: 4px;
 				background-color: #fff;
 				border: 1px solid $text;
-
-				// &.active {
-				// 	display: block;
-				// }
 
 				&:hover {
 					transform: translateY(2px);
