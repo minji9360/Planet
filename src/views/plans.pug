@@ -34,18 +34,21 @@ block content
                                             title:item.title,
                                             completed: item.completed
                                         })
-                        form.add-form(action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                        form.add-form(id="addForm"+i, action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
                             if i > 0
-                                button.option__button(type="button")
+                                a.option__button(type="button", onclick=`slidePlanDetail(${i});`)
                                     img(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABuElEQVRoge2YsU7CQACGfwo1qQxqKR1M9AUcCFEYiD6Jg4kTgxLdQV8AFFc1+kaQFE1gYnDUEB1MoUc5pyYIBXptL6fJfVNz7fW+j/Y6kKCUJoCvTfxLNj5TADSCtYFolTCoQFoRLREVGSAaGSAaGSAaGSAaGSAaGSAargGdnoVOz+K5BFK8btzpWWg8NEApxcXpJfJ7eS7rcHkCnrxDHJAxQfPpFu3XNo+l4g+YlvfgGRFrgJ+8B6+I2AKWyXvwiIglwOqulveIOyJygNW1cPPoL2/oWRh6dm6cjAnunpuxfGIjBSyTz2wZqJ5VcV25gpkx5847xEH9vh75SYQOWCVfO6/BzJi/jmeJ43UKFRBUftmYR9QI5gBW+SDnokQwBYSVD3JN2AimgNFoCHfizo0benbhZp3F29x+Xyd34sIe2ixKbAGFXBGVkwqSyWQgoUX4BSuKgvJxGaX9EosS+x6Yjgjy2ixieq4nf3hwxHyfBKV0ncD+Zp3Yemlhd3uH6Zf342Pwjv5bH4VckXmuCi0dOuAvoEKTf68LRwaIRgaIRgaIRgaIRgaIRgaIJgXAVuHookXCodk/xs/7eHgWzBAAAAAASUVORK5CYII=")
-                                input.add-form__input(type="text", name="title", placeholder="할 일")
+                                input.add-form__input(type="text", name="title", placeholder="할 일", required)
+                                button.add-form__button 추가
+                                .add-detail(id="detailBox"+i)
+                                    input.add-detail__input(type="text", name="content", placeholder="상세 내용을 적어주세요.")
                             else
                                 button.option__button(type="button", disabled)
                                     img(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABuElEQVRoge2YsU7CQACGfwo1qQxqKR1M9AUcCFEYiD6Jg4kTgxLdQV8AFFc1+kaQFE1gYnDUEB1MoUc5pyYIBXptL6fJfVNz7fW+j/Y6kKCUJoCvTfxLNj5TADSCtYFolTCoQFoRLREVGSAaGSAaGSAaGSAaGSAaGSAargGdnoVOz+K5BFK8btzpWWg8NEApxcXpJfJ7eS7rcHkCnrxDHJAxQfPpFu3XNo+l4g+YlvfgGRFrgJ+8B6+I2AKWyXvwiIglwOqulveIOyJygNW1cPPoL2/oWRh6dm6cjAnunpuxfGIjBSyTz2wZqJ5VcV25gpkx5847xEH9vh75SYQOWCVfO6/BzJi/jmeJ43UKFRBUftmYR9QI5gBW+SDnokQwBYSVD3JN2AimgNFoCHfizo0benbhZp3F29x+Xyd34sIe2ixKbAGFXBGVkwqSyWQgoUX4BSuKgvJxGaX9EosS+x6Yjgjy2ixieq4nf3hwxHyfBKV0ncD+Zp3Yemlhd3uH6Zf342Pwjv5bH4VckXmuCi0dOuAvoEKTf68LRwaIRgaIRgaIRgaIRgaIRgaIJgXAVuHookXCodk/xs/7eHgWzBAAAAAASUVORK5CYII=")
                                 input.add-form__input(type="text", name="title", placeholder="지난 날짜입니다.", disabled)
+                                button.add-form__button(disabled) 추가
                             input(type="hidden", name="category", value="공부")
                             input(type="hidden", name="year", value=thisWeek.year[i])
                             input(type="hidden", name="month", value=thisWeek.month[i])
                             input(type="hidden", name="date", value=thisWeek.date[i])
-                            button.add-form__button 추가
         a.next__btn > 

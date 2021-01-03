@@ -1,3 +1,11 @@
+function slidePlanDetail(index) {
+	const addForm = document.querySelector("#addForm" + index);
+	const detailBox = document.querySelector("#detailBox" + index);
+
+	addForm.classList.toggle("active");
+	detailBox.classList.toggle("active");
+}
+
 function editPlan(id) {
 	// 수정 버튼 클릭 시 작동
 	const input = document.querySelector("#input" + id);
@@ -161,6 +169,7 @@ function init() {
 	prev__btn.addEventListener("click", slider.prev);
 	next__btn.addEventListener("click", slider.next);
 	window.editPlan = editPlan;
+	window.slidePlanDetail = slidePlanDetail;
 }
 
 init();
