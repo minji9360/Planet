@@ -199,20 +199,19 @@ section {
 
 					.option__button {
 						width: 26px;
-						height: 28px;
 						position: relative;
-						top: 8px;
+						top: 11px;
 						margin-left: 10px;
 						margin-right: 7px;
-						padding-top: 1px;
 						font-size: 15px;
-						color: $text-deep;
 						opacity: 0.93;
-						background: $add-button;
-						border: 1px solid $border;
 
 						img {
 							width: 24px;
+							height: 28px;
+							padding-bottom: 2px;
+							background: $add-button;
+							border: 1px solid $border;
 						}
 
 						&:hover {
@@ -245,6 +244,20 @@ section {
 
 						&:hover {
 							opacity: 1;
+						}
+					}
+
+					&.active {
+						bottom: 200px;
+						
+					}
+
+					.add-detail {
+						height: 200px;
+						display: none;
+
+						&.active {
+							display: inline;
 						}
 					}
 				}
