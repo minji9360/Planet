@@ -196,20 +196,20 @@ section {
 					padding-bottom: 20px;
 					height: 50px;
 					background: $fill;
+					transition: all ease .3s 0s;
 
 					.option__button {
 						width: 26px;
 						position: relative;
-						top: 11px;
-						margin-left: 10px;
+						top: 9px;
+						margin-left: 11px;
 						margin-right: 7px;
 						font-size: 15px;
 						opacity: 0.93;
 
 						img {
 							width: 24px;
-							height: 28px;
-							padding-top: 1px;
+							height: 26px;
 							padding-bottom: 1px;
 							background: $add-button;
 							border: 1px solid $border;
@@ -239,10 +239,10 @@ section {
 					&__input {
 						width: 326px;
 						height: 26px;
-						border-bottom: 1px solid gray;
+						border: none;
 						margin-top: 12px;
 						padding: 0 8px;
-						background: transparent;
+						background: $input-focus-soft;
 
 						&:focus {
 							background: $input-focus;
@@ -251,9 +251,9 @@ section {
 
 					&__button {
 						width: 50px;
-						height: 28px;
+						height: 27px;
 						margin-left: 8px;
-						padding-top: 2px;
+						padding-top: 1px;
 						border: 1px solid $border;
 						background: $add-button;
 						color: $text;
@@ -265,16 +265,36 @@ section {
 					}
 
 					&.active {
-						bottom: 200px;
-						
+						bottom: 100px;
+						transition: all ease .3s 0s;
 					}
 
 					.add-detail {
-						height: 200px;
-						display: none;
+						position: relative;
+						width: 438px;
+						height: 110px;
+						top: 9px;
+						background: $fill;
+						overflow: hidden;
+
+						&__input {
+							width: 326px;
+							height: 85px;
+							margin-top: 2.5px;
+							margin-left: 41px;
+							padding: 4px 8px;
+							background: $input-focus-soft;
+							border: none;
+							resize: none;
+
+							&:focus {
+								outline: none;
+								background: $input-focus;
+							}
+						}
 
 						&.active {
-							display: inline;
+							display: inline-block;
 						}
 					}
 				}
