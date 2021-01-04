@@ -1,9 +1,13 @@
 function slidePlanDetail(index) {
 	const addForm = document.querySelector("#addForm" + index);
 	const detailBox = document.querySelector("#detailBox" + index);
+	const upImage = document.querySelector("#upImage" + index);
+	const downImage = document.querySelector("#downImage" + index);
 
 	addForm.classList.toggle("active");
 	detailBox.classList.toggle("active");
+	upImage.classList.toggle("active");
+	downImage.classList.toggle("active");
 }
 
 function editPlan(id) {
