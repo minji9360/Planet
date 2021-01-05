@@ -269,41 +269,6 @@ section {
 						transition: all ease .3s 0s;
 					}
 
-					label {
-						font-size: 13px;
-						position: absolute;
-						bottom: 17px;
-						left: 63px;
-						cursor: pointer;
-
-						img {
-							width: 20px;
-							position: absolute;
-							left: -23px;
-							bottom: 1px;
-						}
-
-						.gray__label {
-							display: inline-block;
-
-							&.active {
-								display: none;
-							}
-						}
-
-						.color__label {
-							display: none;
-
-							&.active {
-								display: inline-block;
-							}
-						}
-					}
-
-					.important__checkbox {
-						display: none;
-					}
-
 					// .important-false__button {
 					// 	display: inline-block;
 
@@ -347,6 +312,55 @@ section {
 
 						&.active {
 							display: inline-block;
+						}
+						
+						label {
+							font-size: 13px;
+							position: absolute;
+							bottom: 17px;
+							left: 63px;
+							display: inline-block;
+							cursor: pointer;
+						}
+						
+						label.hidden {
+							display: none;
+						}
+
+						.important__checkbox {
+							display: none;
+						}
+
+						.sentence__button {
+							font-size: 13px;
+							position: absolute;
+							bottom: 17px;
+							right: 71px;
+							cursor: pointer;
+						}
+
+						img {
+							width: 20px;
+							position: absolute;
+							left: -23px;
+							bottom: 1px;
+						}
+						
+
+						.gray__button {
+							display: inline-block;
+
+							&.active {
+								display: none;
+							}
+						}
+
+						.color__button {
+							display: none;
+
+							&.active {
+								display: inline-block;
+							}
 						}
 					}
 				}

@@ -1,3 +1,13 @@
+function toggleSentence(index) {
+	const grayButton = document.querySelector("#grayButton" + index);
+	const colorButton = document.querySelector("#colorButton" + index);
+	const importantLabel = document.querySelector("#importantLabel" + index);
+
+	grayButton.classList.toggle("active");
+	colorButton.classList.toggle("active");
+	importantLabel.classList.toggle("hidden");
+}
+
 function toggleImportant(index) {
 	const grayLabel = document.querySelector("#grayLabel" + index);
 	const colorLabel = document.querySelector("#colorLabel" + index);
@@ -183,6 +193,7 @@ function init() {
 	window.editPlan = editPlan;
 	window.slidePlanDetail = slidePlanDetail;
 	window.toggleImportant = toggleImportant;
+	window.toggleSentence = toggleSentence;
 }
 
 init();
