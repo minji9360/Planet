@@ -269,6 +269,57 @@ section {
 						transition: all ease .3s 0s;
 					}
 
+					label {
+						font-size: 13px;
+						position: absolute;
+						bottom: 17px;
+						left: 63px;
+						cursor: pointer;
+
+						img {
+							width: 20px;
+							position: absolute;
+							left: -23px;
+							bottom: 1px;
+						}
+
+						.gray__label {
+							display: inline-block;
+
+							&.active {
+								display: none;
+							}
+						}
+
+						.color__label {
+							display: none;
+
+							&.active {
+								display: inline-block;
+							}
+						}
+					}
+
+					.important__checkbox {
+						display: none;
+					}
+
+					// .important-false__button {
+					// 	display: inline-block;
+
+					// 	&.active {
+					// 		display: none;
+					// 	}
+					// }
+
+					// .important-true__button {
+					// 	display: none;
+
+					// 	&.active {
+					// 		display: inline-block;
+					// 	}
+					// }
+
 					.add-detail {
 						position: relative;
 						width: 438px;
@@ -279,9 +330,10 @@ section {
 
 						&__input {
 							width: 326px;
-							height: 85px;
-							margin-top: 2.5px;
-							margin-left: 41px;
+							height: 65px;
+							position: absolute;
+							// margin-top: 2.5px;
+							left: 41px;
 							padding: 4px 8px;
 							background: $input-focus-soft;
 							border: none;

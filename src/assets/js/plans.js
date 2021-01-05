@@ -1,3 +1,11 @@
+function toggleImportant(index) {
+	const grayLabel = document.querySelector("#grayLabel" + index);
+	const colorLabel = document.querySelector("#colorLabel" + index);
+
+	colorLabel.classList.toggle("active");
+	grayLabel.classList.toggle("active");
+}
+
 function slidePlanDetail(index) {
 	const addForm = document.querySelector("#addForm" + index);
 	const detailBox = document.querySelector("#detailBox" + index);
@@ -174,6 +182,7 @@ function init() {
 	next__btn.addEventListener("click", slider.next);
 	window.editPlan = editPlan;
 	window.slidePlanDetail = slidePlanDetail;
+	window.toggleImportant = toggleImportant;
 }
 
 init();
