@@ -190,115 +190,99 @@ section {
 				}
 
 				.add-form {
-					width: 438px;
-					position: absolute;
-					bottom: 0px;
-					padding-bottom: 20px;
-					height: 50px;
-					background: $fill;
-					transition: all ease .3s 0s;
-
-					.option__button {
-						width: 26px;
-						position: relative;
-						top: 9px;
-						margin-left: 11px;
-						margin-right: 7px;
-						font-size: 15px;
-						opacity: 0.93;
-
-						img {
-							width: 24px;
-							height: 26px;
-							padding-bottom: 1px;
-							background: $add-button;
-							border: 1px solid $border;
-						}
-
-						.up__image {
-							display: inline;
-
-							&.active {
-								display: none;
-							}
-						}
-
-						.down__image {
-							display: none;
-
-							&.active {
-								display: inline;
-							}
-						}
-
-						&:hover {
-							opacity: 1;
-						}
-					}
-
-					&__input {
-						width: 326px;
-						height: 26px;
-						border: none;
-						margin-top: 12px;
-						padding: 0 8px;
-						background: $input-focus-soft;
-
-						&:focus {
-							background: $input-focus;
-						}
-					}
-
-					&__button {
-						width: 50px;
-						height: 27px;
-						margin-left: 8px;
-						padding-top: 1px;
-						border: 1px solid $border;
-						background: $add-button;
-						color: $text;
-						opacity: 0.93;
-
-						&:hover {
-							opacity: 1;
-						}
-					}
-
-					&.active {
-						bottom: 100px;
-						transition: all ease .3s 0s;
-					}
-
-					// .important-false__button {
-					// 	display: inline-block;
-
-					// 	&.active {
-					// 		display: none;
-					// 	}
-					// }
-
-					// .important-true__button {
-					// 	display: none;
-
-					// 	&.active {
-					// 		display: inline-block;
-					// 	}
-					// }
-
-					.add-detail {
-						position: relative;
+					.add-title {
 						width: 438px;
-						height: 110px;
-						top: 9px;
+						position: absolute;
+						bottom: 0px;
+						padding-bottom: 20px;
+						height: 50px;
 						background: $fill;
-						overflow: hidden;
+						transition: all ease .3s 0s;
+
+						&.active {
+							bottom: 100px;
+							transition: all ease .3s 0s;
+						}
+
+						.option__button {
+							width: 26px;
+							position: relative;
+							top: 11px;
+							left: 12px;
+							margin-right: 7px;
+							opacity: 0.93;
+
+							img {
+								width: 24px;
+								height: 26px;
+								padding-bottom: 1px;
+								background: $add-button;
+								border: 1px solid $border;
+							}
+
+							.up__image {
+								display: inline;
+
+								&.active {
+									display: none;
+								}
+							}
+
+							.down__image {
+								display: none;
+
+								&.active {
+									display: inline;
+								}
+							}
+
+							&:hover {
+								opacity: 1;
+							}
+						}
 
 						&__input {
 							width: 326px;
-							height: 65px;
+							height: 26px;
 							position: absolute;
-							// margin-top: 2.5px;
-							left: 41px;
+							top: 12px;
+							left: 43px;
+							border: none;
+							padding: 0 8px;
+							background: $input-focus-soft;
+
+							&:focus {
+								background: $input-focus;
+							}
+						}
+					}
+
+					.add-detail {
+						position: absolute;
+						width: 438px;
+						height: 110px;
+						bottom: -110px;
+						background: $fill;
+						overflow: hidden;
+						transition: all ease .3s 0s;
+
+						&.active {
+							bottom: 0px;
+							display: inline-block;
+							transition: all ease .3s 0s;
+						}
+
+						&.sentence {
+							height: 110px;
+							bottom: 0px;
+						}
+
+						&__input {
+							width: 326px;
+							height: 60px;
+							position: absolute;
+							top: 11px;
+							left: 43px;
 							padding: 4px 8px;
 							background: $input-focus-soft;
 							border: none;
@@ -308,60 +292,79 @@ section {
 								outline: none;
 								background: $input-focus;
 							}
+
+							&.sentence {
+								top: 11px;
+							}
 						}
 
-						&.active {
+						&__button {
 							display: inline-block;
 						}
-						
-						label {
-							font-size: 13px;
+
+						.detail-buttons {
+							width: 326px;
 							position: absolute;
-							bottom: 17px;
-							left: 63px;
-							display: inline-block;
-							cursor: pointer;
-						}
-						
-						label.hidden {
-							display: none;
-						}
+							bottom: 10px;
+							left: 41px;
 
-						.important__checkbox {
-							display: none;
-						}
+							label {
+								font-size: 13px;
+								display: inline-block;
+								cursor: pointer;
 
-						.sentence__button {
-							font-size: 13px;
-							position: absolute;
-							bottom: 17px;
-							right: 71px;
-							cursor: pointer;
-						}
+								&.hidden {
+									display: none;
+								}
+							}
 
-						img {
-							width: 20px;
-							position: absolute;
-							left: -23px;
-							bottom: 1px;
-						}
-						
+							.sentence__button {
+								font-size: 13px;
+								display: inline-block;
+								position: absolute;
+								bottom: 0px;
+								right: 0px;
+								cursor: pointer;
+							}
 
-						.gray__button {
-							display: inline-block;
+							img {
+								position: relative;
+								top: 5.5px;
+								width: 20px;
+								margin-right: 3px;
+							}
+							
+							.gray__button,
+							.color__button {
+								display: inline-block;
+							}
 
-							&.active {
+							.important__checkbox,
+							.hidden {
 								display: none;
 							}
 						}
+					}
+					
+					button {
+						width: 50px;
+						height: 27px;
+						position: absolute;
+						right: 12px;
+						top: 11px;
+						padding-top: 2px;
+						border: 1px solid $border;
+						background: $add-button;
+						color: $text;
+						opacity: 0.93;
 
-						.color__button {
-							display: none;
-
-							&.active {
-								display: inline-block;
-							}
+						&:hover {
+							opacity: 1;
 						}
+					}
+					
+					.hidden {
+						display: none;
 					}
 				}
 			}

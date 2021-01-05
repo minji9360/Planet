@@ -2,27 +2,35 @@ function toggleSentence(index) {
 	const grayButton = document.querySelector("#grayButton" + index);
 	const colorButton = document.querySelector("#colorButton" + index);
 	const importantLabel = document.querySelector("#importantLabel" + index);
+	const contentInput = document.querySelector("#contentInput" + index);
+	const detailBox = document.querySelector("#detailBox" + index);
+	const titleBox = document.querySelector("#titleBox" + index);
+	const detailButton = document.querySelector("#contentButton" + index);
 
-	grayButton.classList.toggle("active");
-	colorButton.classList.toggle("active");
+	grayButton.classList.toggle("hidden");
+	colorButton.classList.toggle("hidden");
 	importantLabel.classList.toggle("hidden");
+	titleBox.classList.toggle("hidden");
+	detailButton.classList.toggle("hidden");
+	contentInput.classList.toggle("sentence");
+	detailBox.classList.toggle("sentence");
 }
 
 function toggleImportant(index) {
 	const grayLabel = document.querySelector("#grayLabel" + index);
 	const colorLabel = document.querySelector("#colorLabel" + index);
 
-	colorLabel.classList.toggle("active");
-	grayLabel.classList.toggle("active");
+	colorLabel.classList.toggle("hidden");
+	grayLabel.classList.toggle("hidden");
 }
 
 function slidePlanDetail(index) {
-	const addForm = document.querySelector("#addForm" + index);
+	const titleBox = document.querySelector("#titleBox" + index);
 	const detailBox = document.querySelector("#detailBox" + index);
 	const upImage = document.querySelector("#upImage" + index);
 	const downImage = document.querySelector("#downImage" + index);
 
-	addForm.classList.toggle("active");
+	titleBox.classList.toggle("active");
 	detailBox.classList.toggle("active");
 	upImage.classList.toggle("active");
 	downImage.classList.toggle("active");
