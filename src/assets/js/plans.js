@@ -14,6 +14,12 @@ function toggleSentence(index) {
 	detailButton.classList.toggle("hidden");
 	contentInput.classList.toggle("sentence");
 	detailBox.classList.toggle("sentence");
+
+	if (titleBox.classList.contains("hidden")) {
+		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
+	} else {
+		contentInput.placeholder = "상세 내용을 입력해주세요.";
+	}
 }
 
 function toggleImportant(index) {
