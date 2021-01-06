@@ -23,11 +23,11 @@ function toggleSentence(index) {
 }
 
 function toggleImportant(index) {
-	const grayLabel = document.querySelector("#grayLabel" + index);
-	const colorLabel = document.querySelector("#colorLabel" + index);
+	const grayButton = document.querySelector("#importantGray" + index);
+	const colorButton = document.querySelector("#importantColor" + index);
 
-	colorLabel.classList.toggle("hidden");
-	grayLabel.classList.toggle("hidden");
+	grayButton.classList.toggle("hidden");
+	colorButton.classList.toggle("hidden");
 }
 
 function slidePlanDetail(index) {
