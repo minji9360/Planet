@@ -1,6 +1,6 @@
 function toggleSentence(index) {
-	const grayButton = document.querySelector("#grayButton" + index);
-	const colorButton = document.querySelector("#colorButton" + index);
+	const grayButton = document.querySelector("#sentenceGray" + index);
+	const colorButton = document.querySelector("#sentenceColor" + index);
 	const importantLabel = document.querySelector("#importantLabel" + index);
 	const contentInput = document.querySelector("#contentInput" + index);
 	const detailBox = document.querySelector("#detailBox" + index);
