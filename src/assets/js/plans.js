@@ -1,3 +1,31 @@
+function toggleSentenceDaily(index) {
+	const grayDailyButton = document.querySelector("#dailyGray" + index);
+	const colorDailyButton = document.querySelector("#dailyColor" + index);
+	const grayGoalButton = document.querySelector("#goalGray" + index);
+	const colorGoalButton = document.querySelector("#goalColor" + index);
+
+	if (grayGoalButton.classList.contains("hidden")) {
+		grayGoalButton.classList.toggle("hidden");
+		colorGoalButton.classList.toggle("hidden");
+		grayDailyButton.classList.toggle("hidden");
+		colorDailyButton.classList.toggle("hidden");
+	}
+}
+
+function toggleSentenceGoal(index) {
+	const grayDailyButton = document.querySelector("#dailyGray" + index);
+	const colorDailyButton = document.querySelector("#dailyColor" + index);
+	const grayGoalButton = document.querySelector("#goalGray" + index);
+	const colorGoalButton = document.querySelector("#goalColor" + index);
+
+	if (grayDailyButton.classList.contains("hidden")) {
+		grayGoalButton.classList.toggle("hidden");
+		colorGoalButton.classList.toggle("hidden");
+		grayDailyButton.classList.toggle("hidden");
+		colorDailyButton.classList.toggle("hidden");
+	}
+}
+
 function toggleSentence(index) {
 	const grayButton = document.querySelector("#sentenceGray" + index);
 	const colorButton = document.querySelector("#sentenceColor" + index);
@@ -6,6 +34,7 @@ function toggleSentence(index) {
 	const detailBox = document.querySelector("#detailBox" + index);
 	const titleBox = document.querySelector("#titleBox" + index);
 	const detailButton = document.querySelector("#contentButton" + index);
+	const sentenceButtons = document.querySelector("#sentenceButtons" + index);
 
 	grayButton.classList.toggle("hidden");
 	colorButton.classList.toggle("hidden");
@@ -14,6 +43,7 @@ function toggleSentence(index) {
 	detailButton.classList.toggle("hidden");
 	contentInput.classList.toggle("sentence");
 	detailBox.classList.toggle("sentence");
+	sentenceButtons.classList.toggle("hidden");
 
 	if (titleBox.classList.contains("hidden")) {
 		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
@@ -208,6 +238,8 @@ function init() {
 	window.slidePlanDetail = slidePlanDetail;
 	window.toggleImportant = toggleImportant;
 	window.toggleSentence = toggleSentence;
+	window.toggleSentenceDaily = toggleSentenceDaily;
+	window.toggleSentenceGoal = toggleSentenceGoal;
 }
 
 init();
