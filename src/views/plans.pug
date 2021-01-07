@@ -32,6 +32,7 @@ block content
                                         +planBlock({
                                             id:item._id,
                                             title:item.title,
+                                            important:item.important,
                                             completed: item.completed
                                         })
                         form.add-form(id="addForm"+i, action=`plans${routes.upload}`, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
@@ -63,7 +64,7 @@ block content
                                             img.gray__button(id="sentenceGray"+i, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACb0lEQVRoge2YP4gTQRTGv7fZS7DxcnCHJLVdmuuthFO00mavODi5JGQgRUC0EWy2sVTEJmGSkMODg2NtrGwOrcRKsInYWijICSlEIUt2xsKoG/JnZjfRDWR+3bJv3nzfvjdvYQCDYbUhnaBSqZS3bfsRgOsAzv9bSfhGRC+I6E6j0fikClYaKJfLF1Op1BsAmwuRp89Xy7K2VSYsVRbbth/g/4sHgE0hxENVkNKAlHJnMXpicU0VYGskGen5fD6/5rruILYkBYwxGXpcV8UrK7DsGANJYwwkzUoYGPlbd7tdOS0wCVaiAkuNMZA0xkDSRB6jy0bkChQKBfMfWCTGQNIYA0mzemPUdV0zRhfJ6hlwXVf7TDDGcoyxXNQ9oqBzMzeC6gzUarWM7/tXpZT7AG4CSDHGXhLRkZTyGef8R1yxk4hsYBqVSqUAYL/f75cxfhm8M7xjfcIYOwFwxDl/DWDugaBjYGrLMMZyUspdIjoAsK2Rax0A+7WUfQBwEgRBp91uf9STG0FcSOTIV/J9/1wmk7kSapG1uJsPEQD+tBiA7+GXnPOZGnUqIBEymk6nP0spNxRrzojoWAhxCACWZR1IKfcAbE2ItfC3xR5r6BkhTgtNEx8AeAWA93q9557n+aF3tx3HuZvNZi8TEQNwA0B6Qg7VhxljEYf4PRE9DYLgsNVqfZkW5HleAOAUwGm1Wt0QQjhCiFtEdGmezeMa6AHwhBC81Wq9jbq4Xq/3AHAA/Pf0Gg6CC1FzRTEwq0Vi02w2uwDuOY5zX6PFxtAx8E5KeTgYDI47nc7ZPGJnEW6xYrG4Zdv23rAqBoNhBj8BdnrKOKWctfQAAAAASUVORK5CYII=")
                                             img.color__button.hidden(id="sentenceColor"+i, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABhUlEQVRoge2ZIUhDURSGv/M2LA6HglqEMcQ0oyaLRkEwrQiKyWZQECYWMQwMKmJbGgbLks0wMJoEk0VQtIngQJyK7r1r0DBk7s7tzSt4vvju4Z7/u+/cdEFR/jfSSFF85Waw4vsbwBTQ1d5IPCAc+YG3+rKTuLQVWwU+w58AvaHEa5x733ijNgnPtksl8LP8fniAnogEWVuRVQDDeChxmmPSVmAXgL4QgjSL9b41IvCnUQHXqIBrVMA1KuAaFXCNCrhGBVyjAq5RAdeogGtUwDUq4BoVcI0KuKZdAiUx5Ix4I2K8YWATuG1Ho2iIe/mIHIsJco9dz4esp16r1jKkzVrnwOUEElkAMw10hNE0DIFzYB/f5Mu7ye9PuSB+GYpAMZ657n57C9IYMyfIWCvNrW9knctXpsbnkhgKgeflnrYSp60EiC1dp4wEs8A80P91vbydrJvxJwL1RqR10iZSa8RsAvYREs6AvLxWDh73hu5CCVuLqhGLLV70mo7oDB9/RVGUOrwDNhlydoMM8KoAAAAASUVORK5CYII=")
                                             | 목표
-                                        input.important__checkbox(id="important"+i, type="checkbox", name="important")
+                                        input.important__radio(id="important"+i, type="radio", name="important")
                                         input.setence__radio(id="senteceDaily"+i, type="radio", name="sentence", value="daily", checked)
                                         input.setence__radio(id="senteceGoal"+i, type="radio", name="sentence", value="goal")
                             else

@@ -119,6 +119,10 @@ section {
 									text-decoration: line-through;
 								}
 
+								&.important {
+									font-weight: 600;
+								}
+
 								&.active {
 									display: none;
 								}
@@ -361,7 +365,7 @@ section {
 								display: inline-block;
 							}
 
-							.important__checkbox,
+							.important__radio,
 							.setence__radio,
 							.hidden {
 								display: none;

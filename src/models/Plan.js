@@ -26,6 +26,7 @@ const PlanSchema = new mongoose.Schema({
 		type: String,
 		default: "일상",
 	},
+	important: String,
 	year: String,
 	month: String,
 	date: String,
