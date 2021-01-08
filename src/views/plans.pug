@@ -17,14 +17,17 @@ block content
                                 span.day=days[thisWeek.day[i]]
                                 |요일
                             .title__description
+                                - let flag = 0
                                 if user.sentence.length==0
                                     p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                                 else
                                     each item in user.sentence
-                                        if thisWeek.year[j]==item.year && thisWeek.month[j]==item.month && thisWeek.date[j]==item.date
-                                            p.description=user.sentence.title
-                                        else
-                                            p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
+                                        if thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
+                                            p.description=item.content
+                                            - flag = 1
+                                            - break
+                                    if flag==0
+                                        p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                         .todolist-box
                             ul.todolist
                                 each item in user.plans
