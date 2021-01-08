@@ -30,6 +30,7 @@ function toggleSentence(index) {
 	const grayButton = document.querySelector("#sentenceGray" + index);
 	const colorButton = document.querySelector("#sentenceColor" + index);
 	const importantLabel = document.querySelector("#importantLabel" + index);
+	const titleInput = document.querySelector("#titleInput" + index);
 	const contentInput = document.querySelector("#contentInput" + index);
 	const detailBox = document.querySelector("#detailBox" + index);
 	const titleBox = document.querySelector("#titleBox" + index);
@@ -46,8 +47,12 @@ function toggleSentence(index) {
 	sentenceButtons.classList.toggle("hidden");
 
 	if (titleBox.classList.contains("hidden")) {
+		titleInput.required = false;
+		contentInput.required = true;
 		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
 	} else {
+		titleInput.required = true;
+		contentInput.required = false;
 		contentInput.placeholder = "상세 내용을 입력해주세요.";
 	}
 }

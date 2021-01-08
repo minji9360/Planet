@@ -20,24 +20,13 @@ export const plans = async (req, res) => {
 	}
 };
 
-export const postUpload = async (req, res) => {
+export const postUploadPlan = async (req, res) => {
 	const {
-		body: {
-			title,
-			content,
-			completed,
-			category,
-			important,
-			year,
-			month,
-			date,
-			day,
-		},
+		body: { title, content, category, important, year, month, date, day },
 	} = req;
 	const newPlan = await Plan.create({
 		title,
 		content,
-		completed,
 		category,
 		important,
 		year,
@@ -46,6 +35,23 @@ export const postUpload = async (req, res) => {
 		day,
 	});
 	req.user.plans.push(newPlan.id);
+	req.user.save();
+	res.redirect(routes.plans);
+};
+
+export const postUploadSentence = async (req, res) => {
+	const {
+		body: { content, category, daily, year, month, date },
+	} = req;
+	const newSentence = await Sentence.create({
+		content,
+		category,
+		daily,
+		year,
+		month,
+		date,
+	});
+	req.user.sentence.push(newSentence.id);
 	req.user.save();
 	res.redirect(routes.plans);
 };

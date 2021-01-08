@@ -12,7 +12,8 @@ const CHANGE_PASSWORD = "/change-password";
 
 // Plan
 const PLANS = "/plans";
-const UPLOAD = "/upload";
+const UPLOAD_PLAN = "/upload/plan";
+const UPLOAD_SENTENCE = "/upload/sentence";
 const DELETE_PLAN = "/:id/delete";
 const EDIT_PLAN = "/:id/edit";
 const CHECK_PLAN = "/:id/check";
@@ -33,7 +34,8 @@ const routes = {
 	editProfile: EDIT_PROFILE,
 	changePassword: CHANGE_PASSWORD,
 	plans: PLANS,
-	upload: UPLOAD,
+	uploadPlan: UPLOAD_PLAN,
+	uploadSentence: UPLOAD_SENTENCE,
 	deletePlan: (id) => {
 		if (id) {
 			return `/plans/${id}/delete`;
