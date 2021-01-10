@@ -23,7 +23,7 @@ block content
                                 else
                                     each item in user.sentence
                                         if thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
-                                            p.description=item.content
+                                            p.description(id="description"+i) !{item.content.replace(/\n/g, '<br />')}
                                             - flag = 1
                                             - break
                                     if flag==0
