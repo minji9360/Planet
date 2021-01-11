@@ -40,4 +40,4 @@ mixin planBlock(plans = {})
                         img.hidden(id=`moreUp${plans.id}`, alt="더보기", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACDElEQVRoge2Vv2vbQBTHv3cGycXQrS2BJku3UhsKHrSlSUMCIUO3QiZRbOFFg/8Sr8JSjZeWQgJt1kJKuhkCxkMxpP9AiLsZRCv/uOtQBMVIzkk+be8z3nv33vd7904CCIIgCIIgiEJwHGfLcZytInuwIoratl02DOM9gFMAYIx9iKKo0e/3/+jupd2A67rmbDY7l1KerIS+ViqVN51O57fOfloNrBEfo92ENgMK4mO0mtBiIIP4GG0mNjaQQ3yMFhOlTTbbtl1mjF1IKY9TUsYAfgF4lBB7tlgs6tVq9Xw0Gi3yauB5N7qua5qmeSalPEpJuQFwwDnfA/AjKUFKeWQYxkW73X6QV0euEVIYmxsAe91u9xYAWq3WYyHEJYAXKfm5xymzgaziY4oykclAVvGDweAhAFiWNQWKMaH8BvKe/P94njfhnL9GypsAcBiG4Zcsb0LZQBRFn9aIHwshdlfFW5Y1jU8/xvO8iRDiAP++UEkchmH4UVWX0gg1m81dxthVSngshNgPguBOtSkANBqNJ5zzbwCeJ8WllK983/9+Xx2lG+Ccb6eEcokHgCAI7oQQ+0i/iadK2lSSlsvlFYBwZTm3+Jg1JkIp5b2nDyj+iYfD4bRer18DeAmgDODzfD5/2+v1JpkUJ9cOa7XaWalU2gGwA+AnY+yd7/ujTWsTBEEQBEEQBEEQRfIXsHQhP8gho60AAAAASUVORK5CYII=")
     - if (plans.content !== "")
         .plan-detail
-            span.plan-detail__span.hidden(id=`content${plans.id}`)=plans.content
+            span.plan-detail__span.hidden(id=`content${plans.id}`) !{plans.content.replace(/\n/g, '<br />')}
