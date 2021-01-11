@@ -35,10 +35,11 @@ block content
                                         +planBlock({
                                             id:item._id,
                                             title:item.title,
+                                            content:item.content,
                                             important:item.important,
                                             completed: item.completed
                                         })
-                        form.add-form(id="addForm"+i, method="post", autocomplete="off") <!--지난 날짜는 보이지 않도록-->
+                        form.add-form(id="addForm"+i, method="post", autocomplete="off")
                             if i > 0
                                 .add-title(id="titleBox"+i)
                                     a.option__button(type="button", onclick=`slidePlanDetail(${i});`)

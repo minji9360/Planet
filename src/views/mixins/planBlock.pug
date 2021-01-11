@@ -1,5 +1,6 @@
 mixin planBlock(plans = {})
     li.plan
+        //- a(href="#", onclick=`showPlanDetail(${plans.id})`)
         form(method="post")
             - const plansId = "'" + plans.id + "'"
             input(type="hidden", name="completed", value=plans.completed)
@@ -26,6 +27,9 @@ mixin planBlock(plans = {})
                     span.plan-title__span.completed(id=`span${plans.id}`)=plans.title
             input.plan-title__input(type="text", name="title", id=`input${plans.id}`, value=plans.title)
             .buttons
+                - if (plans.content !== "")
+                    a.more__button(href="#", onclick=`showDetail(${plansId})`)
+                        img(alt="더보기", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAxUlEQVRoge3RMQ6CMBjF8ffZXkB3z4Cn0LuwunAJ4kYXTqAncOAOrsy6GhLmgg6SGBq0uLSD7zfSf5o8ChARERERERH9J5kTpWm6ttYeAGyHT5VSKjPG1DH6nwYMl18ArJyjRmudFEVxDdm7Fr4Bw59xLweApbU2D927vAPwftYpuwj9yJwB3zxi93MGVJ8OROQcoR/xDlBKZQCaiaN713X70L3LO8AYU2utEwAnAC2AVkSOfd9vyrK8he6JiIiIiIiI6OUJLBaJzYnaULgAAAAASUVORK5CYII=")
                 .buttons-default(id=`defaultBtns${plans.id}`)
                     - if (plans.completed === "false")
                         a.edit__button(href="#", onclick=`editPlan(${plansId})`)
@@ -34,3 +38,5 @@ mixin planBlock(plans = {})
                         img(alt="삭제", src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iNDgiIGhlaWdodD0iNDgiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iTTg1LjE0LDg2Ljg2di0xLjcyaDEuNzJ2MS43MnoiIGZpbGw9IiNjY2NjY2MiPjwvcGF0aD48ZyBmaWxsPSIjYmMxMjAwIj48cGF0aCBkPSJNNjkuMTQ0LDEuNzJsLTguNDI4LDguNDI4aC0zMy43MTJjLTUuMDU2OCwwIC04LjQyOCwzLjM3MTIgLTguNDI4LDguNDI4YzAsNS4wNTY4IDMuMzcxMiw4LjQyOCA4LjQyOCw4LjQyOGgxNi44NTZoODQuMjhoMTYuODU2YzUuMDU2OCwwIDguNDI4LC0zLjM3MTIgOC40MjgsLTguNDI4YzAsLTUuMDU2OCAtMy4zNzEyLC04LjQyOCAtOC40MjgsLTguNDI4aC0zMy43MTJsLTguNDI4LC04LjQyOHpNMjcuMDA0LDQzLjg2djEwOS41NjRjMCw5LjI3MDggNy41ODUyLDE2Ljg1NiAxNi44NTYsMTYuODU2aDg0LjI4YzkuMjcwOCwwIDE2Ljg1NiwtNy41ODUyIDE2Ljg1NiwtMTYuODU2di0xMDkuNTY0ek02MC43MTYsNjAuNzE2YzUuMDU2OCwwIDguNDI4LDMuMzcxMiA4LjQyOCw4LjQyOHY3NS44NTJjMCw1LjA1NjggLTMuMzcxMiw4LjQyOCAtOC40MjgsOC40MjhjLTUuMDU2OCwwIC04LjQyOCwtMy4zNzEyIC04LjQyOCwtOC40Mjh2LTc1Ljg1MmMwLC01LjA1NjggMy4zNzEyLC04LjQyOCA4LjQyOCwtOC40Mjh6TTExMS4yODQsNjAuNzE2YzUuMDU2OCwwIDguNDI4LDMuMzcxMiA4LjQyOCw4LjQyOHY3NS44NTJjMCw1LjA1NjggLTMuMzcxMiw4LjQyOCAtOC40MjgsOC40MjhjLTUuMDU2OCwwIC04LjQyOCwtMy4zNzEyIC04LjQyOCwtOC40Mjh2LTc1Ljg1MmMwLC01LjA1NjggMy4zNzEyLC04LjQyOCA4LjQyOCwtOC40Mjh6Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4=")
                 .buttons-edit(id=`editBtns${plans.id}`)
                     input.edit-check__button(type="submit", formaction=routes.editPlan(plans.id), value="확인")
+    - if (plans.content !== "")
+        span.plan-content__span.hidden(id=`content${plans.id}`)=plans.content
