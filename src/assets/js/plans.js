@@ -1,3 +1,13 @@
+function showDetail(id) {
+	const content = document.querySelector("#content" + id);
+	const downButton = document.querySelector("#moreDown" + id);
+	const upButton = document.querySelector("#moreUp" + id);
+
+	content.classList.toggle("hidden");
+	downButton.classList.toggle("hidden");
+	upButton.classList.toggle("hidden");
+}
+
 function toggleSentenceDaily(index) {
 	const grayDailyButton = document.querySelector("#dailyGray" + index);
 	const colorDailyButton = document.querySelector("#dailyColor" + index);
@@ -73,8 +83,8 @@ function slidePlanDetail(index) {
 
 	titleBox.classList.toggle("active");
 	detailBox.classList.toggle("active");
-	upImage.classList.toggle("active");
-	downImage.classList.toggle("active");
+	upImage.classList.toggle("hidden");
+	downImage.classList.toggle("hidden");
 }
 
 function editPlan(id) {
@@ -85,9 +95,9 @@ function editPlan(id) {
 	const editBtns = document.querySelector("#editBtns" + id);
 
 	input.classList.toggle("active");
-	span.classList.toggle("active");
-	defaultBtns.classList.toggle("active");
-	editBtns.classList.toggle("active");
+	span.classList.toggle("hidden");
+	defaultBtns.classList.toggle("hidden");
+	editBtns.classList.toggle("hidden");
 }
 
 var Slider = function (id, _web, _tab, _mobile, spacing) {
@@ -245,6 +255,7 @@ function init() {
 	window.toggleSentence = toggleSentence;
 	window.toggleSentenceDaily = toggleSentenceDaily;
 	window.toggleSentenceGoal = toggleSentenceGoal;
+	window.showDetail = showDetail;
 }
 
 init();

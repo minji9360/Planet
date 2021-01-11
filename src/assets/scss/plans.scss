@@ -121,14 +121,10 @@ section {
 								&.important {
 									font-weight: 600;
 								}
-
-								&.active {
-									display: none;
-								}
 							}
 
-							.buttons.active {
-								visibility: hidden;
+							.hidden {
+								display: none;
 							}
 
 							// 수정 버튼 클릭 시 보이는 text 박스
@@ -167,15 +163,15 @@ section {
 									.edit__button {
 										margin-right: 21px;
 									}
+								}
 
-									&.active {
-										display: none;
-									}
+								.hidden {
+									display: none;
 								}
 
 								// 수정 버튼 클릭 시 나타나는 확인 버튼
 								&-edit {
-									display: none;
+									display: inline-block;
 
 									.edit-check__button {
 										border: 1px solid $text;
@@ -184,21 +180,28 @@ section {
 										color: $text;
 										background-color: white;
 									}
-
-									&.active {
-										display: inline-block;
-									}
 								}
 							}
 
-							&-content__span {
-								display: inline-block;
-								width: 360px;
-								margin-left: 32px;
-								font-size: 13px;
+							&-detail {
+								background-color: $white-gray;
 
-								&.hidden {
-									display: none;
+								&__span {
+									display: inline-block;
+									width: 360px;
+									margin-left: 32px;
+									font-size: 13px;
+									position: relative;
+									bottom: 0px;
+									padding: 6px 0;
+									color: gray;
+
+									&.hidden {
+										position: relative;
+										bottom: -100px;
+										display: none;
+										transition: all ease .3s 0s;
+									}
 								}
 							}
 						}
@@ -245,20 +248,13 @@ section {
 								border: 1px solid $border;
 							}
 
-							.up__image {
+							.up__image,
+							.down__image {
 								display: inline;
-
-								&.active {
-									display: none;
-								}
 							}
 
-							.down__image {
+							.hidden {
 								display: none;
-
-								&.active {
-									display: inline;
-								}
 							}
 
 							&:hover {
@@ -417,7 +413,7 @@ section {
 
 ::-webkit-scrollbar {
 	color: white;
-	width: 15px;
+	width: 10px;
 
 	&-button {
 		height: 0;
