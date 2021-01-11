@@ -18,20 +18,20 @@ block content
                                 |요일
                             .title__description
                                 - let flag = 0
-                                if user.sentence.length==0
+                                - if (user.sentence.length==0)
                                     p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
-                                else
+                                - else
                                     each item in user.sentence
-                                        if thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
+                                        - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
                                             p.description(id="description"+i) !{item.content.replace(/\n/g, '<br />')}
                                             - flag = 1
                                             - break
-                                    if flag==0
+                                    - if (flag==0)
                                         p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                         .todolist-box
                             ul.todolist
                                 each item in user.plans
-                                    if thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date
+                                    - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
                                         +planBlock({
                                             id:item._id,
                                             title:item.title,
@@ -40,7 +40,7 @@ block content
                                             completed: item.completed
                                         })
                         form.add-form(id="addForm"+i, method="post", autocomplete="off")
-                            if i > 0
+                            - if (i > 0)
                                 .add-title(id="titleBox"+i)
                                     a.option__button(type="button", onclick=`slidePlanDetail(${i});`)
                                         img.up__image(id="upImage"+i, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABuElEQVRoge2YsU7CQACGfwo1qQxqKR1M9AUcCFEYiD6Jg4kTgxLdQV8AFFc1+kaQFE1gYnDUEB1MoUc5pyYIBXptL6fJfVNz7fW+j/Y6kKCUJoCvTfxLNj5TADSCtYFolTCoQFoRLREVGSAaGSAaGSAaGSAaGSAaGSAargGdnoVOz+K5BFK8btzpWWg8NEApxcXpJfJ7eS7rcHkCnrxDHJAxQfPpFu3XNo+l4g+YlvfgGRFrgJ+8B6+I2AKWyXvwiIglwOqulveIOyJygNW1cPPoL2/oWRh6dm6cjAnunpuxfGIjBSyTz2wZqJ5VcV25gpkx5847xEH9vh75SYQOWCVfO6/BzJi/jmeJ43UKFRBUftmYR9QI5gBW+SDnokQwBYSVD3JN2AimgNFoCHfizo0benbhZp3F29x+Xyd34sIe2ixKbAGFXBGVkwqSyWQgoUX4BSuKgvJxGaX9EosS+x6Yjgjy2ixieq4nf3hwxHyfBKV0ncD+Zp3Yemlhd3uH6Zf342Pwjv5bH4VckXmuCi0dOuAvoEKTf68LRwaIRgaIRgaIRgaIRgaIRgaIJgXAVuHookXCodk/xs/7eHgWzBAAAAAASUVORK5CYII=")
@@ -71,7 +71,7 @@ block content
                                         input.important__radio(id="important"+i, type="radio", name="important")
                                         input.setence__radio(id="senteceDaily"+i, type="radio", name="daily", value="true", checked)
                                         input.setence__radio(id="senteceGoal"+i, type="radio", name="daily", value="false")
-                            else
+                            - else
                                 .add-title
                                     a.option__button(type="button", disabled)
                                         img(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABVUlEQVRIid2WP0vDQBjGn7vzOxTaD1EQWlBwcNHBqYsuSp1bSLdmcLWgYwumq4Jd/AOlg4gIbhlaOvRDJJC9DmLvzqklqXlziZil75ThuefH++Z5uWPfen6owPeRQ3Gojy0FtscAOw+AAlvwPIzDteEAP/CMBiYNCRi9j9C+asOduuThyWwM+9rG8+tTNoAfeHh8eYBSCv2Bg8lsHGveu+tBSonh25DsJBZQLJRg1S0IISClRPe2G+kkbM45R+O0gWKhlB4AAJVydQVRSsG5v4E7dX+ZN8+a2NnepWzAvvTnJQO7oARhQyEEAKy+rbqFSrlKmmvojjGm4U6klJGxJJkv6897oHU6nRGwPqLlP6HSlQkQl5akdGUCUGmh0pUJ4AdeZCyt81YkiuuQ/sDJvmjHRyeJaQlDagc1ctES98APPPJgGo1xD0zmaTQbfuH8R7G8ny0/AeHRujXjoN0AAAAASUVORK5CYII=")
