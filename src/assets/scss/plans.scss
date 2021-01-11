@@ -76,15 +76,10 @@ section {
 
 						.plan {
 							position: relative;
-							width: 100%;
 							padding: 8px;
 
 							&:hover {
 								background-color: $hover;
-
-								.more__button {
-									margin-right: 20px;
-								}
 
 								.buttons-default {
 									display: inline-block;
@@ -152,21 +147,22 @@ section {
 							// text 오른쪽 버튼들
 							// 기본적으로 보이는 수정, 삭제 버튼
 							.buttons {
-								position: absolute;
-								right: 21px;
-								top: 0px;
-								bottom: 0px;
 								margin: auto;
+								display: inline-block;
+								right: 0;
+								top: 0;
+								bottom: 0;
+								position: absolute;
 
 								.more__button {
-									position: relative;
-									top: 2px;
 									display: inline-block;
+									margin-right: 21px;
 								}
 
 								// 수정 버튼 클릭 전 기본 버튼
 								&-default {
 									display: none;
+									margin-right: 21px;
 
 									.edit__button {
 										margin-right: 21px;
