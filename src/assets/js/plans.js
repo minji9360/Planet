@@ -87,12 +87,13 @@ function slidePlanDetail(index) {
 	downImage.classList.toggle("hidden");
 }
 
-function editPlan(id) {
+function editPlan(index, id) {
 	// 수정 버튼 클릭 시 작동
 	const input = document.querySelector("#input" + id);
 	const span = document.querySelector("#span" + id);
 	const defaultBtns = document.querySelector("#defaultBtns" + id);
 	const editBtns = document.querySelector("#editBtns" + id);
+	slidePlanDetail(index);
 
 	input.classList.toggle("active");
 	span.classList.toggle("hidden");
