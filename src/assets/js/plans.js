@@ -87,18 +87,26 @@ function slidePlanDetail(index) {
 	downImage.classList.toggle("hidden");
 }
 
-function editPlan(index, id) {
+function editPlan(index, plans) {
 	// 수정 버튼 클릭 시 작동
-	const input = document.querySelector("#input" + id);
-	const span = document.querySelector("#span" + id);
-	const defaultBtns = document.querySelector("#defaultBtns" + id);
-	const editBtns = document.querySelector("#editBtns" + id);
-	slidePlanDetail(index);
+	const editBtn = document.querySelector("#editButton" + index);
+	const titleInput = document.querySelector("#titleInput" + index);
+	const contentInput = document.querySelector("#contentInput" + index);
 
-	input.classList.toggle("active");
-	span.classList.toggle("hidden");
-	defaultBtns.classList.toggle("hidden");
-	editBtns.classList.toggle("hidden");
+	if (editBtn.classList.contains("hidden")) {
+		slidePlanDetail(index);
+		editBtn.classList.toggle("hidden");
+		titleInput.value = plans.title;
+		contentInput.value = plans.content;
+	} else if (titleInput.value == plans.title) {
+		slidePlanDetail(index);
+		editBtn.classList.toggle("hidden");
+		titleInput.value = "";
+		contentInput.value = "";
+	} else if (titleInput.value != plans.title) {
+		titleInput.value = plans.title;
+		contentInput.value = plans.content;
+	}
 }
 
 var Slider = function (id, _web, _tab, _mobile, spacing) {
