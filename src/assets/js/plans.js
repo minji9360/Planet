@@ -92,20 +92,39 @@ function editPlan(index, plans) {
 	const editBtn = document.querySelector("#editButton" + index);
 	const titleInput = document.querySelector("#titleInput" + index);
 	const contentInput = document.querySelector("#contentInput" + index);
+	const detailBox = document.querySelector("#detailBox" + index);
+	const importantRadio = document.querySelector("#important" + index);
+	const idInput = document.querySelector("#idInput" + index);
+	const grayButton = document.querySelector("#importantGray" + index);
 
-	if (editBtn.classList.contains("hidden")) {
-		slidePlanDetail(index);
-		editBtn.classList.toggle("hidden");
+	if (idInput.value === "" || idInput.value !== plans.id) {
+		// 수정 버튼을 처음 클릭하거나 수정하려던 할 일이 아닌 일의 수정 버튼을 다시 클릭
+		if (!detailBox.classList.contains("active")) slidePlanDetail(index);
+		if (idInput.value === "") editBtn.classList.toggle("hidden");
 		titleInput.value = plans.title;
 		contentInput.value = plans.content;
-	} else if (titleInput.value == plans.title) {
+		if (plans.important === "on") {
+			if (importantRadio.checked === false) importantRadio.checked = true;
+			if (!grayButton.classList.contains("hidden")) toggleImportant(index);
+		} else {
+			if (importantRadio.checked === true) {
+				importantRadio.checked = false;
+				if (grayButton.classList.contains("hidden")) toggleImportant(index);
+			}
+		}
+		idInput.value = plans.id;
+	} else if (idInput.value === plans.id) {
+		// 같은 할 일의 수정 버튼을 다시 클릭
+		if (detailBox.classList.contains("active")) {
+			titleInput.value = "";
+			contentInput.value = "";
+			importantRadio.checked = false;
+			idInput.value = "";
+			editBtn.classList.toggle("hidden");
+			if (plans.important === "on") plans.important = "off";
+			if (grayButton.classList.contains("hidden")) toggleImportant(index);
+		}
 		slidePlanDetail(index);
-		editBtn.classList.toggle("hidden");
-		titleInput.value = "";
-		contentInput.value = "";
-	} else if (titleInput.value != plans.title) {
-		titleInput.value = plans.title;
-		contentInput.value = plans.content;
 	}
 }
 

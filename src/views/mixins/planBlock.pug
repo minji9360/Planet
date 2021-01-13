@@ -2,7 +2,7 @@ mixin planBlock(i, plans = {})
     li.plan(id=`plan${plans.id}`)
         form(method="post")
             - const plansId = "'" + plans.id + "'"
-            - var plan = JSON.stringify(plans)
+            - const plan = JSON.stringify(plans)
             input(type="hidden", name="completed", value=plans.completed)
             - if (plans.important === "on")
                 - if (plans.completed === "false")
@@ -17,15 +17,14 @@ mixin planBlock(i, plans = {})
         form(method="post")
             - if (plans.completed === "false")
                 - if (plans.important === "on")
-                    span.plan-title__span.important(id=`span${plans.id}`)=plans.title
+                    span.plan-title__span.important=plans.title
                 - else
-                    span.plan-title__span(id=`span${plans.id}`)=plans.title
+                    span.plan-title__span=plans.title
             - else
                 - if (plans.important === "on")
-                    span.plan-title__span.completed.important(id=`span${plans.id}`)=plans.title
+                    span.plan-title__span.completed.important=plans.title
                 - else
-                    span.plan-title__span.completed(id=`span${plans.id}`)=plans.title
-            input.plan-title__input(type="text", name="title", id=`input${plans.id}`, value=plans.title)
+                    span.plan-title__span.completed=plans.title
             .buttons
                 .buttons-default(id=`defaultBtns${plans.id}`)
                     - if (plans.completed === "false")

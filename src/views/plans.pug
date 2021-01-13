@@ -74,6 +74,7 @@ block content
                                         input.important__radio(id=`important${i}`, type="radio", name="important")
                                         input.setence__radio(id=`senteceDaily${i}`, type="radio", name="daily", value="true", checked)
                                         input.setence__radio(id=`senteceGoal${i}`, type="radio", name="daily", value="false")
+                                        input(id=`idInput${i}`, type="hidden", name="id")
                             - else
                                 .add-title
                                     a.option__button(type="button", disabled)
