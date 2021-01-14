@@ -87,14 +87,9 @@ function slidePlanDetail(index) {
 	downImage.classList.toggle("hidden");
 }
 
-function editPlanSubmit(form, index) {
-	const id = document.querySelector("#idInput" + index).value;
-	const thisForm = document.querySelector("#addForm" + index);
-	thisForm.submit();
-}
-
 function editPlan(index, plans) {
 	// 수정 버튼 클릭 시 작동
+	const addBtn = document.querySelector("#addButton" + index);
 	const editBtn = document.querySelector("#editButton" + index);
 	const titleInput = document.querySelector("#titleInput" + index);
 	const contentInput = document.querySelector("#contentInput" + index);
@@ -105,6 +100,7 @@ function editPlan(index, plans) {
 
 	if (idInput.value === "" || idInput.value !== plans.id) {
 		// 수정 버튼을 처음 클릭하거나 수정하려던 할 일이 아닌 일의 수정 버튼을 다시 클릭
+		addBtn.disabled = true;
 		if (!detailBox.classList.contains("active")) slidePlanDetail(index);
 		if (idInput.value === "") editBtn.classList.toggle("hidden");
 		titleInput.value = plans.title;
@@ -121,6 +117,7 @@ function editPlan(index, plans) {
 		idInput.value = plans.id;
 	} else if (idInput.value === plans.id) {
 		// 같은 할 일의 수정 버튼을 다시 클릭
+		addBtn.disabled = false;
 		if (detailBox.classList.contains("active")) {
 			titleInput.value = "";
 			contentInput.value = "";
@@ -290,7 +287,6 @@ function init() {
 	window.toggleSentenceDaily = toggleSentenceDaily;
 	window.toggleSentenceGoal = toggleSentenceGoal;
 	window.showDetail = showDetail;
-	window.editPlanSubmit = editPlanSubmit;
 }
 
 init();
