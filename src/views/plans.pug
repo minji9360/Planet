@@ -10,6 +10,7 @@ block content
             ol.day__list#slider
                 each i in order
                     li.day__item
+                        - let todaySentence
                         .title
                             .title__date
                                 span=thisWeek.date[i]
@@ -22,9 +23,10 @@ block content
                                     p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                                 - else
                                     each item in user.sentence
-                                        - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
+                                        - if (item.daily===true && thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
                                             p.description(id=`description${i}`) !{item.content.replace(/\n/g, '<br />')}
                                             - flag = 1
+                                            - todaySentence = JSON.stringify(item)
                                             - break
                                     - if (flag==0)
                                         p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
@@ -67,7 +69,7 @@ block content
                                                 img.gray__button(id=`goalGray${i}`, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACM0lEQVRoge2YsW/UMBTGv2fDCAOMdIFusHfp0JMYegwsSPcfOJbvT+gEnZho1eki393M0IUNhlbtiMTE0BV2hBhYe+fHAJVC7pI6TnJJpPy2e3H8vi/22c8Genp6epqEmhawDmPMwDl3kYxZa9dqFZuRVIzlcvnat23rDBhjBkQ08G3fOgNFvj4A3KlLSBGiKHpGRCMAIwBPi7zbmIEyopNs1EBVopPUbiBA9DWAcwBDn/5rMRAgesnMnwGcSinfx3H8Q2vNPrkqM1CF6JC8uQaUUltEdExE+wDuhSRIcQ3gnJlPnXMf5vP5r7IdZhpQSm0JIb4CeFAyR+Wik2QaIKJjlBP/qS7RSfIM7Jfp2Fr7osz7vuT9B/6b81nV4A2+q0YoSqnHs9nsezreulooCyHEF6319kq8CTGBPATwNh3skgEAeJ4OdM3ACp0yQERn6ViXDPwUQhykg6040PjgnNux1q4so3kGfgO4f/Oj7nX+NtbtAUC+gTMAr0ITaq0/NlpKMPMBEe3h7/obwpCIhlLKWGtdWzGXWx4YYx4x8xEzD5GYTiXwrkzTUzarlAm+mUsnkFJuLxaLlwBGRLTr0UXugcbXQGWr0GQy+QbgBMDJeDx+4mFG/nu265x7F0VR0OmsshHI+kJVHeprH4EsptPpFYArAG88R+YuPG8kgA1vZAHT7FYa24mrMtOKUiJpJoqii07fTkspD4u0b52BOI4vmfnSt33rDADFR6Gnp6enOf4AKHMEq7CC+DQAAAAASUVORK5CYII=")
                                                 img.color__button.hidden(id=`goalColor${i}`, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAB+klEQVRoge2YMW/TQBiGnzsXRFsDgg5dMlTqD2AAsbBEJIixW9hKBU1ZkFhbFsSEmDoj9xekPyFt0x0YujIwwcCQgdSAhBR/XSoUXPsUNz77LPkZv9w535O8uvMd1NTU1JSJKruBJAK/31TowWRtM2wl9qqLaSkbCu/NtGOdEwj8fhOkOe145wSy/PoAc7YayUKP3tWRv7QGvAJ5kGVuqQLB4sGy0mpjJLwEGpd5RikCwcLRXa2jLUGtI1yb5VmFCcRjIjmt4NYF8oiJCWsCecbEhFEgmB80tBftCjwGrpvGxndKpeVTXjExkSoQzA8ayotOBG5b72IGUjcy7UW7ON48GATOY+M8plcJY+aL5sPNw9WkunPvQml4Yz4mSVRGALjljXkXL1ZJAKAVL1RN4AIVE1D9eKVKAkPtRa/jxcoIaE/uP/vZ/nqhbpgzsthPZpKaB7PAgaVeciVVIFKyAwwL7OVSpApsnba/XBlzR6CHY3GaxHgeePqn9R14kvTZnn8oprkSqXv/DjTYO9BYW4W6vx9+fh62X4jICopt4JuN77G+jHZ/tX9snrbe3wiHq0BHULkuDoXdSnTo/CVkH9j/77w8Y7xK2cjyjFepO3Ee8XLibnQyXnv+0aDSt9PC+G2W8c4JdMNHx6COpx3vnABk/xdqampqyuMMKDCWXLh6sXkAAAAASUVORK5CYII=")
                                                 | 최상위 목표
-                                        a.sentence__button(id=`sentenceButton${i}`, type="button", onclick=`toggleSentence(${i});`)
+                                        a.sentence__button(id=`sentenceButton${i}`, type="button", onclick=`toggleSentence(${i}, ${todaySentence});`)
                                             img.gray__button(id=`sentenceGray${i}`, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACb0lEQVRoge2YP4gTQRTGv7fZS7DxcnCHJLVdmuuthFO00mavODi5JGQgRUC0EWy2sVTEJmGSkMODg2NtrGwOrcRKsInYWijICSlEIUt2xsKoG/JnZjfRDWR+3bJv3nzfvjdvYQCDYbUhnaBSqZS3bfsRgOsAzv9bSfhGRC+I6E6j0fikClYaKJfLF1Op1BsAmwuRp89Xy7K2VSYsVRbbth/g/4sHgE0hxENVkNKAlHJnMXpicU0VYGskGen5fD6/5rruILYkBYwxGXpcV8UrK7DsGANJYwwkzUoYGPlbd7tdOS0wCVaiAkuNMZA0xkDSRB6jy0bkChQKBfMfWCTGQNIYA0mzemPUdV0zRhfJ6hlwXVf7TDDGcoyxXNQ9oqBzMzeC6gzUarWM7/tXpZT7AG4CSDHGXhLRkZTyGef8R1yxk4hsYBqVSqUAYL/f75cxfhm8M7xjfcIYOwFwxDl/DWDugaBjYGrLMMZyUspdIjoAsK2Rax0A+7WUfQBwEgRBp91uf9STG0FcSOTIV/J9/1wmk7kSapG1uJsPEQD+tBiA7+GXnPOZGnUqIBEymk6nP0spNxRrzojoWAhxCACWZR1IKfcAbE2ItfC3xR5r6BkhTgtNEx8AeAWA93q9557n+aF3tx3HuZvNZi8TEQNwA0B6Qg7VhxljEYf4PRE9DYLgsNVqfZkW5HleAOAUwGm1Wt0QQjhCiFtEdGmezeMa6AHwhBC81Wq9jbq4Xq/3AHAA/Pf0Gg6CC1FzRTEwq0Vi02w2uwDuOY5zX6PFxtAx8E5KeTgYDI47nc7ZPGJnEW6xYrG4Zdv23rAqBoNhBj8BdnrKOKWctfQAAAAASUVORK5CYII=")
                                             img.color__button.hidden(id=`sentenceColor${i}`, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABhUlEQVRoge2ZIUhDURSGv/M2LA6HglqEMcQ0oyaLRkEwrQiKyWZQECYWMQwMKmJbGgbLks0wMJoEk0VQtIngQJyK7r1r0DBk7s7tzSt4vvju4Z7/u+/cdEFR/jfSSFF85Waw4vsbwBTQ1d5IPCAc+YG3+rKTuLQVWwU+w58AvaHEa5x733ijNgnPtksl8LP8fniAnogEWVuRVQDDeChxmmPSVmAXgL4QgjSL9b41IvCnUQHXqIBrVMA1KuAaFXCNCrhGBVyjAq5RAdeogGtUwDUq4BoVcI0KuKZdAiUx5Ix4I2K8YWATuG1Ho2iIe/mIHIsJco9dz4esp16r1jKkzVrnwOUEElkAMw10hNE0DIFzYB/f5Mu7ye9PuSB+GYpAMZ657n57C9IYMyfIWCvNrW9knctXpsbnkhgKgeflnrYSp60EiC1dp4wEs8A80P91vbydrJvxJwL1RqR10iZSa8RsAvYREs6AvLxWDh73hu5CCVuLqhGLLV70mo7oDB9/RVGUOrwDNhlydoMM8KoAAAAASUVORK5CYII=")
                                             | 목표
