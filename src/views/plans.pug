@@ -49,7 +49,7 @@ block content
                                         img.down__image.hidden(id=`downImage${i}`, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABPElEQVRIie2WvU7CUBiGn0OrsfUCMJawuOhFODh5D4I7rRfg4KpXQOxGxOBi/GHVySibzgSMgYnBUWwLQw/WQSEGyk9NuijvdJKT8zw53/fl5AjXb28nCLaIIR+IO1UQbAaC/TgEIghkIg7wz8wF/1ngdTzKt2V86Y897Euf65srHNeJJnA9F7t0zMPjPYXzQqhE9iSnl0UqTxXypTzvTnt2gaIoqKoKwHOzPiKRPUnx4oTqSxWARWUBVVFnF2hLGrmMSXo1PSIZhhtJAytroevLoQLh+W+HCA7CNrvdDvaZTeu1BcD62gYA9UYNgNRKCitroWl6KJyAo4lTpGk61u7e4Cb1Rm0AN5IGZsYcD//O1DEdLlcfPqkskQTDkihwgPDWj5Ps5L7WU8ryK0FUcD9/+C2aC/oRcX9bPgF+W3wwgGZDMQAAAABJRU5ErkJggg==")
                                     input.add-title__input(id=`titleInput${i}`, type="text", name="title", placeholder="할 일", required)
                                     button.add-title__button(formaction=`plans${routes.uploadPlan}`) 추가
-                                    button.edit-check__button.hidden(id=`editButton${i}`, formaction=routes.editPlan()) 수정
+                                    button.edit-check__button.hidden(id=`editButton${i}`, formaction=`plans${routes.editPlan}`) 수정
                                 .add-detail(id=`detailBox${i}`)
                                     textarea.add-detail__input(id=`contentInput${i}`, name="content", placeholder="상세 내용을 입력해주세요.")
                                     button.add-detail__button.hidden(id=`contentButton${i}`, formaction=`plans${routes.uploadSentence}`) 추가

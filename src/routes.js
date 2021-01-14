@@ -15,7 +15,7 @@ const PLANS = "/plans";
 const UPLOAD_PLAN = "/upload/plan";
 const UPLOAD_SENTENCE = "/upload/sentence";
 const DELETE_PLAN = "/:id/delete";
-const EDIT_PLAN = "/:id/edit";
+const EDIT_PLAN = "/edit";
 const CHECK_PLAN = "/:id/check";
 
 // Calendar
@@ -36,18 +36,12 @@ const routes = {
 	plans: PLANS,
 	uploadPlan: UPLOAD_PLAN,
 	uploadSentence: UPLOAD_SENTENCE,
+	editPlan: EDIT_PLAN,
 	deletePlan: (id) => {
 		if (id) {
 			return `/plans/${id}/delete`;
 		} else {
 			return DELETE_PLAN;
-		}
-	},
-	editPlan: (id) => {
-		if (id) {
-			return `/plans/${id}/edit`;
-		} else {
-			return EDIT_PLAN;
 		}
 	},
 	checkPlan: (id) => {

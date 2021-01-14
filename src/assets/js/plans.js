@@ -87,6 +87,12 @@ function slidePlanDetail(index) {
 	downImage.classList.toggle("hidden");
 }
 
+function editPlanSubmit(form, index) {
+	const id = document.querySelector("#idInput" + index).value;
+	const thisForm = document.querySelector("#addForm" + index);
+	thisForm.submit();
+}
+
 function editPlan(index, plans) {
 	// 수정 버튼 클릭 시 작동
 	const editBtn = document.querySelector("#editButton" + index);
@@ -284,6 +290,7 @@ function init() {
 	window.toggleSentenceDaily = toggleSentenceDaily;
 	window.toggleSentenceGoal = toggleSentenceGoal;
 	window.showDetail = showDetail;
+	window.editPlanSubmit = editPlanSubmit;
 }
 
 init();
