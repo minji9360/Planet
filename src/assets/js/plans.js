@@ -46,6 +46,10 @@ function toggleSentence(index, sentence) {
 	const titleBox = document.querySelector("#titleBox" + index);
 	const detailButton = document.querySelector("#contentButton" + index);
 	const sentenceButtons = document.querySelector("#sentenceButtons" + index);
+	const editSentenceButton = document.querySelector(
+		"#editSentenceButton" + index
+	);
+	const idInput = document.querySelector("#idInput" + index);
 
 	grayButton.classList.toggle("hidden");
 	colorButton.classList.toggle("hidden");
@@ -56,7 +60,11 @@ function toggleSentence(index, sentence) {
 	detailBox.classList.toggle("sentence");
 	sentenceButtons.classList.toggle("hidden");
 
-	if (sentence !== undefined) contentInput.value = sentence.content;
+	if (sentence !== undefined) {
+		contentInput.value = sentence.content;
+		idInput.value = sentence._id;
+		editSentenceButton.classList.toggle("hidden");
+	}
 
 	if (titleBox.classList.contains("hidden")) {
 		titleInput.required = false;
@@ -66,6 +74,7 @@ function toggleSentence(index, sentence) {
 		titleInput.required = true;
 		contentInput.required = false;
 		contentInput.value = "";
+		idInput.value = "";
 		contentInput.placeholder = "상세 내용을 입력해주세요.";
 	}
 }
