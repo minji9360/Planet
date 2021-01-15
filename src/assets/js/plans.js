@@ -256,6 +256,36 @@ function loadPlan(i, plan) {
 	loadImportant(i);
 }
 
+function clickDaily(i, sentence) {
+	const grayDailyButton = document.querySelector("#dailyGray" + i);
+	const colorDaillyButton = document.querySelector("#dailyColor" + i);
+	const grayGoalButton = document.querySelector("#goalGray" + i);
+	const colorGoalButton = document.querySelector("#goalColor" + i);
+	const addButton = document.querySelector("#contentButton" + i);
+	const editButton = document.querySelector("#editSentenceButton" + i);
+
+	changeBtn(grayDailyButton, colorDaillyButton);
+	changeBtn(colorGoalButton, grayGoalButton);
+	if (sentence === undefined) changeBtn(editButton, addButton);
+	else changeBtn(addButton, editButton);
+	resetForm(i);
+	loadSentence(i, sentence);
+}
+
+function clickGoal(i) {
+	const grayDailyButton = document.querySelector("#dailyGray" + i);
+	const colorDaillyButton = document.querySelector("#dailyColor" + i);
+	const grayGoalButton = document.querySelector("#goalGray" + i);
+	const colorGoalButton = document.querySelector("#goalColor" + i);
+	const addSentenceButton = document.querySelector("#contentButton" + i);
+	const editSentenceButton = document.querySelector("#editSentenceButton" + i);
+
+	changeBtn(colorDaillyButton, grayDailyButton);
+	changeBtn(grayGoalButton, colorGoalButton);
+	changeBtn(editSentenceButton, addSentenceButton);
+	resetForm(i);
+}
+
 function clickSentence(i, sentence) {
 	const grayButton = document.querySelector("#sentenceGray" + i);
 	const colorButton = document.querySelector("#sentenceColor" + i);
@@ -462,8 +492,8 @@ function init() {
 	window.slidePlanDetail = slidePlanDetail;
 	window.updateImportant = updateImportant;
 	window.clickSentence = clickSentence;
-	// window.toggleSentenceDaily = toggleSentenceDaily;
-	// window.toggleSentenceGoal = toggleSentenceGoal;
+	window.clickGoal = clickGoal;
+	window.clickDaily = clickDaily;
 	window.showDetail = showDetail;
 }
 
