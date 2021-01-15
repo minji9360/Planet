@@ -164,20 +164,11 @@ function slidePlanDetail(index) {
 // 	}
 // }
 
-function loadImportant(i) {
-	const important = document.querySelector("#important" + i);
-	const grayButton = document.querySelector("#importantGray" + i);
-	const colorButton = document.querySelector("#importantColor" + i);
+function clickSentence(i, sentence) {}
 
-	if (important.value === "true") {
-		important.checked = true;
-		grayButton.classList.add("hidden");
-		colorButton.classList.remove("hidden");
-	} else {
-		important.checked = false;
-		grayButton.classList.remove("hidden");
-		colorButton.classList.add("hidden");
-	}
+function changeBtn(hiddenButton, shownButton) {
+	hiddenButton.classList.add("hidden");
+	shownButton.classList.remove("hidden");
 }
 
 function resetForm(i) {
@@ -195,18 +186,52 @@ function resetForm(i) {
 }
 
 function updateImportant(i) {
+	// const planId = document.querySelector("#idInput" + i).value;
 	const important = document.querySelector("#important" + i);
 	const grayButton = document.querySelector("#importantGray" + i);
 	const colorButton = document.querySelector("#importantColor" + i);
 
+	// if (planId === "") {
 	if (important.checked === true) {
 		important.value = false;
-		grayButton.classList.remove("hidden");
-		colorButton.classList.add("hidden");
+		changeBtn(colorButton, grayButton);
 	} else {
 		important.value = true;
-		grayButton.classList.add("hidden");
-		colorButton.classList.remove("hidden");
+		changeBtn(grayButton, colorButton);
+	}
+	// }
+	// id값이 있든 없든 기존 값에 따라 버튼 클릭 값이 달라지는 것은 똑같음
+	// 그래서 수정 누르면 값 세팅만 되고 이 아래는 필요 없을지도..?
+	// else {
+	// 	if (important.checked === true) {
+	// 		important.value = false;
+	// 	} else if (important.checked === false) {
+	// 		important.value = true;
+	// 	} else {
+	// 		console.log("id값 있음 - important Error");
+	// 	}
+	// }
+
+	// if id값이 있다 (수정 누른 것)
+	// if 데이터가 true (중요 표시 됐던 것)
+	// 회색 활성화, 컬러 비활성화
+	// 데이터 false로 변경
+	// else 데이터가 false거나 null ()
+	// 회색 비활성화, 컬러 활성화
+	// 데이터 true로 변경
+}
+
+function loadImportant(i) {
+	const important = document.querySelector("#important" + i);
+	const grayButton = document.querySelector("#importantGray" + i);
+	const colorButton = document.querySelector("#importantColor" + i);
+
+	if (important.value === "true") {
+		important.checked = true;
+		changeBtn(grayButton, colorButton);
+	} else {
+		important.checked = false;
+		changeBtn(colorButton, grayButton);
 	}
 }
 
@@ -223,11 +248,6 @@ function loadPlan(i, plan) {
 	planId.value = plan.id;
 	important.value = plan.important;
 	loadImportant(i);
-}
-
-function changeBtn(hiddenButton, shownButton) {
-	hiddenButton.classList.add("hidden");
-	shownButton.classList.remove("hidden");
 }
 
 function clickEdit(i, plan) {
