@@ -180,6 +180,20 @@ function loadImportant(i) {
 	}
 }
 
+function resetForm(i) {
+	const title = document.querySelector("#titleInput" + i);
+	const content = document.querySelector("#contentInput" + i);
+	const important = document.querySelector("#important" + i);
+	const planId = document.querySelector("#idInput" + i);
+
+	title.value = "";
+	content.value = "";
+	important.value = false;
+	planId.value = "";
+
+	loadImportant(i);
+}
+
 function updateImportant(i) {
 	const important = document.querySelector("#important" + i);
 	const grayButton = document.querySelector("#importantGray" + i);
@@ -208,15 +222,24 @@ function loadPlan(i, plan) {
 	content.value = plan.content;
 	planId.value = plan.id;
 	important.value = plan.important;
-
 	loadImportant(i);
 }
 
 function clickEdit(i, plan) {
 	const downButton = document.querySelector("#downImage" + i);
+	const planId = document.querySelector("#idInput" + i);
 
-	loadPlan(i, plan);
-	if (downButton.classList.contains("hidden")) slidePlanDetail(i);
+	if (downButton.classList.contains("hidden")) {
+		slidePlanDetail(i);
+		loadPlan(i, plan);
+	} else {
+		if (planId.value === plan.id) {
+			slidePlanDetail(i);
+			resetForm(i);
+		} else {
+			loadPlan(i, plan);
+		}
+	}
 }
 
 var Slider = function (id, _web, _tab, _mobile, spacing) {
