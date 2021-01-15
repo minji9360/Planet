@@ -225,20 +225,27 @@ function loadPlan(i, plan) {
 	loadImportant(i);
 }
 
+function changeBtn(hiddenButton, shownButton) {
+	hiddenButton.classList.add("hidden");
+	shownButton.classList.remove("hidden");
+}
+
 function clickEdit(i, plan) {
 	const downButton = document.querySelector("#downImage" + i);
 	const planId = document.querySelector("#idInput" + i);
+	const addButton = document.querySelector("#addButton" + i);
+	const editButton = document.querySelector("#editButton" + i);
 
+	changeBtn(addButton, editButton);
 	if (downButton.classList.contains("hidden")) {
 		slidePlanDetail(i);
 		loadPlan(i, plan);
+	} else if (planId.value === plan.id) {
+		slidePlanDetail(i);
+		resetForm(i);
+		changeBtn(editButton, addButton);
 	} else {
-		if (planId.value === plan.id) {
-			slidePlanDetail(i);
-			resetForm(i);
-		} else {
-			loadPlan(i, plan);
-		}
+		loadPlan(i, plan);
 	}
 }
 
@@ -394,6 +401,9 @@ function init() {
 	window.clickEdit = clickEdit;
 	window.slidePlanDetail = slidePlanDetail;
 	window.updateImportant = updateImportant;
+	// window.toggleSentence = toggleSentence;
+	// window.toggleSentenceDaily = toggleSentenceDaily;
+	// window.toggleSentenceGoal = toggleSentenceGoal;
 	window.showDetail = showDetail;
 }
 
