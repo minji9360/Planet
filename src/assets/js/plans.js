@@ -164,8 +164,6 @@ function slidePlanDetail(index) {
 // 	}
 // }
 
-function clickSentence(i, sentence) {}
-
 function changeBtn(hiddenButton, shownButton) {
 	hiddenButton.classList.add("hidden");
 	shownButton.classList.remove("hidden");
@@ -235,6 +233,14 @@ function loadImportant(i) {
 	}
 }
 
+function loadSentence(i, sentence) {
+	const content = document.querySelector("#contentInput" + i);
+	const sentenceId = document.querySelector("#idInput" + i);
+
+	content.value = sentence.content;
+	sentenceId.value = sentence._id;
+}
+
 function loadPlan(i, plan) {
 	// 슬라이드가 내려가 있을 때, 올라가 있을 때 > 무조건 올라오게
 	// content가 있을 때, 없을 때 > 똑같이 값을 가져오면 됨
@@ -248,6 +254,40 @@ function loadPlan(i, plan) {
 	planId.value = plan.id;
 	important.value = plan.important;
 	loadImportant(i);
+}
+
+function clickSentence(i, sentence) {
+	const grayButton = document.querySelector("#sentenceGray" + i);
+	const colorButton = document.querySelector("#sentenceColor" + i);
+	const sentenceButtons = document.querySelector("#sentenceButtons" + i);
+	const importantLabel = document.querySelector("#importantLabel" + i);
+	const addSentenceButton = document.querySelector("#contentButton" + i);
+	const editSentenceButton = document.querySelector("#editSentenceButton" + i);
+	const titleBox = document.querySelector("#titleBox" + i);
+	const title = document.querySelector("#titleInput" + i);
+
+	if (colorButton.classList.contains("hidden")) {
+		changeBtn(grayButton, colorButton);
+		changeBtn(importantLabel, sentenceButtons);
+		resetForm(i);
+		titleBox.classList.add("hidden");
+		title.required = false;
+
+		if (sentence === undefined) {
+			changeBtn(editSentenceButton, addSentenceButton);
+		} else {
+			changeBtn(addSentenceButton, editSentenceButton);
+			loadSentence(i, sentence);
+		}
+	} else {
+		title.required = true;
+		changeBtn(colorButton, grayButton);
+		changeBtn(sentenceButtons, importantLabel);
+		resetForm(i);
+		titleBox.classList.remove("hidden");
+		addSentenceButton.classList.add("hidden");
+		editSentenceButton.classList.add("hidden");
+	}
 }
 
 function clickEdit(i, plan) {
@@ -421,7 +461,7 @@ function init() {
 	window.clickEdit = clickEdit;
 	window.slidePlanDetail = slidePlanDetail;
 	window.updateImportant = updateImportant;
-	// window.toggleSentence = toggleSentence;
+	window.clickSentence = clickSentence;
 	// window.toggleSentenceDaily = toggleSentenceDaily;
 	// window.toggleSentenceGoal = toggleSentenceGoal;
 	window.showDetail = showDetail;
