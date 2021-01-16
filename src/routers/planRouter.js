@@ -6,6 +6,7 @@ import {
 	checkPlan,
 	postUploadSentence,
 	postEditPlan,
+	postEditSentence,
 } from "../controllers/planController.js";
 import { onlyPrivate } from "../middlewares.js";
 import routes from "../routes.js";
@@ -17,6 +18,7 @@ planRouter.post(routes.uploadPlan, postUploadPlan);
 planRouter.post(routes.uploadSentence, postUploadSentence);
 planRouter.get(routes.deletePlan(), onlyPrivate, deletePlan);
 planRouter.post(routes.editPlan, postEditPlan);
+planRouter.post(routes.editSentence, postEditSentence);
 planRouter.post(routes.checkPlan(), checkPlan);
 
 export default planRouter;

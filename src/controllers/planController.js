@@ -79,6 +79,19 @@ export const postEditPlan = async (req, res) => {
 	}
 };
 
+export const postEditSentence = async (req, res) => {
+	const {
+		body: { id, content },
+	} = req;
+	try {
+		await Sentence.findOneAndUpdate({ _id: id }, { content });
+		res.redirect(routes.plans);
+	} catch (error) {
+		console.log(error);
+		res.redirect(routes.plans);
+	}
+};
+
 export const checkPlan = async (req, res) => {
 	const {
 		params: { id },
