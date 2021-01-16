@@ -295,6 +295,7 @@ function clickSentence(i, sentence) {
 	const editSentenceButton = document.querySelector("#editSentenceButton" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
 	const title = document.querySelector("#titleInput" + i);
+	const contentInput = document.querySelector("#contentInput" + i);
 
 	if (colorButton.classList.contains("hidden")) {
 		changeBtn(grayButton, colorButton);
@@ -302,6 +303,7 @@ function clickSentence(i, sentence) {
 		resetForm(i);
 		titleBox.classList.add("hidden");
 		title.required = false;
+		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
 
 		if (sentence === undefined) {
 			changeBtn(editSentenceButton, addSentenceButton);
@@ -317,6 +319,7 @@ function clickSentence(i, sentence) {
 		titleBox.classList.remove("hidden");
 		addSentenceButton.classList.add("hidden");
 		editSentenceButton.classList.add("hidden");
+		contentInput.placeholder = "상세 내용을 입력해주세요.";
 	}
 }
 
@@ -325,8 +328,12 @@ function clickEdit(i, plan) {
 	const planId = document.querySelector("#idInput" + i);
 	const addButton = document.querySelector("#addButton" + i);
 	const editButton = document.querySelector("#editButton" + i);
+	const titleBox = document.querySelector("#titleBox" + i);
 
 	changeBtn(addButton, editButton);
+	if (titleBox.classList.contains("hidden")) {
+		clickSentence(i, null);
+	}
 	if (downButton.classList.contains("hidden")) {
 		slidePlanDetail(i);
 		loadPlan(i, plan);
