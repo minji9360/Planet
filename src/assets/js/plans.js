@@ -8,85 +8,6 @@ function showDetail(id) {
 	upButton.classList.toggle("hidden");
 }
 
-// function toggleSentenceDaily(index) {
-// 	const grayDailyButton = document.querySelector("#dailyGray" + index);
-// 	const colorDailyButton = document.querySelector("#dailyColor" + index);
-// 	const grayGoalButton = document.querySelector("#goalGray" + index);
-// 	const colorGoalButton = document.querySelector("#goalColor" + index);
-
-// 	if (grayGoalButton.classList.contains("hidden")) {
-// 		grayGoalButton.classList.toggle("hidden");
-// 		colorGoalButton.classList.toggle("hidden");
-// 		grayDailyButton.classList.toggle("hidden");
-// 		colorDailyButton.classList.toggle("hidden");
-// 	}
-// }
-
-// function toggleSentenceGoal(index) {
-// 	const grayDailyButton = document.querySelector("#dailyGray" + index);
-// 	const colorDailyButton = document.querySelector("#dailyColor" + index);
-// 	const grayGoalButton = document.querySelector("#goalGray" + index);
-// 	const colorGoalButton = document.querySelector("#goalColor" + index);
-
-// 	if (grayDailyButton.classList.contains("hidden")) {
-// 		grayGoalButton.classList.toggle("hidden");
-// 		colorGoalButton.classList.toggle("hidden");
-// 		grayDailyButton.classList.toggle("hidden");
-// 		colorDailyButton.classList.toggle("hidden");
-// 	}
-// }
-
-// function toggleSentence(index, sentence) {
-// 	const grayButton = document.querySelector("#sentenceGray" + index);
-// 	const colorButton = document.querySelector("#sentenceColor" + index);
-// 	const importantLabel = document.querySelector("#importantLabel" + index);
-// 	const titleInput = document.querySelector("#titleInput" + index);
-// 	const contentInput = document.querySelector("#contentInput" + index);
-// 	const detailBox = document.querySelector("#detailBox" + index);
-// 	const titleBox = document.querySelector("#titleBox" + index);
-// 	const detailButton = document.querySelector("#contentButton" + index);
-// 	const sentenceButtons = document.querySelector("#sentenceButtons" + index);
-// 	const editSentenceButton = document.querySelector(
-// 		"#editSentenceButton" + index
-// 	);
-// 	const idInput = document.querySelector("#idInput" + index);
-
-// 	grayButton.classList.toggle("hidden");
-// 	colorButton.classList.toggle("hidden");
-// 	importantLabel.classList.toggle("hidden");
-// 	titleBox.classList.toggle("hidden");
-// 	detailButton.classList.toggle("hidden");
-// 	contentInput.classList.toggle("sentence");
-// 	detailBox.classList.toggle("sentence");
-// 	sentenceButtons.classList.toggle("hidden");
-
-// 	if (sentence !== undefined) {
-// 		contentInput.value = sentence.content;
-// 		idInput.value = sentence._id;
-// 		editSentenceButton.classList.toggle("hidden");
-// 	}
-
-// 	if (titleBox.classList.contains("hidden")) {
-// 		titleInput.required = false;
-// 		contentInput.required = true;
-// 		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
-// 	} else {
-// 		titleInput.required = true;
-// 		contentInput.required = false;
-// 		contentInput.value = "";
-// 		idInput.value = "";
-// 		contentInput.placeholder = "상세 내용을 입력해주세요.";
-// 	}
-// }
-
-// function toggleImportant(index) {
-// 	const grayButton = document.querySelector("#importantGray" + index);
-// 	const colorButton = document.querySelector("#importantColor" + index);
-
-// 	grayButton.classList.toggle("hidden");
-// 	colorButton.classList.toggle("hidden");
-// }
-
 function slidePlanDetail(index) {
 	const titleBox = document.querySelector("#titleBox" + index);
 	const detailBox = document.querySelector("#detailBox" + index);
@@ -98,71 +19,6 @@ function slidePlanDetail(index) {
 	upImage.classList.toggle("hidden");
 	downImage.classList.toggle("hidden");
 }
-
-// function editPlan(index, plans) {
-// 	// 수정 버튼 클릭 시 작동
-// 	const titleBox = document.querySelector("#titleBox" + index);
-// 	const addBtn = document.querySelector("#addButton" + index);
-// 	const editBtn = document.querySelector("#editButton" + index);
-// 	const titleInput = document.querySelector("#titleInput" + index);
-// 	const contentInput = document.querySelector("#contentInput" + index);
-// 	const detailBox = document.querySelector("#detailBox" + index);
-// 	const importantRadio = document.querySelector("#important" + index);
-// 	const idInput = document.querySelector("#idInput" + index);
-// 	const grayButton = document.querySelector("#importantGray" + index);
-// 	const graySentenceButton = document.querySelector("#sentenceGray" + index);
-// 	const colorSentenceButton = document.querySelector("#sentenceColor" + index);
-// 	const sentenceButtons = document.querySelector("#sentenceButtons" + index);
-// 	const editSentenceButton = document.querySelector(
-// 		"#editSentenceButton" + index
-// 	);
-// 	const contentButton = document.querySelector("#contentButton" + index);
-
-// 	if (idInput.value === "" || idInput.value !== plans.id) {
-// 		// 수정 버튼을 처음 클릭하거나 수정하려던 할 일이 아닌 일의 수정 버튼을 다시 클릭
-// 		addBtn.disabled = true;
-// 		if (!detailBox.classList.contains("active")) slidePlanDetail(index);
-// 		if (idInput.value === "") editBtn.classList.toggle("hidden");
-// 		if (graySentenceButton.classList.contains("hidden")) {
-// 			titleBox.classList.toggle("hidden");
-// 			editSentenceButton.classList.toggle("hidden");
-// 			contentButton.classList.toggle("hidden");
-// 			// sentenceButtons.classList.toggle("hidden");
-// 			// graySentenceButton.classList.toggle("hidden");
-// 			// colorSentenceButton.classList.toggle("hidden");
-// 			// importantRadio.classList.toggle("hidden");
-// 		}
-// 		titleInput.value = plans.title;
-// 		contentInput.value = plans.content;
-// 		if (plans.important === "on") {
-// 			if (importantRadio.checked === false) importantRadio.checked = true;
-// 			if (!grayButton.classList.contains("hidden")) toggleImportant(index);
-// 		} else {
-// 			if (importantRadio.checked === true) {
-// 				importantRadio.checked = false;
-// 				if (grayButton.classList.contains("hidden")) toggleImportant(index);
-// 			}
-// 			// else {
-// 			// 	if (grayButton.classList.contains("hidden"))
-// 			// 		grayButton.classList.toggle("hidden");
-// 			// }
-// 		}
-// 		idInput.value = plans.id;
-// 	} else if (idInput.value === plans.id) {
-// 		// 같은 할 일의 수정 버튼을 다시 클릭
-// 		addBtn.disabled = false;
-// 		if (detailBox.classList.contains("active")) {
-// 			titleInput.value = "";
-// 			contentInput.value = "";
-// 			importantRadio.checked = false;
-// 			idInput.value = "";
-// 			editBtn.classList.toggle("hidden");
-// 			if (plans.important === "on") plans.important = "off";
-// 			if (grayButton.classList.contains("hidden")) toggleImportant(index);
-// 		}
-// 		slidePlanDetail(index);
-// 	}
-// }
 
 function changeBtn(hiddenButton, shownButton) {
 	hiddenButton.classList.add("hidden");
@@ -184,12 +40,10 @@ function resetForm(i) {
 }
 
 function updateImportant(i) {
-	// const planId = document.querySelector("#idInput" + i).value;
 	const important = document.querySelector("#important" + i);
 	const grayButton = document.querySelector("#importantGray" + i);
 	const colorButton = document.querySelector("#importantColor" + i);
 
-	// if (planId === "") {
 	if (important.checked === true) {
 		important.value = false;
 		changeBtn(colorButton, grayButton);
@@ -197,26 +51,6 @@ function updateImportant(i) {
 		important.value = true;
 		changeBtn(grayButton, colorButton);
 	}
-	// }
-	// id값이 있든 없든 기존 값에 따라 버튼 클릭 값이 달라지는 것은 똑같음
-	// 그래서 수정 누르면 값 세팅만 되고 이 아래는 필요 없을지도..?
-	// else {
-	// 	if (important.checked === true) {
-	// 		important.value = false;
-	// 	} else if (important.checked === false) {
-	// 		important.value = true;
-	// 	} else {
-	// 		console.log("id값 있음 - important Error");
-	// 	}
-	// }
-
-	// if id값이 있다 (수정 누른 것)
-	// if 데이터가 true (중요 표시 됐던 것)
-	// 회색 활성화, 컬러 비활성화
-	// 데이터 false로 변경
-	// else 데이터가 false거나 null ()
-	// 회색 비활성화, 컬러 활성화
-	// 데이터 true로 변경
 }
 
 function loadImportant(i) {
