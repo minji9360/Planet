@@ -290,6 +290,10 @@ function clickSentence(i, sentence) {
 	const grayButton = document.querySelector("#sentenceGray" + i);
 	const colorButton = document.querySelector("#sentenceColor" + i);
 	const sentenceButtons = document.querySelector("#sentenceButtons" + i);
+	const dailyGrayButton = document.querySelector("#dailyGray" + i);
+	const dailyColorButton = document.querySelector("#dailyColor" + i);
+	const goalGrayButton = document.querySelector("#goalGray" + i);
+	const goalColorButton = document.querySelector("#goalColor" + i);
 	const importantLabel = document.querySelector("#importantLabel" + i);
 	const addSentenceButton = document.querySelector("#contentButton" + i);
 	const editSentenceButton = document.querySelector("#editSentenceButton" + i);
@@ -300,6 +304,8 @@ function clickSentence(i, sentence) {
 	if (colorButton.classList.contains("hidden")) {
 		changeBtn(grayButton, colorButton);
 		changeBtn(importantLabel, sentenceButtons);
+		changeBtn(dailyGrayButton, dailyColorButton);
+		changeBtn(goalColorButton, goalGrayButton);
 		resetForm(i);
 		titleBox.classList.add("hidden");
 		title.required = false;
