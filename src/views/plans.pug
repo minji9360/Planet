@@ -76,8 +76,8 @@ block content
                                             img.color__button.hidden(id=`sentenceColor${i}`, src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABhUlEQVRoge2ZIUhDURSGv/M2LA6HglqEMcQ0oyaLRkEwrQiKyWZQECYWMQwMKmJbGgbLks0wMJoEk0VQtIngQJyK7r1r0DBk7s7tzSt4vvju4Z7/u+/cdEFR/jfSSFF85Waw4vsbwBTQ1d5IPCAc+YG3+rKTuLQVWwU+w58AvaHEa5x733ijNgnPtksl8LP8fniAnogEWVuRVQDDeChxmmPSVmAXgL4QgjSL9b41IvCnUQHXqIBrVMA1KuAaFXCNCrhGBVyjAq5RAdeogGtUwDUq4BoVcI0KuKZdAiUx5Ix4I2K8YWATuG1Ho2iIe/mIHIsJco9dz4esp16r1jKkzVrnwOUEElkAMw10hNE0DIFzYB/f5Mu7ye9PuSB+GYpAMZ657n57C9IYMyfIWCvNrW9knctXpsbnkhgKgeflnrYSp60EiC1dp4wEs8A80P91vbydrJvxJwL1RqR10iZSa8RsAvYREs6AvLxWDh73hu5CCVuLqhGLLV70mo7oDB9/RVGUOrwDNhlydoMM8KoAAAAASUVORK5CYII=")
                                             | 목표
                                         input.hidden(id=`important${i}`, type="checkbox", name="important", value="false")
-                                        input.setence__radio(id=`senteceDaily${i}`, type="radio", name="daily", value="true", checked)
-                                        input.setence__radio(id=`senteceGoal${i}`, type="radio", name="daily", value="false")
+                                        input.hidden(id=`senteceDaily${i}`, type="radio", name="daily", value="true", checked)
+                                        input.hidden(id=`senteceGoal${i}`, type="radio", name="daily", value="false")
                                         input(id=`idInput${i}`, type="hidden", name="id")
                             - else
                                 .add-title

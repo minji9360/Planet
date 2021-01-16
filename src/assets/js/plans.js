@@ -29,11 +29,13 @@ function resetForm(i) {
 	const title = document.querySelector("#titleInput" + i);
 	const content = document.querySelector("#contentInput" + i);
 	const important = document.querySelector("#important" + i);
+	const daily = document.querySelector("#senteceDaily" + i);
 	const planId = document.querySelector("#idInput" + i);
 
 	title.value = "";
 	content.value = "";
 	important.value = false;
+	daily.checked = true;
 	planId.value = "";
 
 	loadImportant(i);
