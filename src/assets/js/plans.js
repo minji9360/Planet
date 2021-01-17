@@ -165,6 +165,29 @@ function clickSentence(i, sentence) {
 	}
 }
 
+function clickComment(i) {
+	const slideDownButton = document.querySelector("#downImage" + i);
+	const addCommentButton = document.querySelector("#addCommentButton" + i);
+	const editCommentButton = document.querySelector("#editCommmentButton" + i);
+	const importantLabel = document.querySelector("#importantLabel" + i);
+	const sentenceButtons = document.querySelector("#sentenceButtons" + i);
+	const sentenceButton = document.querySelector("#sentenceButton" + i);
+	const planId = document.querySelector("#idInput" + i);
+	const titleBox = document.querySelector("#titleBox" + i);
+	const contentInput = document.querySelector("#contentInput" + i);
+
+	if (slideDownButton.classList.contains("hidden")) {
+		// changeBtn(editCommentButton, addCommentButton);
+		slidePlanDetail(i);
+		titleBox.classList.add("hidden");
+		importantLabel.classList.add("hidden");
+		sentenceButtons.classList.add("hidden");
+		sentenceButton.classList.add("hidden");
+		addCommentButton.classList.remove("hidden");
+		contentInput.placeholder = "해당 내용에 대한 피드백을 작성해주세요.";
+	}
+}
+
 function clickEdit(i, plan) {
 	const downButton = document.querySelector("#downImage" + i);
 	const planId = document.querySelector("#idInput" + i);
@@ -343,6 +366,7 @@ function init() {
 	window.clickSentence = clickSentence;
 	window.clickGoal = clickGoal;
 	window.clickDaily = clickDaily;
+	window.clickComment = clickComment;
 	window.showDetail = showDetail;
 }
 

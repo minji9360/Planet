@@ -160,7 +160,8 @@ section {
 									display: none;
 									margin-right: 21px;
 
-									.edit__button {
+									.edit__button,
+									.add-comment__button {
 										margin-right: 21px;
 									}
 								}
@@ -366,15 +367,11 @@ section {
 								width: 20px;
 								margin-right: 3px;
 								opacity: 0.83;
+								display: inline-block;
 
 								&:hover {
 									opacity: 1;
 								}
-							}
-							
-							.gray__button,
-							.color__button {
-								display: inline-block;
 							}
 
 							.hidden {
@@ -397,6 +394,20 @@ section {
 
 						&:hover {
 							opacity: 1;
+						}
+					}
+						
+					.delete__button {
+						top: 44px;
+						color: $text-deep;
+						border: 1px solid $border-deep;
+						background-color: $delete-button;
+						// background-color: $border;
+						// background-color: transparent;
+						opacity: 0.93;
+
+						&:hover {
+							opacity:1;
 						}
 					}
 					
