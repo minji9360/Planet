@@ -8,9 +8,8 @@ import thisWeek from "../week.js";
 export const plans = async (req, res) => {
 	try {
 		const user = await User.findById(req.user._id)
-			.populate("plans")
-			.populate("sentence")
-			.populate("feedback");
+			.populate({ path: "plans", populate: { path: "feedback" } })
+			.populate("sentence");
 		if (user.id !== req.user.id) {
 			throw Error();
 		} else {

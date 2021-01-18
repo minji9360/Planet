@@ -19,7 +19,7 @@ block content
                                 |요일
                             .title__description
                                 - let flag = 0
-                                - if (user.sentence.length==0)
+                                - if (user.sentence==null)
                                     p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                                 - else
                                     each item in user.sentence
@@ -32,17 +32,19 @@ block content
                                         p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                         .todolist-box
                             ul.todolist
-                                each item in user.plans
-                                    - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
-                                        +planBlock(
-                                            i,
-                                            {
-                                            id:item._id,
-                                            title:item.title,
-                                            content:item.content,
-                                            important:item.important,
-                                            completed: item.completed
-                                        })
+                                - if (user.plans!=null)
+                                    each item in user.plans
+                                        - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
+                                            +planBlock(
+                                                i,
+                                                {
+                                                id:item._id,
+                                                title:item.title,
+                                                content:item.content,
+                                                important:item.important,
+                                                completed:item.completed,
+                                                feedback:item.feedback,
+                                            })
                         form.add-form(id=`addForm${i}`, method="post", autocomplete="off")
                             - if (i > 0)
                                 .add-title(id=`titleBox${i}`)
@@ -98,7 +100,7 @@ block content
                                         input.hidden(id=`senteceDaily${i}`, type="radio", name="daily", value="true", checked)
                                         input.hidden(id=`senteceGoal${i}`, type="radio", name="daily", value="false")
                                         each score in [1, 2, 3, 4, 5]
-                                            input.hidden(id=`rating${i}${score}`, type="radio", name="rate", value=score)
+                                            input.hidden(id=`rating${i}${score}`, type="radio", name="rating", value=score)
                                         input(id=`idInput${i}`, type="hidden", name="id")
                             - else
                                 .add-title
