@@ -57,7 +57,7 @@ block content
                                     .sentence__button
                                         button.add-detail__button.hidden(id=`contentButton${i}`, formaction=`plans${routes.uploadSentence}`) 추가
                                         button.edit-check__button.hidden(id=`editSentenceButton${i}`, formaction=`plans${routes.editSentence}`) 수정
-                                        button.add-detail__button.hidden(id=`addCommentButton${i}`, formaction=``) 추가
+                                        button.add-detail__button(id=`addCommentButton${i}`, formaction=`plans${routes.uploadFeedback}`) 추가
                                         button.edit-check__button.hidden(id=`editCommentButton${i}`, formaction=``) 수정
                                         button.delete__button(id=`deleteCommentButton${i}`, formaction=``) 삭제
                                     .detail-buttons
@@ -98,7 +98,7 @@ block content
                                         input.hidden(id=`senteceDaily${i}`, type="radio", name="daily", value="true", checked)
                                         input.hidden(id=`senteceGoal${i}`, type="radio", name="daily", value="false")
                                         each score in [1, 2, 3, 4, 5]
-                                            input(id=`rating${i}${score}`, type="radio", name="rate", value=score)
+                                            input.hidden(id=`rating${i}${score}`, type="radio", name="rate", value=score)
                                         input(id=`idInput${i}`, type="hidden", name="id")
                             - else
                                 .add-title

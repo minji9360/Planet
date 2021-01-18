@@ -7,6 +7,7 @@ import {
 	postUploadSentence,
 	postEditPlan,
 	postEditSentence,
+	postUploadFeedback,
 } from "../controllers/planController.js";
 import { onlyPrivate } from "../middlewares.js";
 import routes from "../routes.js";
@@ -16,6 +17,7 @@ const planRouter = express.Router();
 planRouter.get(routes.home, onlyPrivate, plans);
 planRouter.post(routes.uploadPlan, postUploadPlan);
 planRouter.post(routes.uploadSentence, postUploadSentence);
+planRouter.post(routes.uploadFeedback, postUploadFeedback);
 planRouter.get(routes.deletePlan(), onlyPrivate, deletePlan);
 planRouter.post(routes.editPlan, postEditPlan);
 planRouter.post(routes.editSentence, postEditSentence);

@@ -30,15 +30,15 @@ const PlanSchema = new mongoose.Schema({
 		type: Boolean,
 		default: false,
 	},
-	year: String,
-	month: String,
-	date: String,
-	day: String,
 	feedback: {
 		// 할 일 종료 후 피드백 내용
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Feedback",
 	},
+	year: String,
+	month: String,
+	date: String,
+	day: String,
 });
 
 const model = mongoose.model("Plan", PlanSchema);

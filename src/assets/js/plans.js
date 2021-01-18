@@ -180,7 +180,7 @@ function checkRating(date, score) {
 	}
 }
 
-function clickComment(i) {
+function clickFeedback(i, plan) {
 	const slideDownButton = document.querySelector("#downImage" + i);
 	const addCommentButton = document.querySelector("#addCommentButton" + i);
 	const editCommentButton = document.querySelector("#editCommmentButton" + i);
@@ -190,9 +190,12 @@ function clickComment(i) {
 	const planId = document.querySelector("#idInput" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
 	const contentInput = document.querySelector("#contentInput" + i);
+	const title = document.querySelector("#titleInput" + i);
 
 	if (slideDownButton.classList.contains("hidden")) {
 		// changeBtn(editCommentButton, addCommentButton);
+		title.required = false;
+		planId.value = plan.id;
 		slidePlanDetail(i);
 		titleBox.classList.add("hidden");
 		importantLabel.classList.add("hidden");
@@ -380,7 +383,7 @@ function init() {
 	window.clickSentence = clickSentence;
 	window.clickGoal = clickGoal;
 	window.clickDaily = clickDaily;
-	window.clickComment = clickComment;
+	window.clickFeedback = clickFeedback;
 	window.checkRating = checkRating;
 	window.showDetail = showDetail;
 }

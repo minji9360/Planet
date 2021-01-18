@@ -14,6 +14,7 @@ const CHANGE_PASSWORD = "/change-password";
 const PLANS = "/plans";
 const UPLOAD_PLAN = "/upload/plan";
 const UPLOAD_SENTENCE = "/upload/sentence";
+const UPLOAD_FEEDBACK = "/upload/feedback";
 const DELETE_PLAN = "/:id/delete";
 const EDIT_PLAN = "/edit";
 const EDIT_SENTENCE = "/edit/sentence";
@@ -37,6 +38,7 @@ const routes = {
 	plans: PLANS,
 	uploadPlan: UPLOAD_PLAN,
 	uploadSentence: UPLOAD_SENTENCE,
+	uploadFeedback: UPLOAD_FEEDBACK,
 	editPlan: EDIT_PLAN,
 	editSentence: EDIT_SENTENCE,
 	deletePlan: (id) => {

@@ -2,13 +2,15 @@ import routes from "../routes.js";
 import User from "../models/User.js";
 import Plan from "../models/Plan.js";
 import Sentence from "../models/Sentence.js";
+import Feedback from "../models/Feedback.js";
 import thisWeek from "../week.js";
 
 export const plans = async (req, res) => {
 	try {
 		const user = await User.findById(req.user._id)
 			.populate("plans")
-			.populate("sentence");
+			.populate("sentence")
+			.populate("feedback");
 		if (user.id !== req.user.id) {
 			throw Error();
 		} else {
@@ -54,6 +56,27 @@ export const postUploadSentence = async (req, res) => {
 	req.user.sentence.push(newSentence.id);
 	req.user.save();
 	res.redirect(routes.plans);
+};
+
+export const postUploadFeedback = async (req, res) => {
+	const {
+		body: { id, content, rating },
+	} = req;
+	try {
+		const plan = await Plan.findById(id);
+		const newFeedback = await Feedback.create({
+			content,
+			rating,
+		});
+		plan.feedback = newFeedback.id;
+		plan.save();
+		res.redirect(routes.plans);
+	} catch (error) {
+		console.log(error);
+		res.status(400);
+	} finally {
+		res.end();
+	}
 };
 
 export const deletePlan = async (req, res) => {
