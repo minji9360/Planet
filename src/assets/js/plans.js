@@ -165,6 +165,21 @@ function clickSentence(i, sentence) {
 	}
 }
 
+function checkRating(date, score) {
+	for (let i = 1; i < score + 1; i++) {
+		changeBtn(
+			document.querySelector(`#starGray${date}${i}`),
+			document.querySelector(`#starColor${date}${i}`)
+		);
+	}
+	for (let i = 5; i > score; i--) {
+		changeBtn(
+			document.querySelector(`#starColor${date}${i}`),
+			document.querySelector(`#starGray${date}${i}`)
+		);
+	}
+}
+
 function clickComment(i) {
 	const slideDownButton = document.querySelector("#downImage" + i);
 	const addCommentButton = document.querySelector("#addCommentButton" + i);
@@ -219,7 +234,6 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 	let display = _web;
 	let left = 0;
 	let interval;
-	const pagination = document.querySelector(".pagination");
 
 	var DOM = {
 		container: function (id) {
@@ -367,6 +381,7 @@ function init() {
 	window.clickGoal = clickGoal;
 	window.clickDaily = clickDaily;
 	window.clickComment = clickComment;
+	window.checkRating = checkRating;
 	window.showDetail = showDetail;
 }
 
