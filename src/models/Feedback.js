@@ -11,11 +11,8 @@ const FeedbackSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Plan",
 	},
-	content: {
-		// 피드백 내용
-		type: String,
-		required: true,
-	},
+	content: String,
+	// 피드백 내용
 	rating: {
 		// 별점
 		type: Number,
