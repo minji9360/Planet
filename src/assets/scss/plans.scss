@@ -70,7 +70,7 @@ section {
 						position: absolute;
 						width: 438px;
 						height: calc(
-							100% - 102px - 55px
+							100% - 102px - 50px
 						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
 						overflow: auto;
 
@@ -238,7 +238,7 @@ section {
 				}
 
 				.add-form {
-					.add-title {
+					.title {
 						width: 438px;
 						position: absolute;
 						bottom: 0px;
@@ -255,9 +255,8 @@ section {
 						.option__button {
 							width: 26px;
 							position: relative;
-							top: 11px;
-							left: 12px;
-							margin-right: 7px;
+							top: -6px;
+							left: -194px;
 							opacity: 0.93;
 
 							img {
@@ -298,7 +297,7 @@ section {
 						}
 					}
 
-					.add-detail {
+					.detail {
 						position: absolute;
 						width: 438px;
 						height: 110px;
@@ -318,7 +317,7 @@ section {
 							bottom: 0px;
 						}
 
-						&__input {
+						&__textarea {
 							width: 326px;
 							height: 60px;
 							position: absolute;
@@ -416,8 +415,8 @@ section {
 						}
 					}
 						
-					.delete__button {
-						top: 44px;
+					.feedback-delete__button {
+						top: 10px;
 						color: $text-deep;
 						border: 1px solid $border-deep;
 						background-color: $delete-button;

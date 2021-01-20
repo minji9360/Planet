@@ -14,6 +14,8 @@ function slidePlanDetail(index) {
 	const upImage = document.querySelector("#upImage" + index);
 	const downImage = document.querySelector("#downImage" + index);
 
+	// hideButtons(index);
+	// showButtons("addPlan", index);
 	titleBox.classList.toggle("active");
 	detailBox.classList.toggle("active");
 	upImage.classList.toggle("hidden");
@@ -25,7 +27,67 @@ function changeBtn(hiddenButton, shownButton) {
 	shownButton.classList.remove("hidden");
 }
 
-function resetForm(i) {
+function hideButtons(i) {
+	const important = document.querySelector("#importantButton" + i);
+	const sentences = document.querySelector("#sentenceButtons" + i);
+	const sentence = document.querySelector("#sentenceButton" + i);
+	const rating = document.querySelector("#rating" + i);
+	const addPlan = document.querySelector("#addButton" + i);
+	const editPlan = document.querySelector("#editButton" + i);
+	const addComment = document.querySelector("#addCommentButton" + i);
+	const editComment = document.querySelector("#editCommentButton" + i);
+	const addSentence = document.querySelector("#contentButton" + i);
+	const editSentence = document.querySelector("#editSentenceButton" + i);
+	const deleteComment = document.querySelector("#deleteCommentButton" + i);
+
+	important.classList.add("hidden");
+	sentences.classList.add("hidden");
+	sentence.classList.add("hidden");
+	rating.classList.add("hidden");
+	addPlan.classList.add("hidden");
+	editPlan.classList.add("hidden");
+	addComment.classList.add("hidden");
+	editComment.classList.add("hidden");
+	addSentence.classList.add("hidden");
+	editSentence.classList.add("hidden");
+	deleteComment.classList.add("hidden");
+}
+
+function showButtons(type, i) {
+	const important = document.querySelector("#importantButton" + i);
+	const sentences = document.querySelector("#sentenceButtons" + i);
+	const sentence = document.querySelector("#sentenceButton" + i);
+	const rating = document.querySelector("#rating" + i);
+	const addPlan = document.querySelector("#addButton" + i);
+	const editPlan = document.querySelector("#editButton" + i);
+	const addComment = document.querySelector("#addCommentButton" + i);
+	const editComment = document.querySelector("#editCommentButton" + i);
+	const addSentence = document.querySelector("#contentButton" + i);
+	const editSentence = document.querySelector("#editSentenceButton" + i);
+	const deleteComment = document.querySelector("#deleteCommentButton" + i);
+
+	if (type === "addPlan") {
+		addPlan.classList.remove("hidden");
+		important.classList.remove("hidden");
+		sentence.classList.remove("hidden");
+	} else if (type === "editPlan") {
+		editPlan.classList.remove("hidden");
+		important.classList.remove("hidden");
+	} else if (type === "addSentence" || type === "editSentence") {
+		sentences.classList.remove("hidden");
+		sentence.classList.remove("hidden");
+		addSentence.classList.remove("hidden");
+	} else if (type === "addFeedback") {
+		addComment.classList.remove("hidden");
+		rating.classList.remove("hidden");
+	} else if (type === "editFeedback") {
+		editComment.classList.remove("hidden");
+		deleteComment.classList.remove("hidden");
+		rating.classList.remove("hidden");
+	}
+}
+
+function resetData(i) {
 	const title = document.querySelector("#titleInput" + i);
 	const content = document.querySelector("#contentInput" + i);
 	const important = document.querySelector("#important" + i);
@@ -73,7 +135,7 @@ function loadSentence(i, sentence) {
 	const content = document.querySelector("#contentInput" + i);
 	const sentenceId = document.querySelector("#idInput" + i);
 
-	content.value = sentence.content;
+	if (sentence.content !== null) content.value = sentence.content;
 	sentenceId.value = sentence._id;
 }
 
@@ -104,7 +166,7 @@ function clickDaily(i, sentence) {
 	changeBtn(colorGoalButton, grayGoalButton);
 	if (sentence === undefined) changeBtn(editButton, addButton);
 	else changeBtn(addButton, editButton);
-	resetForm(i);
+	resetData(i);
 	loadSentence(i, sentence);
 }
 
@@ -119,7 +181,7 @@ function clickGoal(i) {
 	changeBtn(colorDaillyButton, grayDailyButton);
 	changeBtn(grayGoalButton, colorGoalButton);
 	changeBtn(editSentenceButton, addSentenceButton);
-	resetForm(i);
+	resetData(i);
 }
 
 function clickSentence(i, sentence) {
@@ -130,19 +192,22 @@ function clickSentence(i, sentence) {
 	const dailyColorButton = document.querySelector("#dailyColor" + i);
 	const goalGrayButton = document.querySelector("#goalGray" + i);
 	const goalColorButton = document.querySelector("#goalColor" + i);
-	const importantLabel = document.querySelector("#importantLabel" + i);
+	const importantButton = document.querySelector("#importantButton" + i);
 	const addSentenceButton = document.querySelector("#contentButton" + i);
 	const editSentenceButton = document.querySelector("#editSentenceButton" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
 	const title = document.querySelector("#titleInput" + i);
 	const contentInput = document.querySelector("#contentInput" + i);
 
+	hideButtons(i);
 	if (colorButton.classList.contains("hidden")) {
 		changeBtn(grayButton, colorButton);
-		changeBtn(importantLabel, sentenceButtons);
+		// changeBtn(importantButton, sentenceButtons);
 		changeBtn(dailyGrayButton, dailyColorButton);
 		changeBtn(goalColorButton, goalGrayButton);
-		resetForm(i);
+		showButtons("addSentence", i);
+
+		resetData(i);
 		titleBox.classList.add("hidden");
 		title.required = false;
 		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
@@ -156,11 +221,9 @@ function clickSentence(i, sentence) {
 	} else {
 		title.required = true;
 		changeBtn(colorButton, grayButton);
-		changeBtn(sentenceButtons, importantLabel);
-		resetForm(i);
+		showButtons("addPlan", i);
+		resetData(i);
 		titleBox.classList.remove("hidden");
-		addSentenceButton.classList.add("hidden");
-		editSentenceButton.classList.add("hidden");
 		contentInput.placeholder = "상세 내용을 입력해주세요.";
 	}
 }
@@ -184,7 +247,7 @@ function clickFeedback(i, plan) {
 	const slideDownButton = document.querySelector("#downImage" + i);
 	const addCommentButton = document.querySelector("#addCommentButton" + i);
 	const editCommentButton = document.querySelector("#editCommmentButton" + i);
-	const importantLabel = document.querySelector("#importantLabel" + i);
+	const importantButton = document.querySelector("#importantButton" + i);
 	const sentenceButtons = document.querySelector("#sentenceButtons" + i);
 	const sentenceButton = document.querySelector("#sentenceButton" + i);
 	const planId = document.querySelector("#idInput" + i);
@@ -192,16 +255,12 @@ function clickFeedback(i, plan) {
 	const contentInput = document.querySelector("#contentInput" + i);
 	const title = document.querySelector("#titleInput" + i);
 
+	hideButtons(i);
 	if (slideDownButton.classList.contains("hidden")) {
-		// changeBtn(editCommentButton, addCommentButton);
 		title.required = false;
 		planId.value = plan.id;
 		slidePlanDetail(i);
-		titleBox.classList.add("hidden");
-		importantLabel.classList.add("hidden");
-		sentenceButtons.classList.add("hidden");
-		sentenceButton.classList.add("hidden");
-		addCommentButton.classList.remove("hidden");
+		showButtons("addFeedback", i);
 		contentInput.placeholder = "해당 내용에 대한 피드백을 작성해주세요.";
 	}
 }
@@ -209,23 +268,23 @@ function clickFeedback(i, plan) {
 function clickEdit(i, plan) {
 	const downButton = document.querySelector("#downImage" + i);
 	const planId = document.querySelector("#idInput" + i);
-	const addButton = document.querySelector("#addButton" + i);
-	const editButton = document.querySelector("#editButton" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
 
-	changeBtn(addButton, editButton);
+	hideButtons(i);
 	if (titleBox.classList.contains("hidden")) {
 		clickSentence(i, null);
 	}
 	if (downButton.classList.contains("hidden")) {
 		slidePlanDetail(i);
 		loadPlan(i, plan);
+		showButtons("editPlan", i);
 	} else if (planId.value === plan.id) {
 		slidePlanDetail(i);
-		resetForm(i);
-		changeBtn(editButton, addButton);
+		resetData(i);
+		showButtons("addPlan", i);
 	} else {
 		loadPlan(i, plan);
+		showButtons("editPlan", i);
 	}
 }
 
