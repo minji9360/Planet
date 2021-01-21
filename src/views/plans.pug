@@ -109,4 +109,8 @@ block content
                                     each score in [1, 2, 3, 4, 5]
                                         input.hidden(id=`rating${i}${score}`, type="radio", name="rating", value=score)
                                     input(id=`idInput${i}`, type="hidden", name="id")
+                                    input(type="hidden", name="category", value="공부")
+                                    input(type="hidden", name="year", value=thisWeek.year[i])
+                                    input(type="hidden", name="month", value=thisWeek.month[i])
+                                    input(type="hidden", name="date", value=thisWeek.date[i])
         a.next__btn > 
