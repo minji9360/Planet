@@ -59,11 +59,12 @@ export const postUploadSentence = async (req, res) => {
 
 export const postUploadFeedback = async (req, res) => {
 	const {
-		body: { id, content, rating },
+		body: { id, title, content, rating },
 	} = req;
 	try {
 		const plan = await Plan.findById(id);
 		const newFeedback = await Feedback.create({
+			title,
 			content,
 			rating,
 		});

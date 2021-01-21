@@ -14,8 +14,6 @@ function slidePlanDetail(index) {
 	const upImage = document.querySelector("#upImage" + index);
 	const downImage = document.querySelector("#downImage" + index);
 
-	// hideButtons(index);
-	// showButtons("addPlan", index);
 	titleBox.classList.toggle("active");
 	detailBox.classList.toggle("active");
 	upImage.classList.toggle("hidden");
@@ -67,20 +65,30 @@ function showButtons(type, i) {
 	const deleteComment = document.querySelector("#deleteCommentButton" + i);
 
 	if (type === "addPlan") {
+		addPlan.disabled = false;
 		addPlan.classList.remove("hidden");
 		important.classList.remove("hidden");
 		sentence.classList.remove("hidden");
 	} else if (type === "editPlan") {
+		addPlan.disabled = true;
 		editPlan.classList.remove("hidden");
 		important.classList.remove("hidden");
-	} else if (type === "addSentence" || type === "editSentence") {
+	} else if (type === "addSentence") {
+		addPlan.disabled = true;
 		sentences.classList.remove("hidden");
 		sentence.classList.remove("hidden");
 		addSentence.classList.remove("hidden");
+	} else if (type === "editSentence") {
+		addPlan.disabled = true;
+		sentences.classList.remove("hidden");
+		sentence.classList.remove("hidden");
+		editSentence.classList.remove("hidden");
 	} else if (type === "addFeedback") {
+		addPlan.disabled = true;
 		addComment.classList.remove("hidden");
 		rating.classList.remove("hidden");
 	} else if (type === "editFeedback") {
+		addPlan.disabled = true;
 		editComment.classList.remove("hidden");
 		deleteComment.classList.remove("hidden");
 		rating.classList.remove("hidden");
@@ -202,7 +210,6 @@ function clickSentence(i, sentence) {
 	hideButtons(i);
 	if (colorButton.classList.contains("hidden")) {
 		changeBtn(grayButton, colorButton);
-		// changeBtn(importantButton, sentenceButtons);
 		changeBtn(dailyGrayButton, dailyColorButton);
 		changeBtn(goalColorButton, goalGrayButton);
 		showButtons("addSentence", i);
@@ -243,25 +250,58 @@ function checkRating(date, score) {
 	}
 }
 
+function loadFeedback(i, feedback) {
+	const title = document.querySelector("#titleInput" + i);
+	const content = document.querySelector("#contentInput" + i);
+
+	if (feedback.title !== null) title.value = feedback.title;
+	if (feedback.content !== null) content.value = feedback.content;
+	checkRating(i, feedback.rating);
+}
+
 function clickFeedback(i, plan) {
 	const slideDownButton = document.querySelector("#downImage" + i);
-	const addCommentButton = document.querySelector("#addCommentButton" + i);
-	const editCommentButton = document.querySelector("#editCommmentButton" + i);
-	const importantButton = document.querySelector("#importantButton" + i);
-	const sentenceButtons = document.querySelector("#sentenceButtons" + i);
-	const sentenceButton = document.querySelector("#sentenceButton" + i);
 	const planId = document.querySelector("#idInput" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
 	const contentInput = document.querySelector("#contentInput" + i);
 	const title = document.querySelector("#titleInput" + i);
 
+	if (titleBox.classList.contains("hidden")) {
+		// titleBox가 숨어있다.
+		// sentence 관련 작업 중
+		titleBox.classList.remove("hidden");
+		clickSentence(i, null);
+	}
 	hideButtons(i);
+	title.required = false;
 	if (slideDownButton.classList.contains("hidden")) {
-		title.required = false;
-		planId.value = plan.id;
+		// down 버튼이 숨어있다.
+		// 슬라이드가 내려가있다.
 		slidePlanDetail(i);
+		planId.value = plan.id;
+		title.placeholder = "피드백";
+		if (plan.feedback !== undefined) {
+			showButtons("editFeedback", i);
+			loadFeedback(i, plan.feedback);
+		} else showButtons("addFeedback", i);
+	} else if (planId.value === plan.id) {
+		// feedback 버튼 두 번 클릭
+		slidePlanDetail(i);
+		resetData(i);
+		showButtons("addPlan", i);
+		planId.value = "";
+		title.placeholder = "할 일";
+	} else if (plan.feedback !== undefined) {
+		// feedback 처음 누르는데 내용이 있음
+		planId.value = plan.id;
+		title.placeholder = "피드백";
+		loadFeedback(i, plan.feedback);
+		showButtons("editFeedback", i);
+	} else {
+		// 내용이 없으면
+		planId.value = plan.id;
+		title.placeholder = "피드백";
 		showButtons("addFeedback", i);
-		contentInput.placeholder = "해당 내용에 대한 피드백을 작성해주세요.";
 	}
 }
 
