@@ -104,9 +104,9 @@ function resetData(i) {
 
 	title.value = "";
 	content.value = "";
+	planId.value = "";
 	important.value = false;
 	daily.checked = true;
-	planId.value = "";
 
 	loadImportant(i);
 }
@@ -123,6 +123,30 @@ function updateImportant(i) {
 		important.value = true;
 		changeBtn(grayButton, colorButton);
 	}
+}
+
+function checkRating(date, score) {
+	for (let i = 1; i < score + 1; i++) {
+		changeBtn(
+			document.querySelector(`#starGray${date}${i}`),
+			document.querySelector(`#starColor${date}${i}`)
+		);
+	}
+	for (let i = 5; i > score; i--) {
+		changeBtn(
+			document.querySelector(`#starColor${date}${i}`),
+			document.querySelector(`#starGray${date}${i}`)
+		);
+	}
+}
+
+function loadFeedback(i, feedback) {
+	const title = document.querySelector("#titleInput" + i);
+	const content = document.querySelector("#contentInput" + i);
+
+	if (feedback.title !== null) title.value = feedback.title;
+	if (feedback.content !== null) content.value = feedback.content;
+	checkRating(i, feedback.rating);
 }
 
 function loadImportant(i) {
@@ -195,14 +219,10 @@ function clickGoal(i) {
 function clickSentence(i, sentence) {
 	const grayButton = document.querySelector("#sentenceGray" + i);
 	const colorButton = document.querySelector("#sentenceColor" + i);
-	const sentenceButtons = document.querySelector("#sentenceButtons" + i);
 	const dailyGrayButton = document.querySelector("#dailyGray" + i);
 	const dailyColorButton = document.querySelector("#dailyColor" + i);
 	const goalGrayButton = document.querySelector("#goalGray" + i);
 	const goalColorButton = document.querySelector("#goalColor" + i);
-	const importantButton = document.querySelector("#importantButton" + i);
-	const addSentenceButton = document.querySelector("#contentButton" + i);
-	const editSentenceButton = document.querySelector("#editSentenceButton" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
 	const title = document.querySelector("#titleInput" + i);
 	const contentInput = document.querySelector("#contentInput" + i);
@@ -212,62 +232,35 @@ function clickSentence(i, sentence) {
 		changeBtn(grayButton, colorButton);
 		changeBtn(dailyGrayButton, dailyColorButton);
 		changeBtn(goalColorButton, goalGrayButton);
-		showButtons("addSentence", i);
 
 		resetData(i);
-		titleBox.classList.add("hidden");
 		title.required = false;
+		titleBox.classList.add("hidden");
 		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
 
 		if (sentence === undefined) {
-			changeBtn(editSentenceButton, addSentenceButton);
+			showButtons("addSentence", i);
 		} else {
-			changeBtn(addSentenceButton, editSentenceButton);
 			loadSentence(i, sentence);
+			showButtons("editSentence", i);
 		}
 	} else {
-		title.required = true;
 		changeBtn(colorButton, grayButton);
-		showButtons("addPlan", i);
 		resetData(i);
+		showButtons("addPlan", i);
+		title.required = true;
 		titleBox.classList.remove("hidden");
 		contentInput.placeholder = "상세 내용을 입력해주세요.";
 	}
-}
-
-function checkRating(date, score) {
-	for (let i = 1; i < score + 1; i++) {
-		changeBtn(
-			document.querySelector(`#starGray${date}${i}`),
-			document.querySelector(`#starColor${date}${i}`)
-		);
-	}
-	for (let i = 5; i > score; i--) {
-		changeBtn(
-			document.querySelector(`#starColor${date}${i}`),
-			document.querySelector(`#starGray${date}${i}`)
-		);
-	}
-}
-
-function loadFeedback(i, feedback) {
-	const title = document.querySelector("#titleInput" + i);
-	const content = document.querySelector("#contentInput" + i);
-
-	if (feedback.title !== null) title.value = feedback.title;
-	if (feedback.content !== null) content.value = feedback.content;
-	checkRating(i, feedback.rating);
 }
 
 function clickFeedback(i, plan) {
 	const slideDownButton = document.querySelector("#downImage" + i);
 	const planId = document.querySelector("#idInput" + i);
 	const titleBox = document.querySelector("#titleBox" + i);
-	const contentInput = document.querySelector("#contentInput" + i);
 	const title = document.querySelector("#titleInput" + i);
 
 	if (titleBox.classList.contains("hidden")) {
-		// titleBox가 숨어있다.
 		// sentence 관련 작업 중
 		titleBox.classList.remove("hidden");
 		clickSentence(i, null);
@@ -281,9 +274,12 @@ function clickFeedback(i, plan) {
 		planId.value = plan.id;
 		title.placeholder = "피드백";
 		if (plan.feedback !== undefined) {
-			showButtons("editFeedback", i);
 			loadFeedback(i, plan.feedback);
-		} else showButtons("addFeedback", i);
+			showButtons("editFeedback", i);
+		} else {
+			resetData(i);
+			showButtons("addFeedback", i);
+		}
 	} else if (planId.value === plan.id) {
 		// feedback 버튼 두 번 클릭
 		slidePlanDetail(i);
@@ -293,15 +289,15 @@ function clickFeedback(i, plan) {
 		title.placeholder = "할 일";
 	} else if (plan.feedback !== undefined) {
 		// feedback 처음 누르는데 내용이 있음
-		planId.value = plan.id;
-		title.placeholder = "피드백";
 		loadFeedback(i, plan.feedback);
 		showButtons("editFeedback", i);
-	} else {
-		// 내용이 없으면
 		planId.value = plan.id;
 		title.placeholder = "피드백";
+	} else {
+		// 내용이 없으면
 		showButtons("addFeedback", i);
+		planId.value = plan.id;
+		title.placeholder = "피드백";
 	}
 }
 
