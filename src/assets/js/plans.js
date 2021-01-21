@@ -143,9 +143,11 @@ function checkRating(date, score) {
 function loadFeedback(i, feedback) {
 	const title = document.querySelector("#titleInput" + i);
 	const content = document.querySelector("#contentInput" + i);
+	const feedbackId = document.querySelector("#idInput" + i);
 
 	if (feedback.title !== null) title.value = feedback.title;
 	if (feedback.content !== null) content.value = feedback.content;
+	// feedbackId.value = feedback._id;
 	checkRating(i, feedback.rating);
 }
 
@@ -271,21 +273,21 @@ function clickFeedback(i, plan) {
 		// down 버튼이 숨어있다.
 		// 슬라이드가 내려가있다.
 		slidePlanDetail(i);
-		planId.value = plan.id;
 		title.placeholder = "피드백";
 		if (plan.feedback !== undefined) {
 			loadFeedback(i, plan.feedback);
 			showButtons("editFeedback", i);
+			planId.value = plan.id;
 		} else {
 			resetData(i);
 			showButtons("addFeedback", i);
+			planId.value = plan.id;
 		}
 	} else if (planId.value === plan.id) {
 		// feedback 버튼 두 번 클릭
 		slidePlanDetail(i);
 		resetData(i);
 		showButtons("addPlan", i);
-		planId.value = "";
 		title.placeholder = "할 일";
 	} else if (plan.feedback !== undefined) {
 		// feedback 처음 누르는데 내용이 있음
