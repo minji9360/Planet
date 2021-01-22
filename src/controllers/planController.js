@@ -67,6 +67,7 @@ export const postUploadFeedback = async (req, res) => {
 			title,
 			content,
 			rating,
+			plan: plan.id,
 		});
 		plan.feedback = newFeedback.id;
 		plan.save();
@@ -84,8 +85,11 @@ export const deletePlan = async (req, res) => {
 		params: { id },
 	} = req;
 	try {
+		await Feedback.findOneAndRemove({ plan: id });
 		await Plan.findOneAndRemove({ _id: id });
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 	res.redirect(routes.plans);
 };
 
