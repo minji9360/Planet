@@ -93,17 +93,28 @@ export const deletePlan = async (req, res) => {
 	res.redirect(routes.plans);
 };
 
+export const deleteFeedback = async (req, res) => {
+	const {
+		body: { id },
+	} = req;
+	try {
+		await Feedback.findOneAndRemove({ plan: id });
+	} catch (error) {
+		console.log(error);
+	}
+	res.redirect(routes.plans);
+};
+
 export const postEditPlan = async (req, res) => {
 	const {
 		body: { id, title, content, important },
 	} = req;
 	try {
 		await Plan.findOneAndUpdate({ _id: id }, { title, content, important });
-		res.redirect(routes.plans);
 	} catch (error) {
 		console.log(error);
-		res.redirect(routes.plans);
 	}
+	res.redirect(routes.plans);
 };
 
 export const postEditSentence = async (req, res) => {
@@ -112,11 +123,10 @@ export const postEditSentence = async (req, res) => {
 	} = req;
 	try {
 		await Sentence.findOneAndUpdate({ _id: id }, { content });
-		res.redirect(routes.plans);
 	} catch (error) {
 		console.log(error);
-		res.redirect(routes.plans);
 	}
+	res.redirect(routes.plans);
 };
 
 export const checkPlan = async (req, res) => {
@@ -129,8 +139,8 @@ export const checkPlan = async (req, res) => {
 			{ _id: id },
 			{ completed: completed == "true" ? "false" : "true" }
 		);
-		res.redirect(routes.plans);
 	} catch (error) {
-		res.redirect(routes.plans);
+		console.log(error);
 	}
+	res.redirect(routes.plans);
 };

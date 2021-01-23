@@ -16,6 +16,7 @@ const UPLOAD_PLAN = "/upload/plan";
 const UPLOAD_SENTENCE = "/upload/sentence";
 const UPLOAD_FEEDBACK = "/upload/feedback";
 const DELETE_PLAN = "/:id/delete";
+const DELETE_FEEDBACK = "/:id/delete/feedback";
 const EDIT_PLAN = "/edit";
 const EDIT_SENTENCE = "/edit/sentence";
 const CHECK_PLAN = "/:id/check";
@@ -41,6 +42,7 @@ const routes = {
 	uploadFeedback: UPLOAD_FEEDBACK,
 	editPlan: EDIT_PLAN,
 	editSentence: EDIT_SENTENCE,
+	deleteFeedback: DELETE_FEEDBACK,
 	deletePlan: (id) => {
 		if (id) {
 			return `/plans/${id}/delete`;
