@@ -31,7 +31,7 @@ block content
                                     - if (flag==0)
                                         p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                         .todolist-box
-                            ul.todolist
+                            ul.todolist(id=`todolist${i}`)
                                 - if (user.plans!=null)
                                     each item in user.plans
                                         - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)

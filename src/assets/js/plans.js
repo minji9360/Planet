@@ -13,11 +13,26 @@ function slidePlanDetail(index) {
 	const detailBox = document.querySelector("#detailBox" + index);
 	const upImage = document.querySelector("#upImage" + index);
 	const downImage = document.querySelector("#downImage" + index);
+	const todolist = document.querySelector("#todolist" + index);
 
 	titleBox.classList.toggle("active");
 	detailBox.classList.toggle("active");
 	upImage.classList.toggle("hidden");
 	downImage.classList.toggle("hidden");
+	todolist.classList.toggle("content");
+}
+
+function changeListHeight(type, i) {
+	const todolist = document.querySelector("#todolist" + i);
+
+	todolist.classList.remove("sentence");
+	todolist.classList.remove("content");
+	if (type === "title") {
+	} else if (type === "sentence") {
+		todolist.classList.add("sentence");
+	} else if (type === "content") {
+		todolist.classList.add("content");
+	}
 }
 
 function changeBtn(hiddenButton, shownButton) {
@@ -147,7 +162,6 @@ function loadFeedback(i, feedback) {
 
 	if (feedback.title !== null) title.value = feedback.title;
 	if (feedback.content !== null) content.value = feedback.content;
-	// feedbackId.value = feedback._id;
 	checkRating(i, feedback.rating);
 }
 
@@ -234,8 +248,8 @@ function clickSentence(i, sentence) {
 		changeBtn(grayButton, colorButton);
 		changeBtn(dailyGrayButton, dailyColorButton);
 		changeBtn(goalColorButton, goalGrayButton);
-
 		resetData(i);
+		changeListHeight("sentence", i);
 		title.required = false;
 		titleBox.classList.add("hidden");
 		contentInput.placeholder = "명언이나 목표를 작성해주세요.";
@@ -250,6 +264,7 @@ function clickSentence(i, sentence) {
 		changeBtn(colorButton, grayButton);
 		resetData(i);
 		showButtons("addPlan", i);
+		changeListHeight("title", i);
 		title.required = true;
 		titleBox.classList.remove("hidden");
 		contentInput.placeholder = "상세 내용을 입력해주세요.";
@@ -266,6 +281,7 @@ function clickFeedback(i, plan) {
 		// sentence 관련 작업 중
 		titleBox.classList.remove("hidden");
 		clickSentence(i, null);
+		changeListHeight("content", i);
 	}
 	hideButtons(i);
 	title.required = false;
@@ -273,7 +289,9 @@ function clickFeedback(i, plan) {
 		// down 버튼이 숨어있다.
 		// 슬라이드가 내려가있다.
 		slidePlanDetail(i);
+		changeListHeight("content", i);
 		title.placeholder = "피드백";
+
 		if (plan.feedback !== undefined) {
 			loadFeedback(i, plan.feedback);
 			showButtons("editFeedback", i);
@@ -288,16 +306,19 @@ function clickFeedback(i, plan) {
 		slidePlanDetail(i);
 		resetData(i);
 		showButtons("addPlan", i);
+		changeListHeight("title", i);
 		title.placeholder = "할 일";
 	} else if (plan.feedback !== undefined) {
 		// feedback 처음 누르는데 내용이 있음
 		loadFeedback(i, plan.feedback);
 		showButtons("editFeedback", i);
+		changeListHeight("content", i);
 		planId.value = plan.id;
 		title.placeholder = "피드백";
 	} else {
 		// 내용이 없으면
 		showButtons("addFeedback", i);
+		changeListHeight("content", i);
 		planId.value = plan.id;
 		title.placeholder = "피드백";
 	}
@@ -316,13 +337,16 @@ function clickEdit(i, plan) {
 		slidePlanDetail(i);
 		loadPlan(i, plan);
 		showButtons("editPlan", i);
+		changeListHeight("content", i);
 	} else if (planId.value === plan.id) {
 		slidePlanDetail(i);
 		resetData(i);
 		showButtons("addPlan", i);
+		changeListHeight("title", i);
 	} else {
 		loadPlan(i, plan);
 		showButtons("editPlan", i);
+		changeListHeight("content", i);
 	}
 }
 

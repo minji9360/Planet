@@ -71,8 +71,21 @@ section {
 						width: 438px;
 						height: calc(
 							100% - 102px - 50px
-						); // 전체 높이 - 상단 title 높이 - 하단 입력창 높이
+						); // 전체 높이 - 상단 title 높이 - 하단 title 입력창 높이
 						overflow: auto;
+
+						&.content {
+							height: calc(
+								100% - 102px - 50px - 101px
+							); // 전체 높이 - 상단 title 높이 - 하단 title 입력창 높이 - 하단 content 입력창 높이
+							transition: all ease .3s 0s;
+						}
+
+						&.sentence {
+							height: calc(
+								100% - 102px - 112px
+							); // 전체 높이 - 상단 title 높이 - 하단 content 입력창 높이
+						}
 
 						.plan {
 							position: relative;
@@ -183,9 +196,23 @@ section {
 									}
 								}
 							}
+						}
 
-							&-detail {
-								background-color: $white-gray;
+						.detail {
+							background-color: $white-gray;
+
+							&__span {
+								display: inline-block;
+								width: 360px;
+								margin-left: 32px;
+								font-size: 13px;
+								padding: 7px 0;
+								color: gray;
+								word-break: break-word;
+
+								&.hidden {
+									display: none;
+								}
 							}
 						}
 
@@ -210,6 +237,7 @@ section {
 								font-size: 13px;
 								padding: 4px 0 7px 0;
 								color: gray;
+								word-break: break-word;
 							}
 
 							&-rating {
