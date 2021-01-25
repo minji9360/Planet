@@ -41,7 +41,7 @@ function changeBtn(hiddenButton, shownButton) {
 }
 
 function hideButtons(i) {
-	const important = document.querySelector("#importantButton" + i);
+	const planButtons = document.querySelector("#planButtons" + i);
 	const sentences = document.querySelector("#sentenceButtons" + i);
 	const sentence = document.querySelector("#sentenceButton" + i);
 	const rating = document.querySelector("#rating" + i);
@@ -53,7 +53,7 @@ function hideButtons(i) {
 	const editSentence = document.querySelector("#editSentenceButton" + i);
 	const deleteComment = document.querySelector("#deleteCommentButton" + i);
 
-	important.classList.add("hidden");
+	planButtons.classList.add("hidden");
 	sentences.classList.add("hidden");
 	sentence.classList.add("hidden");
 	rating.classList.add("hidden");
@@ -67,7 +67,7 @@ function hideButtons(i) {
 }
 
 function showButtons(type, i) {
-	const important = document.querySelector("#importantButton" + i);
+	const planButtons = document.querySelector("#planButtons" + i);
 	const sentences = document.querySelector("#sentenceButtons" + i);
 	const sentence = document.querySelector("#sentenceButton" + i);
 	const rating = document.querySelector("#rating" + i);
@@ -82,12 +82,12 @@ function showButtons(type, i) {
 	if (type === "addPlan") {
 		addPlan.disabled = false;
 		addPlan.classList.remove("hidden");
-		important.classList.remove("hidden");
+		planButtons.classList.remove("hidden");
 		sentence.classList.remove("hidden");
 	} else if (type === "editPlan") {
 		addPlan.disabled = true;
 		editPlan.classList.remove("hidden");
-		important.classList.remove("hidden");
+		planButtons.classList.remove("hidden");
 	} else if (type === "addSentence") {
 		addPlan.disabled = true;
 		sentences.classList.remove("hidden");
@@ -179,6 +179,29 @@ function loadImportant(i) {
 	}
 }
 
+function clickTime(time, i) {
+	const grayAll = document.querySelector("#allGray" + i);
+	const colorAll = document.querySelector("#allColor" + i);
+	const grayAm = document.querySelector("#amGray" + i);
+	const colorAm = document.querySelector("#amColor" + i);
+	const grayPm = document.querySelector("#pmGray" + i);
+	const colorPm = document.querySelector("#pmColor" + i);
+
+	if (time == "all" || time == undefined || time == "") {
+		changeBtn(grayAll, colorAll);
+		changeBtn(colorAm, grayAm);
+		changeBtn(colorPm, grayPm);
+	} else if (time == "am") {
+		changeBtn(colorAll, grayAll);
+		changeBtn(grayAm, colorAm);
+		changeBtn(colorPm, grayPm);
+	} else if (time == "pm") {
+		changeBtn(colorAll, grayAll);
+		changeBtn(colorAm, grayAm);
+		changeBtn(grayPm, colorPm);
+	}
+}
+
 function loadSentence(i, sentence) {
 	const content = document.querySelector("#contentInput" + i);
 	const sentenceId = document.querySelector("#idInput" + i);
@@ -188,8 +211,6 @@ function loadSentence(i, sentence) {
 }
 
 function loadPlan(i, plan) {
-	// 슬라이드가 내려가 있을 때, 올라가 있을 때 > 무조건 올라오게
-	// content가 있을 때, 없을 때 > 똑같이 값을 가져오면 됨
 	const title = document.querySelector("#titleInput" + i);
 	const content = document.querySelector("#contentInput" + i);
 	const important = document.querySelector("#important" + i);
@@ -200,6 +221,7 @@ function loadPlan(i, plan) {
 	planId.value = plan.id;
 	important.value = plan.important;
 	loadImportant(i);
+	clickTime(plan.time, i);
 }
 
 function clickDaily(i, sentence) {
@@ -505,6 +527,7 @@ function init() {
 	window.clickGoal = clickGoal;
 	window.clickDaily = clickDaily;
 	window.clickFeedback = clickFeedback;
+	window.clickTime = clickTime;
 	window.checkRating = checkRating;
 	window.showDetail = showDetail;
 }
