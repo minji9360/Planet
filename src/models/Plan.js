@@ -35,6 +35,7 @@ const PlanSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Feedback",
 	},
+	time: String,
 	year: String,
 	month: String,
 	date: String,
