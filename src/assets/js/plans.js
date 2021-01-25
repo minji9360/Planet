@@ -123,6 +123,7 @@ function resetData(i) {
 	important.value = false;
 	daily.checked = true;
 
+	clickTime("all", i);
 	loadImportant(i);
 }
 
@@ -180,22 +181,28 @@ function loadImportant(i) {
 }
 
 function clickTime(time, i) {
+	const all = document.querySelector("#all" + i);
 	const grayAll = document.querySelector("#allGray" + i);
 	const colorAll = document.querySelector("#allColor" + i);
+	const am = document.querySelector("#am" + i);
 	const grayAm = document.querySelector("#amGray" + i);
 	const colorAm = document.querySelector("#amColor" + i);
+	const pm = document.querySelector("#pm" + i);
 	const grayPm = document.querySelector("#pmGray" + i);
 	const colorPm = document.querySelector("#pmColor" + i);
 
-	if (time == "all" || time == undefined || time == "") {
+	if (time === "all" || time === undefined || time === "") {
+		all.checked = true;
 		changeBtn(grayAll, colorAll);
 		changeBtn(colorAm, grayAm);
 		changeBtn(colorPm, grayPm);
-	} else if (time == "am") {
+	} else if (time === "am") {
+		am.checked = true;
 		changeBtn(colorAll, grayAll);
 		changeBtn(grayAm, colorAm);
 		changeBtn(colorPm, grayPm);
-	} else if (time == "pm") {
+	} else if (time === "pm") {
+		pm.checked = true;
 		changeBtn(colorAll, grayAll);
 		changeBtn(colorAm, grayAm);
 		changeBtn(grayPm, colorPm);
