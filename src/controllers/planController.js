@@ -23,13 +23,14 @@ export const plans = async (req, res) => {
 
 export const postUploadPlan = async (req, res) => {
 	const {
-		body: { title, content, category, important, year, month, date, day },
+		body: { title, content, category, important, time, year, month, date, day },
 	} = req;
 	const newPlan = await Plan.create({
 		title,
 		content,
 		category,
 		important,
+		time,
 		year,
 		month,
 		date,
