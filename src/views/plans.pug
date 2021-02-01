@@ -59,7 +59,7 @@ block content
                                     button.edit-check__button.hidden(id=`editButton${i}`, formaction=`plans${routes.editPlan}`) 수정
                                 .title-feedback
                                     button.add-title__button.hidden(id=`addCommentButton${i}`, formaction=`plans${routes.uploadFeedback}`) 추가
-                                    button.edit-check__button.hidden(id=`editCommentButton${i}`, formaction=``) 수정
+                                    button.edit-check__button.hidden(id=`editCommentButton${i}`, formaction=`plans${routes.editFeedback}`) 수정
                             .detail(id=`detailBox${i}`)
                                 textarea.detail__textarea(id=`contentInput${i}`, name="content", placeholder="상세 내용을 입력해주세요.")
                                 .sentence__button

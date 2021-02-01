@@ -10,10 +10,16 @@ export const plans = async (req, res) => {
 		const user = await User.findById(req.user._id)
 			.populate({ path: "plans", populate: { path: "feedback" } })
 			.populate("sentence");
+		const am = await User.findById(req.user._id).populate({
+			path: "plans",
+			select: { time: "am" },
+			populate: { path: "feedback" },
+		});
 		if (user.id !== req.user.id) {
 			throw Error();
 		} else {
-			res.render("plans", { pageTitle: "Plans", user, thisWeek });
+			console.log(am);
+			res.render("plans", { pageTitle: "Plans", user, am, thisWeek });
 		}
 	} catch (error) {
 		console.log(error);
@@ -124,6 +130,18 @@ export const postEditSentence = async (req, res) => {
 	} = req;
 	try {
 		await Sentence.findOneAndUpdate({ _id: id }, { content });
+	} catch (error) {
+		console.log(error);
+	}
+	res.redirect(routes.plans);
+};
+
+export const postEditFeedback = async (req, res) => {
+	const {
+		body: { id, title, content, rating },
+	} = req;
+	try {
+		await Feedback.findOneAndUpdate({ plan: id }, { title, content, rating });
 	} catch (error) {
 		console.log(error);
 	}

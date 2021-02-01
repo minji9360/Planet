@@ -19,6 +19,7 @@ const DELETE_PLAN = "/:id/delete";
 const DELETE_FEEDBACK = "/:id/delete/feedback";
 const EDIT_PLAN = "/edit";
 const EDIT_SENTENCE = "/edit/sentence";
+const EDIT_FEEDBACK = "/edit/feedback";
 const CHECK_PLAN = "/:id/check";
 
 // Calendar
@@ -42,6 +43,7 @@ const routes = {
 	uploadFeedback: UPLOAD_FEEDBACK,
 	editPlan: EDIT_PLAN,
 	editSentence: EDIT_SENTENCE,
+	editFeedback: EDIT_FEEDBACK,
 	deleteFeedback: DELETE_FEEDBACK,
 	deletePlan: (id) => {
 		if (id) {

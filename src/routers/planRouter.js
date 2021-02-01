@@ -9,6 +9,7 @@ import {
 	postEditSentence,
 	postUploadFeedback,
 	deleteFeedback,
+	postEditFeedback,
 } from "../controllers/planController.js";
 import { onlyPrivate } from "../middlewares.js";
 import routes from "../routes.js";
@@ -23,6 +24,7 @@ planRouter.get(routes.deletePlan(), onlyPrivate, deletePlan);
 planRouter.post(routes.deleteFeedback, onlyPrivate, deleteFeedback);
 planRouter.post(routes.editPlan, postEditPlan);
 planRouter.post(routes.editSentence, postEditSentence);
+planRouter.post(routes.editFeedback, postEditFeedback);
 planRouter.post(routes.checkPlan(), checkPlan);
 
 export default planRouter;
