@@ -159,10 +159,19 @@ function checkRating(date, score) {
 function loadFeedback(i, feedback) {
 	const title = document.querySelector("#titleInput" + i);
 	const content = document.querySelector("#contentInput" + i);
-	const feedbackId = document.querySelector("#idInput" + i);
+	const rating1 = document.querySelector("#rating" + i + "1");
+	const rating2 = document.querySelector("#rating" + i + "2");
+	const rating3 = document.querySelector("#rating" + i + "3");
+	const rating4 = document.querySelector("#rating" + i + "4");
+	const rating5 = document.querySelector("#rating" + i + "5");
 
 	if (feedback.title !== null) title.value = feedback.title;
 	if (feedback.content !== null) content.value = feedback.content;
+	if (feedback.rating == 1) rating1.checked = true;
+	if (feedback.rating == 2) rating2.checked = true;
+	if (feedback.rating == 3) rating3.checked = true;
+	if (feedback.rating == 4) rating4.checked = true;
+	if (feedback.rating == 5) rating5.checked = true;
 	checkRating(i, feedback.rating);
 }
 
