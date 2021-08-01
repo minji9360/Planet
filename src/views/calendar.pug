@@ -1,64 +1,125 @@
 extends layouts/main.pug
 
 block content
-    .content
-        button.previous-button(type="button") <
-        .calendar
-            h1.calendar__title 11월
-            table.calendar__table
-                thead
-                    tr.calendar__tr
-                        th.calendar__th 일
-                        th.calendar__th 월
-                        th.calendar__th 화
-                        th.calendar__th 수
-                        th.calendar__th 목
-                        th.calendar__th 금
-                        th.calendar__th 토
-                tbody
-                    tr.calendar__tr
-                        td.calendar__td 1
-                        td.calendar__td 2
-                        td.calendar__td 3
-                        td.calendar__td 4
-                        td.calendar__td 5
-                        td.calendar__td 6
-                        td.calendar__td 7
-                    tr.calendar__tr
-                        td.calendar__td 1
-                        td.calendar__td 2
-                        td.calendar__td 3
-                        td.calendar__td 4
-                        td.calendar__td 5
-                        td.calendar__td 6
-                        td.calendar__td 7
-                    tr.calendar__tr
-                        td.calendar__td 1
-                        td.calendar__td 2
-                        td.calendar__td 3
-                        td.calendar__td 4
-                        td.calendar__td 5
-                        td.calendar__td 6
-                        td.calendar__td 7
-                    tr.calendar__tr
-                        td.calendar__td 1
-                        td.calendar__td 2
-                        td.calendar__td 3
-                        td.calendar__td 4
-                        td.calendar__td 5
-                        td.calendar__td 6
-                        td.calendar__td 7
-                    tr.calendar__tr
-                        td.calendar__td 1
-                        td.calendar__td 2
-                        td.calendar__td 3
-                        td.calendar__td 4
-                        td.calendar__td 5
-                        td.calendar__td 6
-                        td.calendar__td 7
-        button.next-button(type="button") >
-    button.type__button(type="button") 할 일
+    section
+        a.prev__btn <
+        .content
+            .day
+                h1.day__title 2일 월요일
+                .day__content
+                    // 그 날의 한 일/할 일
+            .calendar
+                h1.calendar__title 2021년 8월
+                table.calendar__table
+                    thead
+                        tr.day__tr
+                            th 일
+                            th 월
+                            th 화
+                            th 수
+                            th 목
+                            th 금
+                            th 토
+                    tbody
+                        tr.date__tr
+                            td 1
+                            td 2
+                            td 3
+                            td 4
+                            td 5
+                            td 6
+                            td 7
+                        tr.record__tr
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                        tr.date__tr
+                            td 1
+                            td 2
+                            td 3
+                            td 4
+                            td 5
+                            td 6
+                            td 7
+                        tr.record__tr
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                        tr.date__tr
+                            td 1
+                            td 2
+                            td 3
+                            td 4
+                            td 5
+                            td 6
+                            td 7
+                        tr.record__tr
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                        tr.date__tr
+                            td 1
+                            td 2
+                            td 3
+                            td 4
+                            td 5
+                            td 6
+                            td 7
+                        tr.record__tr
+                            td 💛💚
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 민지 생일
+                            td 
+                        tr.date__tr
+                            td 1
+                            td 2
+                            td 3
+                            td 4
+                            td 5
+                            td 6
+                            td 7
+                        tr.record__tr
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                        tr.date__tr
+                            td 1
+                            td 2
+                            td 3
+                            td 4
+                            td 5
+                            td 6
+                            td 7
+                        tr.record__tr
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+                            td 
+        a.next__btn > 
+    //- button.type__button(type="button") 할 일
     // 버튼 클릭하면 할 일이 보이고 버튼 내용은 일기로 변함, 또 누르면 반대로
     // 로그인 안했으면 일기는 전부 자물쇠 처리 되어서 안보임
-    button.todolist__button(type="button") 할 일 목록으로 이동
+    //- button.todolist__button(type="button") 할 일 목록으로 이동
 
