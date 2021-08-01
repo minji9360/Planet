@@ -7,6 +7,10 @@
     font-style: normal;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 * {
 	font-family: "NEXON Lv2 Gothic";
 	font-style: normal;
@@ -39,16 +43,16 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 20px;
-	margin: 65px 0;
+	padding: 2rem;
+	margin: 6.5rem 0;
 	overflow: hidden;
 }
 
 header {
-	height: 60px;
-	padding-top: 25px;
+	height: 6rem;
+	padding-top: 2.5rem;
 	position: fixed;
-	top: 2px;
+	top: 0.2rem;
 	left: 0;
 	z-index: 9000;
 	width: 100%;
@@ -59,17 +63,17 @@ header {
 
 		.dropdown {
 			float: left;
-			width: 50px;
-			margin-top: 2px;
+			width: 5rem;
+			margin-top: 0.2rem;
 
 			.logo {
 				position: relative;
-				top: -6px;
+				top: -0.6rem;
 				&__img {
-					width: 50px;
-					height: 45px;
+					width: 5rem;
+					height: 4.5rem;
 					display: block;
-					margin: 0 0 2px 2.5px;
+					margin: 0 0 0.2rem 0.25rem;
 				}
 
 				&:hover {
@@ -82,8 +86,8 @@ header {
 				&__text {
 					cursor: pointer;
 					font-weight: 600;
-					font-size: 15px;
-					letter-spacing: -0.3px;
+					font-size: 1.5rem;
+					letter-spacing: -0.03rem;
 				}
 			}
 
@@ -97,11 +101,11 @@ header {
 			&-menu {
 				position: relative;
 				display: none;
-				top: 15px;
-				left: 2px;
-				width: 205px;
-				padding: 8px 0;
-				border-radius: 4px;
+				top: 1.5rem;
+				left: 0.2rem;
+				width: 20.5rem;
+				padding: 0.8rem 0;
+				border-radius: 0.4rem;
 				background-color: #fff;
 				border: 1px solid $text;
 
@@ -113,8 +117,8 @@ header {
 				&::before {
 					content: "";
 					position: absolute;
-					top: -19px;
-					left: 13px;
+					top: -1.9rem;
+					left: 1.3rem;
 					width: 0;
 					height: 0;
 					border-top: 9px solid transparent;
@@ -125,14 +129,14 @@ header {
 
 				& h3,
 				& a {
-					font-size: 14px;
+					font-size: 1.4rem;
 					line-height: 1.5;
 					color: #24292e;
 					text-decoration: none;
 				}
 
 				& h3 {
-					padding: 8px 16px 16px;
+					padding: 0.8rem 1.6rem 1.6rem;
 					border-bottom: 1px solid #e1e4e8;
 					font-weight: 500;
 
@@ -142,7 +146,7 @@ header {
 				}
 
 				& ul {
-					padding: 8px 0;
+					padding: 0.8rem 0;
 
 					&:last-child {
 						border-top: 1px solid rgba(27, 31, 35, 0.15);
@@ -150,8 +154,8 @@ header {
 
 					& a {
 						display: block;
-						padding: 8px 16px;
-						font-size: 14px;
+						padding: 0.8rem 1.6rem;
+						font-size: 1.4rem;
 						line-height: 1.5;
 						color: $title;
 						text-decoration: none;
@@ -167,14 +171,14 @@ header {
 
 		.header__button-wrapper {
 			float: right;
-			margin-top: 10px;
+			margin-top: 1rem;
 
 			span {
 				position: relative;
-				width: 50px;
-				padding: 5px 13px 5px 12px;
-				margin: 0 10px 0 0;
-				font-size: 14px;
+				width: 5rem;
+				padding: 0.5rem 1.3rem 0.5rem 1.2rem;
+				margin: 0 1rem 0 0;
+				font-size: 1.4rem;
 				border: 4px double $header-button;
 				text-align: center;
 				font-weight: 600;
@@ -184,10 +188,10 @@ header {
 
 			button {
 				position: relative;
-				top: -1px;
-				width: 55px;
-				height: 36px;
-				font-size: 14px;
+				top: -0.1rem;
+				width: 5.5rem;
+				height: 3.6rem;
+				font-size: 1.4rem;
 				background-color: $header-button;
 				color: white;
 				border-right: 0.5px solid white;

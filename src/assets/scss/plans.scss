@@ -2,30 +2,30 @@ section {
 	// 슬라이드 버튼
 	.prev__btn {
 		position: fixed;
-		top: 350px;
-		left: 15px;
-		font-size: 30px;
+		top: 35rem;
+		left: 1.5rem;
+		font-size: 3rem;
 		z-index: 1000;
 	}
 
 	.next__btn {
 		position: fixed;
-		top: 350px;
-		right: 15px;
-		font-size: 30px;
+		top: 35rem;
+		right: 1.5rem;
+		font-size: 3rem;
 		z-index: 1000;
 	}
 
 	.day {
-		width: 1400px;
+		width: 140rem;
 		position: relative;
 		overflow: hidden;
 
 		.day__list {
 			.day__item {
 				float: left;
-				width: 440px;
-				height: 589px;
+				width: 44rem;
+				height: 58.9rem;
 				border: 1px solid $border;
 				background: white;
 				justify-content: center;
@@ -33,17 +33,17 @@ section {
 				overflow: auto;
 
 				.title {
-					padding: 18px 0;
+					padding: 1.8rem 0;
 					text-align: center;
 					background: $fill;
-					height: 102px;
+					height: 10.2rem;
 
 					&__date {
-						font-size: 25px;
+						font-size: 2.5rem;
 						font-weight: 600;
 						text-transform: uppercase;
-						letter-spacing: 2px;
-						margin: 3px 0;
+						letter-spacing: 0.2rem;
+						margin: 0.3rem 0;
 						width: 100%;
 						color: $title;
 					}
@@ -52,11 +52,11 @@ section {
 						display: table;
 
 						.description {
-							width: 438px;
-							padding: 7px;
-							font-size: 13px;
-							line-height: 18px;
-							height: 58.5px;
+							width: 43.8rem;
+							padding: 0.7rem;
+							font-size: 1.3rem;
+							line-height: 1.8rem;
+							height: 5.85rem;
 							display: table-cell;
 							vertical-align: middle;
 							text-align: center;
@@ -68,28 +68,28 @@ section {
 				.todolist-box {
 					.todolist {
 						position: absolute;
-						width: 438px;
+						width: 43.8rem;
 						height: calc(
-							100% - 102px - 50px
+							100% - 10.2rem - 5rem
 						); // 전체 높이 - 상단 title 높이 - 하단 title 입력창 높이
 						overflow: auto;
 
 						&.content {
 							height: calc(
-								100% - 102px - 50px - 101px
+								100% - 10.2rem - 5rem - 10.1rem
 							); // 전체 높이 - 상단 title 높이 - 하단 title 입력창 높이 - 하단 content 입력창 높이
 							transition: all ease .3s 0s;
 						}
 
 						&.sentence {
 							height: calc(
-								100% - 102px - 112px
+								100% - 10.2rem - 11.2rem
 							); // 전체 높이 - 상단 title 높이 - 하단 content 입력창 높이
 						}
 
 						.plan {
 							position: relative;
-							padding: 8px;
+							padding: 0.8rem;
 
 							&:hover {
 								background-color: $hover-soft;
@@ -102,7 +102,7 @@ section {
 							// 버튼용 이미지
 							.plan-check__button,
 							img {
-								width: 15px;
+								width: 1.5rem;
 								position: absolute;
 								top: 0;
 								bottom: 0;
@@ -122,9 +122,9 @@ section {
 							// default로 보이는 할 일
 							&-title__span {
 								display: inline-block;
-								width: 360px;
-								margin-left: 23px;
-								font-size: 14px;
+								width: 36rem;
+								margin-left: 2.3rem;
+								font-size: 1.4rem;
 
 								&.completed {
 									color: $soft-gray;
@@ -142,10 +142,10 @@ section {
 
 							// 수정 버튼 클릭 시 보이는 text 박스
 							.plan-title__input {
-								width: 355px;
+								width: 35.5rem;
 								border: 1px solid $fill;
-								padding: 4px;
-								margin-left: 23px;
+								padding: 0.4rem;
+								margin-left: 2.3rem;
 								display: none;
 
 								&.active {
@@ -165,17 +165,17 @@ section {
 
 								.more__button {
 									display: inline-block;
-									margin-right: 21px;
+									margin-right: 2.1rem;
 								}
 
 								// 수정 버튼 클릭 전 기본 버튼
 								&-default {
 									display: none;
-									margin-right: 21px;
+									margin-right: 2.1rem;
 
 									.edit__button,
 									.add-feedback__button {
-										margin-right: 21px;
+										margin-right: 2.1rem;
 									}
 								}
 
@@ -189,8 +189,8 @@ section {
 
 									.edit-check__button {
 										border: 1px solid $text;
-										padding: 3px 6px 4px 6px;
-										font-size: 13px;
+										padding: 0.3rem 0.6rem 0.4rem 0.6rem;
+										font-size: 1.3rem;
 										color: $text;
 										background-color: white;
 									}
@@ -203,10 +203,10 @@ section {
 
 							&__span {
 								display: inline-block;
-								width: 360px;
-								margin-left: 32px;
-								font-size: 13px;
-								padding: 7px 0;
+								width: 36rem;
+								margin-left: 3.2rem;
+								font-size: 1.3rem;
+								padding: 0.7rem 0;
 								color: gray;
 								word-break: break-word;
 
@@ -218,36 +218,36 @@ section {
 
 						.feedback {
 							background-color: $hover-soft;
-							min-height: 32px;
+							min-height: 3.2rem;
 
 							&-title {
 								font-weight: 600;
 								display: inline-block;
-								width: 285px;
-								margin-left: 8px;
-								font-size: 13px;
-								padding-top: 7px;
+								width: 28.5rem;
+								margin-left: 0.8rem;
+								font-size: 1.3rem;
+								padding-top: 0.7rem;
 								color: gray;
 							}
 
 							&-content {
 								display: inline-block;
-								width: 360px;
-								margin-left: 32px;
-								font-size: 13px;
-								padding: 4px 0 7px 0;
+								width: 36rem;
+								margin-left: 3.2rem;
+								font-size: 1.3rem;
+								padding: 0.4rem 0 0.7rem 0;
 								color: gray;
 								word-break: break-word;
 							}
 
 							&-rating {
-								width: 75px;
-								margin-left: 32px;
-								padding-top: 8px;
+								width: 7.5rem;
+								margin-left: 3.2rem;
+								padding-top: 0.8rem;
 								float: left;
 
 								img {
-									width: 15px;
+									width: 1.5rem;
 								}
 							}
 						}
@@ -257,7 +257,7 @@ section {
 				// 할 일 입력 관련
 				.display-button {
 					position: relative;
-					width: 25px;
+					width: 2.5rem;
 					top: 75%;
 					left: 50%;
 					cursor: pointer;
@@ -265,30 +265,30 @@ section {
 
 				.add-form {
 					.title {
-						width: 438px;
+						width: 43.8rem;
 						position: absolute;
-						bottom: 0px;
-						padding-bottom: 20px;
-						height: 50px;
+						bottom: 0;
+						padding-bottom: 2rem;
+						height: 5rem;
 						background: $fill;
 						transition: all ease .3s 0s;
 
 						&.active {
-							bottom: 100px;
+							bottom: 10rem;
 							transition: all ease .3s 0s;
 						}
 
 						.option__button {
-							width: 26px;
+							width: 2.6rem;
 							position: relative;
-							top: -6px;
-							left: -194px;
+							top: -0.6rem;
+							left: -19.4rem;
 							opacity: 0.93;
 
 							img {
-								width: 24px;
-								height: 26px;
-								padding-bottom: 1px;
+								width: 2.4rem;
+								height: 2.6rem;
+								padding-bottom: 0.1rem;
 								background: $add-button;
 								border: 1px solid $border;
 							}
@@ -308,13 +308,13 @@ section {
 						}
 
 						&__input {
-							width: 326px;
-							height: 26px;
+							width: 32.6rem;
+							height: 2.6rem;
 							position: absolute;
-							top: 12px;
-							left: 43px;
+							top: 1.2rem;
+							left: 4.3rem;
 							border: none;
-							padding: 0 8px;
+							padding: 0 0.8rem;
 							background: $input-focus-soft;
 
 							&:focus {
@@ -325,31 +325,31 @@ section {
 
 					.detail {
 						position: absolute;
-						width: 438px;
-						height: 110px;
-						bottom: -110px;
+						width: 43.8rem;
+						height: 11rem;
+						bottom: -11rem;
 						background: $fill;
 						overflow: hidden;
 						transition: all ease .3s 0s;
 
 						&.active {
-							bottom: 0px;
+							bottom: 0;
 							display: inline-block;
 							transition: all ease .3s 0s;
 						}
 
 						&.sentence {
-							height: 110px;
-							bottom: 0px;
+							height: 11rem;
+							bottom: 0;
 						}
 
 						&__textarea {
-							width: 326px;
-							height: 60px;
+							width: 32.6rem;
+							height: 6rem;
 							position: absolute;
-							top: 11px;
-							left: 43px;
-							padding: 4px 8px;
+							top: 1.1rem;
+							left: 4.3rem;
+							padding: 0.4rem 0.8rem;
 							background: $input-focus-soft;
 							border: none;
 							resize: none;
@@ -360,7 +360,7 @@ section {
 							}
 
 							&.sentence {
-								top: 11px;
+								top: 1.1rem;
 							}
 						}
 
@@ -369,14 +369,14 @@ section {
 						}
 
 						.detail-buttons {
-							width: 326px;
+							width: 32.6rem;
 							position: absolute;
-							bottom: 10px;
-							left: 41px;
+							bottom: 1rem;
+							left: 4.1rem;
 
 							label {
-								font-size: 13px;
-								margin-right: 3px;
+								font-size: 1.3rem;
+								margin-right: 0.3rem;
 								display: inline-block;
 								cursor: pointer;
 
@@ -392,11 +392,11 @@ section {
 							}
 
 							.sentence__button {
-								font-size: 13px;
+								font-size: 1.3rem;
 								display: inline-block;
 								position: absolute;
-								bottom: 0px;
-								right: 0px;
+								bottom: 0;
+								right: 0;
 								cursor: pointer;
 
 								&:hover {
@@ -408,9 +408,9 @@ section {
 
 							img {
 								position: relative;
-								top: 5.5px;
-								width: 20px;
-								margin-right: 3px;
+								top: 0.55rem;
+								width: 2rem;
+								margin-right: 0.3rem;
 								opacity: 0.83;
 								display: inline-block;
 
@@ -426,12 +426,12 @@ section {
 					}
 					
 					button {
-						width: 50px;
-						height: 27px;
+						width: 5rem;
+						height: 2.7rem;
 						position: absolute;
-						right: 12px;
-						top: 11px;
-						padding-top: 2px;
+						right: 1.2rem;
+						top: 1.1rem;
+						padding-top: 0.2rem;
 						border: 1px solid $border;
 						background: $add-button;
 						color: $text;
@@ -443,7 +443,7 @@ section {
 					}
 						
 					.feedback-delete__button {
-						top: 10px;
+						top: 1rem;
 						color: $text-deep;
 						border: 1px solid $border-deep;
 						background-color: $delete-button;
@@ -467,7 +467,7 @@ section {
 
 ::-webkit-scrollbar {
 	color: white;
-	width: 10px;
+	width: 1rem;
 
 	&-button {
 		height: 0;
