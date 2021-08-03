@@ -32,7 +32,25 @@ block content
                                         p.description 입력창 왼쪽 버튼을 눌러 입력해주세요.
                         .todolist-box
                             ul.todolist(id=`todolist${i}`)
+                                - let data = []
                                 - if (user.plans!=null)
+                                    //- each item in user.plans
+                                    //-     - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
+                                    //-         - data += item
+                                    //- each i in data.length ? data : ['There are no values']
+                                    //-     p=i
+                                    //- each item in data
+                                        //- - if (item.time=="am")
+                                            +planBlock(
+                                                i,
+                                                {
+                                                id:item._id,
+                                                title:item.title,
+                                                content:item.content,
+                                                important:item.important,
+                                                completed:item.completed,
+                                                feedback:item.feedback,
+                                            })
                                     each item in user.plans
                                         - if (thisWeek.year[i]==item.year && thisWeek.month[i]==item.month && thisWeek.date[i]==item.date)
                                             +planBlock(
@@ -130,3 +148,4 @@ block content
                                     input(type="hidden", name="month", value=thisWeek.month[i])
                                     input(type="hidden", name="date", value=thisWeek.date[i])
         a.next__btn > 
+        script(src="../static/plans.js")

@@ -4,10 +4,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
+const PLANS_FILE = path.resolve(__dirname, "assets", "js", "plans.js");
 const OUTPUT_DIR = path.join(__dirname, "static");
 
 const config = {
-	entry: ENTRY_FILE,
+	entry: { main: ENTRY_FILE, plans: PLANS_FILE },
 	mode: MODE,
 	module: {
 		rules: [

@@ -529,7 +529,7 @@ var Slider = function (id, _web, _tab, _mobile, spacing) {
 	};
 };
 
-function init() {
+function plansInit() {
 	const slider = new Slider("slider", 3, 2, 1, 40);
 	const next__btn = document.querySelector(".next__btn");
 	const prev__btn = document.querySelector(".prev__btn");
@@ -548,4 +548,4 @@ function init() {
 	window.showDetail = showDetail;
 }
 
-init();
+plansInit();
