@@ -35,15 +35,16 @@ function createCalendar() {
 	let date = lastDay[thisMonth];
 
 	// 달력 생성
-	let tag = "<tr class='date__tr'></tr>";
-	let count = 0;
-	// for (let j = 0; j < thisMonthDay; j++) {
-	// 	tag += "<td></td>";
-	// 	count++;
-	// }
+	let tag = "";
+	for (let j = 0; j < thisMonthDay; j++) {
+		tag += "<td></td>";
+		// count++;
+	}
 
 	for (let i = 1; i <= date; i++) {
-		if (i % 7 === 0) tag += "<tr class='date__tr'>";
+		if (i % 7 === 1) {
+			tag += "<tr class='date__tr'>";
+		}
 		if (
 			(thisDate === "1월" && i === 1) ||
 			(thisDate === "2월" && (i === 11 || i === 12 || i === 13)) ||
@@ -54,11 +55,12 @@ function createCalendar() {
 			i % 7 === 1
 		) {
 			tag += `<td class="day-off"><p>${i}</p></td>`;
-			// count++;
 		} else {
 			tag += `<td><p>${i}</p></td>`;
 		}
-		if (i % 7 === 0) tag += "</tr>";
+		if (i % 7 === 0) {
+			tag += "</tr>";
+		}
 	}
 	calendarTitle.textContent = thisDate;
 	dateTotal.innerHTML = tag;
