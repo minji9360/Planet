@@ -25,24 +25,29 @@ function createCalendar() {
 	if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) lastDay[1] = 29;
 	else lastDay[1] = 28;
 
-	const thisMonth = new Date(
-		nowDate.getFullYear(),
-		nowDate.getMonth()
-	).getMonth();
+	// const thisMonth = new Date(
+	// 	nowDate.getFullYear(),
+	// 	nowDate.getMonth()
+	// ).getMonth();
+	const thisMonth = 8;
 	const thisMonthDay = new Date(nowDate.getFullYear(), thisMonth).getDay();
-	let prevMonthDay = new Date(nowDate.getFullYear(), thisMonth).getDay();
-	let thisDate = month[thisMonth];
-	let date = lastDay[thisMonth];
+	let thisDate = "9월";
+	let lastDay2 = lastDay[thisMonth];
+	console.log("thisMonth", thisMonth);
+	console.log("thisMonthDay", thisMonthDay);
+	console.log("date", lastDay2);
 
 	// 달력 생성
-	let tag = "";
-	for (let j = 0; j < thisMonthDay; j++) {
+	let tag = "<tr class='date__tr'>";
+	let i = 1,
+		count = 1;
+	for (i; i <= thisMonthDay; i++) {
 		tag += "<td></td>";
-		// count++;
+		count++;
 	}
 
-	for (let i = 1; i <= date; i++) {
-		if (i % 7 === 1) {
+	for (let i = 1; i <= lastDay2; i++) {
+		if (count % 7 === 1) {
 			tag += "<tr class='date__tr'>";
 		}
 		if (
@@ -51,16 +56,17 @@ function createCalendar() {
 			(thisDate === "3월" && i === 1) ||
 			(thisDate === "5월" && (i === 5 || i === 19)) ||
 			(thisDate === "9월" && (i === 20 || i === 21 || i === 22)) ||
-			i % 7 === 0 ||
-			i % 7 === 1
+			count % 7 === 0 ||
+			count % 7 === 1
 		) {
 			tag += `<td class="day-off"><p>${i}</p></td>`;
 		} else {
 			tag += `<td><p>${i}</p></td>`;
 		}
-		if (i % 7 === 0) {
+		if (count % 7 === 0) {
 			tag += "</tr>";
 		}
+		count++;
 	}
 	calendarTitle.textContent = thisDate;
 	dateTotal.innerHTML = tag;
