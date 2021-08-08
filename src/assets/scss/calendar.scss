@@ -33,10 +33,6 @@ section {
             text-align: center;
             width: 50%;
             height: 100%;
-
-            &__title {
-
-            }
         }
 
         .calendar {
@@ -49,30 +45,35 @@ section {
             &__title {
                 font-size: 2.5rem;
                 font-weight: 600;
-                margin: 3rem 0 1.8rem 0;
+                margin: 3.8rem 0 1.8rem 0;
             }
 
             &__table {
                 margin: auto;
+                width: 93%;
 
                 .day__tr {
                     height: 2.5rem;
                     font-weight: 600;
                 }
-
-                .date__tr {
-                    height: 3rem;
+                
+                td .calendar-off {
+                    color: red;
                 }
 
-                th, td {
+                td .calendar-day {
+                    width: 100px;
+                    height: 3.5rem;
                     vertical-align: middle;
+                    display: table-cell;
                 }
 
-                .record__tr td {
-                    height: 5rem;
-                    width: 12.5%;
+                .content {
+                    height: 5.5rem;
+                    width: 100%;
                     font-size: 1.15rem;
                     vertical-align: top;
+                    border: none;
                     background-color: rgba(255, 255, 255, 0.2);
                 }
             }
