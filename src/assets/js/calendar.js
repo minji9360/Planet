@@ -1,5 +1,4 @@
 function createCalendar() {
-	console.log("달력생성");
 	const calendarTitle = document.querySelector(".calendar__title");
 	const dateTotal = document.querySelector(".date");
 	let nowDate = new Date();
@@ -59,9 +58,9 @@ function createCalendar() {
 			count % 7 === 0 ||
 			count % 7 === 1
 		) {
-			tag += `<td><p class="calendar-day calendar-off">${i}</p><p class="content"></p></td>`;
+			tag += `<td id="day${i}" class="day__td"><p class="calendar-day calendar-off">${i}</p><p class="content"></p></td>`;
 		} else {
-			tag += `<td><p class="calendar-day">${i}</p><p class="content"></p></td>`;
+			tag += `<td id="day${i}" class="day__td"><p class="calendar-day">${i}</p><p class="content"></p></td>`;
 		}
 		if (count % 7 === 0) {
 			tag += "</tr>";
@@ -72,8 +71,17 @@ function createCalendar() {
 	dateTotal.innerHTML = tag;
 }
 
+function clickCalendarDate() {
+	console.log("TT");
+}
+
 function initial() {
+	const dayTds = document.querySelectorAll(".day__td");
+
 	createCalendar();
+	dayTds.forEach(function (dayTd) {
+		dayTd.addEventListener("click", clickCalendarDate);
+	});
 }
 
 initial();
