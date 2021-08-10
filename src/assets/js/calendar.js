@@ -72,7 +72,14 @@ function createCalendar() {
 }
 
 function clickCalendarDate() {
-	console.log("TT", this);
+	const days = ["일", "월", "화", "수", "목", "금", "토"];
+
+	document.querySelector(".day__title").innerHTML =
+		document.querySelector(".calendar__title").innerHTML.split(" ")[1] +
+		" " +
+		this.firstChild.innerHTML +
+		"일 " +
+		days[(this.firstChild.innerHTML % 7) - 1];
 }
 
 function initial() {
