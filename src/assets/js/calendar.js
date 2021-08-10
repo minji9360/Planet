@@ -72,13 +72,14 @@ function createCalendar() {
 }
 
 function clickCalendarDate() {
-	console.log("TT");
+	console.log("TT", this);
 }
 
 function initial() {
+	createCalendar();
+
 	const dayTds = document.querySelectorAll(".day__td");
 
-	createCalendar();
 	dayTds.forEach(function (dayTd) {
 		dayTd.addEventListener("click", clickCalendarDate);
 	});
