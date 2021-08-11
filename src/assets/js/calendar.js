@@ -1,5 +1,5 @@
 function createCalendar() {
-	const calendarTitle = document.querySelector(".calendar__title");
+	const calendarTitle = document.querySelector(".calendar__h1");
 	const dateTotal = document.querySelector(".date");
 	let nowDate = new Date();
 
@@ -74,12 +74,11 @@ function createCalendar() {
 function clickCalendarDate() {
 	const days = ["일", "월", "화", "수", "목", "금", "토"];
 
-	document.querySelector(".day__title").innerHTML =
-		document.querySelector(".calendar__title").innerHTML.split(" ")[1] +
-		" " +
+	document.querySelector(".day-title").innerHTML =
 		this.firstChild.innerHTML +
 		"일 " +
-		days[(this.firstChild.innerHTML % 7) - 1];
+		days[(this.firstChild.innerHTML % 7) - 1] +
+		"요일";
 }
 
 function initial() {
