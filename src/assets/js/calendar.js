@@ -74,7 +74,7 @@ function createCalendar() {
 function clickCalendarDate() {
 	const days = ["일", "월", "화", "수", "목", "금", "토"];
 
-	document.querySelector(".day-title").innerHTML =
+	document.querySelector(".day__h1").innerHTML =
 		this.firstChild.innerHTML +
 		"일 " +
 		days[(this.firstChild.innerHTML % 7) - 1] +
