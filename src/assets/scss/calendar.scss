@@ -34,9 +34,26 @@ section {
             width: 50%;
             height: 100%;
 
-            .day__h1 {
+            &__h1 {
                 font-size: 2rem;
                 margin: 3.8rem 0 1.8rem 0;
+            }
+
+            &-sentence {
+                padding: 8px 5px;
+                margin-bottom: 10px;
+                background-color: $text-soft;
+                color: white;
+            }
+
+            &-content {
+                width: 36rem;
+                margin: auto;
+                
+                li {
+                    margin-bottom: 5px;
+                    text-align: left;
+                }
             }
         }
 
