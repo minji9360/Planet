@@ -1,53 +1,5 @@
 @import "./config/variables";
 
-@font-face {
-    font-family: 'NEXON Lv2 Gothic';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-* {
-	font-family: "NEXON Lv2 Gothic";
-	font-style: normal;
-	letter-spacing: 0.8px;
-	line-height: 1.2rem;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-
-	::selection {
-		background-color: $text-drag;
-	}
-
-	input {
-		&:-webkit-autofill,
-		&:-webkit-autofill:hover,
-		&:-webkit-autofill:focus,
-		&:-webkit-autofill:active {
-			-webkit-box-shadow: 0 0 0 30px $hover inset !important;
-		}
-	}
-}
-
-body {
-	width: 100%;
-	position: relative;
-	float: left;
-	min-height: 91vh;
-	background-color: $background;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 2rem;
-	margin: 6.5rem 0;
-	overflow: hidden;
-}
-
 header {
 	height: 6rem;
 	padding-top: 2.5rem;
