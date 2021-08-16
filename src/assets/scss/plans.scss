@@ -102,16 +102,10 @@ section {
 							// 버튼용 이미지
 							.plan-check__button,
 							img {
-								width: 1.5rem;
 								position: absolute;
 								top: 0;
 								bottom: 0;
 								margin: auto;
-								opacity: 0.83;
-
-								&:hover {
-									opacity: 1;
-								}
 							}
 
 							// 완료 버튼
@@ -134,10 +128,6 @@ section {
 								&.important {
 									font-weight: 600;
 								}
-							}
-
-							.hidden {
-								display: none;
 							}
 
 							// 수정 버튼 클릭 시 보이는 text 박스
@@ -179,10 +169,6 @@ section {
 									}
 								}
 
-								.hidden {
-									display: none;
-								}
-
 								// 수정 버튼 클릭 시 나타나는 확인 버튼
 								&-edit {
 									display: inline-block;
@@ -209,10 +195,6 @@ section {
 								padding: 0.7rem 0;
 								color: gray;
 								word-break: break-word;
-
-								&.hidden {
-									display: none;
-								}
 							}
 						}
 
@@ -288,6 +270,7 @@ section {
 							img {
 								width: 2.4rem;
 								height: 2.6rem;
+								position: relative;
 								padding-bottom: 0.1rem;
 								background: $add-button;
 								border: 1px solid $border;
@@ -296,10 +279,6 @@ section {
 							.up__image,
 							.down__image {
 								display: inline;
-							}
-
-							.hidden {
-								display: none;
 							}
 
 							&:hover {
@@ -380,10 +359,6 @@ section {
 								display: inline-block;
 								cursor: pointer;
 
-								&.hidden {
-									display: none;
-								}
-
 								&:hover {
 									img {
 										opacity: 1;
@@ -418,10 +393,6 @@ section {
 									opacity: 1;
 								}
 							}
-
-							.hidden {
-								display: none;
-							}
 						}
 					}
 					
@@ -447,17 +418,11 @@ section {
 						color: $text-deep;
 						border: 1px solid $border-deep;
 						background-color: $delete-button;
-						// background-color: $border;
-						// background-color: transparent;
 						opacity: 0.93;
 
 						&:hover {
 							opacity:1;
 						}
-					}
-					
-					.hidden {
-						display: none;
 					}
 				}
 			}

@@ -48,3 +48,20 @@ body {
 	overflow: hidden;
 }
 
+
+// 버튼용 이미지
+.plan-check__button,
+.plan-check__image,
+.plan img,
+.day li img {
+    width: 1.5rem;
+    opacity: 0.83;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none !important;
+}

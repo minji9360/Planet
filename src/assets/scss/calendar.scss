@@ -42,25 +42,32 @@ section {
             &-sentence {
                 padding: 8px 5px;
                 margin-bottom: 10px;
+                // background-color: $text-soft;
+                // color: white;
+            }
+
+            &-rate {
+                height: 1rem;
+                margin: 0.5rem 0;
                 background-color: $text-soft;
                 color: white;
             }
 
             &-content {
-                width: 36rem;
+                width: 37.5rem;
                 margin: auto;
                 
                 li {
-                    padding: 3px 0;
-                    margin-bottom: 5px;
+                    padding-top: 0.3rem;
+                    margin: 0.7rem 0;
                     text-align: left;
 
-                    // 버튼용 이미지
-                    .plan-check__image,
-                    img {
-                        width: 1.5rem;
+                    .more__button {
+                        float: right;
+                    }
+
+                    .plan-check__image {
                         margin-right: 5px;
-                        opacity: 0.83;
                     }
                     
                     span {
