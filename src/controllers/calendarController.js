@@ -1,3 +1,4 @@
+import User from "../models/User.js";
 import thisWeek from "../week.js";
 
 export const calendar = async (req, res) => {
