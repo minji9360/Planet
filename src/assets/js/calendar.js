@@ -73,7 +73,10 @@ function createCalendar() {
 
 function clickCalendarDate() {
 	const days = ["일", "월", "화", "수", "목", "금", "토"];
-	
+	const dayTds = document.querySelectorAll(".day__td");
+	for (let i = 0; i < dayTds.length; i++)
+		if (dayTds[i].classList.contains('clicked-td')) dayTds[i].classList.remove('clicked-td');
+
 	this.classList.add("clicked-td")
 	document.querySelector(".day__h1").innerHTML =
 		this.firstChild.innerHTML +
