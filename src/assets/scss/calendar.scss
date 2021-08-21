@@ -27,7 +27,7 @@ section {
 		overflow: hidden;
         border: 1px solid $border;
 
-        .day {
+        .clicked-day {
             float: left;
             background: white;
             text-align: center;
@@ -64,6 +64,10 @@ section {
 
                     .more__button {
                         float: right;
+
+                        img {
+                            width: 1.5rem;
+                        }
                     }
 
                     .plan-check__image {
@@ -76,6 +80,14 @@ section {
                     }
                 }
             }
+        }
+
+        .non-clicked-day {
+            float: left;
+            background: white;
+            text-align: center;
+            width: 50%;
+            height: 100%;
         }
 
         .calendar {
