@@ -4,21 +4,9 @@ section {
     letter-spacing: 0.2rem;
 
 	// 슬라이드 버튼
-	// .prev__btn {
-	// 	position: fixed;
-	// 	top: 35rem;
-	// 	left: 1.5rem;
-	// 	font-size: 3rem;
-	// 	z-index: 1000;
-	// }
-
-	// .next__btn {
-	// 	position: fixed;
-	// 	top: 35rem;
-	// 	right: 1.5rem;
-	// 	font-size: 3rem;
-	// 	z-index: 1000;
-	// }
+	.prev__btn, .next__btn {
+		display: none;
+	}
 
     .content {
 		width: 80rem;
@@ -106,6 +94,21 @@ section {
             text-align: center;
             width: 50%;
             height: 100%;
+
+            &-prev__btn {
+                z-index: 1000;
+                position: relative;
+                float: left;
+                top: 4rem;
+                left: 2rem;
+            }
+
+            &-next__btn {
+                position: relative;
+                float: right;
+                bottom: 4rem;
+                right: 2rem;
+            }
 
             &__h1 {
                 font-size: 2.5rem;
