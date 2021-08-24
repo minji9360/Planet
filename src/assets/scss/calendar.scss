@@ -99,14 +99,14 @@ section {
                 z-index: 1000;
                 position: relative;
                 float: left;
-                top: 4rem;
+                top: 3.8rem;
                 left: 2rem;
             }
 
             &-next__btn {
                 position: relative;
                 float: right;
-                bottom: 4rem;
+                bottom: 3.6rem;
                 right: 2rem;
             }
 
@@ -114,10 +114,11 @@ section {
                 font-size: 2.5rem;
                 font-weight: 600;
                 margin: 3.8rem 0 1.8rem 0;
+                cursor: pointer;
             }
 
             &__table {
-                margin: auto;
+                margin: 0 13px 0 auto;
                 width: 93%;
 
                 .day__tr {

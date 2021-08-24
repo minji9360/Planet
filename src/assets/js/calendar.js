@@ -93,14 +93,21 @@ function clickCalendarDate() {
 		"요일";
 }
 
+function clickCalendarMonth() {
+	document.querySelector(".clicked-day").classList.add("hidden");
+	document.querySelector(".non-clicked-day").classList.remove("hidden");
+}
+
 function initial() {
 	createCalendar();
 
 	const dayTds = document.querySelectorAll(".day__td");
+	const calendarMonth = document.querySelector(".calendar__h1");
 
 	dayTds.forEach(function (dayTd) {
 		dayTd.addEventListener("click", clickCalendarDate);
 	});
+	calendarMonth.addEventListener("click", clickCalendarMonth);
 }
 
 initial();
