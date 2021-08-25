@@ -94,8 +94,12 @@ function clickCalendarDate() {
 }
 
 function clickCalendarMonth() {
+	const dayTds = document.querySelectorAll(".day__td");
 	document.querySelector(".clicked-day").classList.add("hidden");
 	document.querySelector(".non-clicked-day").classList.remove("hidden");
+
+	for (let i = 0; i < dayTds.length; i++)
+		if (dayTds[i].classList.contains('clicked-td')) dayTds[i].classList.remove('clicked-td');
 }
 
 function initial() {
