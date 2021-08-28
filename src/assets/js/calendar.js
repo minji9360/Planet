@@ -72,6 +72,10 @@ function createCalendar() {
 }
 
 function clickCalendarDate() {
+	const yearMonth = document.querySelector(".calendar__h1").innerHTML.split(" ")
+	const year = yearMonth[0].slice(0, 4);
+	let month = yearMonth[1].slice(0, -1);
+	let date = this.firstChild.innerHTML;
 	const days = ["일", "월", "화", "수", "목", "금", "토"];
 	const dayTds = document.querySelectorAll(".day__td");
 	let daysIndex;
@@ -83,14 +87,19 @@ function clickCalendarDate() {
 		if (dayTds[i].classList.contains('clicked-td')) dayTds[i].classList.remove('clicked-td');
 	this.classList.add("clicked-td");
 
-	if (this.firstChild.innerHTML % 7 == 0) daysIndex = 6;
-	else daysIndex = (this.firstChild.innerHTML % 7) - 1;
+	if (date % 7 == 0) daysIndex = 6;
+	else daysIndex = (date % 7) - 1;
 
 	document.querySelector(".clicked-day__h1").innerHTML =
-		this.firstChild.innerHTML +
+		date +
 		"일 " +
 		days[daysIndex] +
 		"요일";
+	
+	if (month.length === 1) month = '0' + month;
+	if (date.length === 1) date = '0' + date;
+	
+	const yearMonthDate = year + month + date
 }
 
 function clickCalendarMonth() {
