@@ -24,6 +24,7 @@ const CHECK_PLAN = "/:id/check";
 
 // Calendar
 const CALENDAR = "/calendar";
+const CALENDAR_PLAN = "/plan";
 
 // Guest
 const GUEST = "/guest";
@@ -60,6 +61,16 @@ const routes = {
 		}
 	},
 	calendar: CALENDAR,
+	calendarPlan: CALENDAR_PLAN,
+	// calendarPlan: (yearMonthDate) => {
+	// 	if (yearMonthDate) {
+	// 		console.log("routes1 calendarPlan")
+	// 		return `/calendar/${yearMonthDate}/plan`;
+	// 	} else {
+	// 		console.log("routes2 calendarPlan")
+	// 		return CALENDAR_PLAN;
+	// 	}
+	// },
 	guest: GUEST,
 };
 

@@ -1,3 +1,5 @@
+var httpRequest;
+
 function createCalendar() {
 	const calendarTitle = document.querySelector(".calendar__h1");
 	const dateTotal = document.querySelector(".date");
@@ -100,6 +102,18 @@ function clickCalendarDate() {
 	if (date.length === 1) date = '0' + date;
 	
 	const yearMonthDate = year + month + date
+	const url = "/calendar/plan";
+	
+	fetch(url).then(res => {
+		if (res.status === 200) {
+			console.log("TEST RES", res);
+			res.text().then(text=> {
+				console.log("TEST IN", text)
+			}).catch(err => console.log(err))
+		} else {
+			console.log("TEST1", res)
+		}
+	}).catch(error => console.log("error:", error))
 }
 
 function clickCalendarMonth() {
